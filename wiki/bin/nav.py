@@ -8,8 +8,8 @@ import re
 """
 
 # escape these directories when scanning
-INVALID_DIR = {'figures', 'custom_theme', 'tags', 'css', '爬虫', 'Mila', 'Prob',
-               'Projects', '其他', 'Tags', 'cpj', 'CSE521'}
+INVALID_DIR = {'figures', 'custom_theme', 'tags', 'css', '爬虫', 'Mila', 'Prob', 'APUE',
+               'Projects', '其他', 'Tags', 'cpj', 'CSE521', 'Mila', 'Spark快速大数据分析'}
 
 # top_categeory
 TOP_CATEGORY = {'Java', 'Algorithm', 'OS', 'Big Data', 'Data Science', 'Miscellaneous', 'Leetcode'}
@@ -67,6 +67,7 @@ def is_valid_file(path):
 def index(path):
     """
     给每个文件夹生成一个导航文件
+    并更新"mkdocs.yml"文件
     """
 
     # path对应的必须是个文件夹
@@ -86,14 +87,14 @@ def index(path):
             if x:  # valid content?
                 (menu_content, meta_menu) = x
                 menus.append((filename, menu_content, meta_menu))
-        # it is a markdown file
-        elif is_md_file(file_path) and filename not in INVALID_FILES:
+        # it is a markdown file ?
+        elif is_md_file(file_path) and not is_hidden_article(file_path) and filename not in INVALID_FILES:
             items.append(filename)
 
     # 生成一个导航文件
     if menus:  # 生成书的导航
         index_menus = create_index_menus(menus)
-        meta_menuses = create_meta_menus(path, menus)
+        meta_menuses = create_meta_menus(path, menus, items)
         if path == os.path.join(get_wiki_site(), 'docs'):  # 这个是总目录
             filename = '目录.md'
             index_menus = replace_space(index_menus)  # 把路径中的空格替换
@@ -104,7 +105,7 @@ def index(path):
             filename = 'index.md'
         write_index_menus(os.path.join(path, filename), index_menus)
         return index_menus, meta_menuses
-    elif items and len(items) >= 3:  # 生成每本书的章节导航，但需要章节数大于3
+    elif items and len(items) >= 2:  # 生成每本书的章节导航，但需要章节数大于3
         index_items = create_index_items(items)
         write_index_items(path, index_items)
         # 产生每本书的元信息
@@ -217,12 +218,16 @@ def create_index_menus(menus):
     return ''.join(index_menus)
 
 
-def create_meta_menus(path, menus):
+def create_meta_menus(path, menus, items):
     """
     创建菜单的元信息
+    menus: 菜单
+    items: 项目
     """
-    path = path.split("docs/")[-1]
     menuses = []
+    if items:
+        menuses.extend(create_meta_items(path, items).items)
+    path = path.split("docs/")[-1]
     for menu_name, menu_content, meta_menus in menus:
         menuses.append(meta_menus)
 
@@ -261,6 +266,7 @@ def create_meta_items(path, items):
     meta_items = []
     items = sort_items(items)
     path = path.split("docs/")[1]
+    meta_items.append(Item("index", path + "/" + "index.md"))
     for item_name in items:
         name = item_name.replace('.md', '')
         location = path + "/" + item_name
@@ -287,6 +293,21 @@ def sort_items(items):
     # 字母在前面
     letter_sort.extend(digit_sort)
     return map(lambda x: x[1], letter_sort)
+
+def is_hidden_article(path):
+    """
+    返回hiddden元信息
+    """
+    tags = []
+    with codecs.open(path, mode='r', encoding="utf-8") as f:
+        for i in range(10): # search for first 10 lines
+            line = f.readline()
+            tokens = line.split(':')
+            tage = tokens[0].strip().lower()
+            if tage == 'hidden':
+                if tokens[1].strip().lower() == 'true':
+                    return True
+    return False
 
 
 if __name__ == "__main__":

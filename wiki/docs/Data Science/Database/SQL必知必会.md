@@ -259,7 +259,7 @@ ORDER BY prod_name;
 
 ### 9 汇总数据
 
-为了方便汇总数据而不用把它们实际检索出来， SQL提供了专门的聚集函数。
+SQL提供了专门的聚集函数(aggregation function)，可以方便汇总数据而不用把它们实际检索出来。
 
 
 | 函数 | 说明 |
@@ -302,6 +302,30 @@ FROM Products;
 SELECT vend_id, COUNT(*) AS num_prods FROM Products GROUP BY vend_id;
 ```
 
+GROUP BY和ORDER BY经常完成相同的工作，但它们非常不同：
+
+| ORDER BY | GROUP BY | 
+|  --- | --- |
+|  对产生的输出排序  | 对行分组，但输出可能不是分组的顺序 | 
+| 任意列都可以使用(甚至非选择的列也可以使用) | 只可能使用选择列或表达式列，而必须使用每个选择列表达式  | 
+| 不一定需要 | 如果与聚集函数一起使用列(或表达式)，则必须使用 | 
+
+!!! note "不要忘记ORDER BY"
+    
+    一般在使用GROUP BY子句时，应该也给出ORDER BY子句。这是保证数据正确排序的唯一方法。千万不要依赖GROUP BY排序数据。
+    
+    
+SQL允许过滤分组(即包括哪些分组，排除哪些分组)。WHERE子句过滤指定的行，而HAVING子句过滤指定的分组，并且HAVING支持所有WHERE操作符。
+
+下面的SQL语句列出具有两个以上产品且其价格大于等于4的供应商：
+
+```sql
+SELECT vend_id, COUNT(*) AS num_prods
+FROM Products 
+WHERE prod_price >= 4
+GROUP BY vend_id 
+HAVING COUNT(*) >= 2;
+```
 
 ### 12 联结表
 

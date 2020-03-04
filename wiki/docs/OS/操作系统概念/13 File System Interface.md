@@ -43,9 +43,10 @@ The operating system keeps a table, called the **open-file-table**, containing i
 * When a file operation is requested, the file is specified via an index into this table.
 * When the file is no longer being actively used, it is closed by the process, and the operating system removes its entry from the open-file table, potentially releasing locks.
 
+
 ISSUES: Several different applications open the same file at the same time.
 
-SOLUTION: The operating system uses two levels of internal tables: a per-process table and a system-wide table.
+SOLUTION: The operating system uses two levels of internal tables: a per-process table and a system-wide table.[参见 内核数据结构](../深入了解计算机系统/10 系统级IO.md)
 
 * The per-process table tracks all files that a process has open.
     *  It Stores information regarding the process's use of the file (e.g. the current file pointer for each file, access rights to the file and accounting information)
@@ -56,7 +57,7 @@ SOLUTION: The operating system uses two levels of internal tables: a per-process
 
 <red>File locks</red>(文件锁) are useful for files that are shared by several processes. For example, a system log file that can be accessed and modified by a number of processes in the system.
 
-File locks provide functionality similar to reader-writer locks in [7 Synchronization Examples.md](7 Synchronization Examples.md). A **shared lock**(共享锁) is akin to a reader lock in that several processes can acquire the lock concurrently. An **exclusive lock**(排斥锁) is akin to a writer lock in that only one process at a time can acquire such a lock.
+File locks provide functionality similar to reader-writer locks in [7 Synchronization Examples](7 Synchronization Examples.md). A **shared lock**(共享锁) is akin to a reader lock in that several processes can acquire the lock concurrently. An **exclusive lock**(排斥锁) is akin to a writer lock in that only one process at a time can acquire such a lock.
 
 Furthermore, operating systems(e.g. Linux) may provide either **mandatory**  or **advisory** file-locking mechanisms.
 
@@ -136,8 +137,8 @@ Furthermore, operating systems(e.g. Linux) may provide either **mandatory**  or 
 
 A common technique for implementing file types is to include the type as part of the file name. 
 
-* The name is split into two parts—a *name* and an *extension*, usually separated by a period. 
-* The system uses the extension to indicate the type of the file and the type of operations that can be done on that file
+* The name is split into two parts—a *name* and an *extension*, usually separated by a period;
+* The system uses the extension to indicate the type of the file and the type of operations that can be done on that file;
 * The UNIX system uses a **magic number**([Wikipedia](https://en.wikipedia.org/wiki/Magic_number_(programming)), 魔数) stored at the beginning of some binary files to indicate the type of data in the file (for example, the format of an image file). Not all files have magic numbers.
 
 #### File Structure
@@ -217,7 +218,7 @@ Protection mechanisms provide *_controlled access_* by limiting the *_types of f
 * **List**. List the name and attributes of the file.
 * **Attribute change**. Changing the attributes of the file.
 
-Many protection mechanism have been proposed and we have a more detailed description in [Chapter 17](ch7/#the-readerswriters-problem).
+Many protection mechanism have been proposed and we have a more detailed description in [7 Synchronization Examples](7 Synchronization Examples.md).
 
 
 
@@ -227,7 +228,7 @@ The most common approach to the protection problem is to make access dependent o
 
 * Different users may need different types of access to a file or directory. 
 
-The most general scheme to implement identity dependent access is to associate with each file and directory an **access-control list**(ACL, 访问控制列表) specifying user names and the types of access allowed for each user.
+The most general scheme to implement identity dependent access is to associate with each file and directory an **access-control list**(==ACL==, 访问控制列表) specifying user names and the types of access allowed for each user.
 
 * If a user is listed for the requested access, the access is allowed.
 * Otherwise, a protection violation occurs, and the user job is denied access to the file.
@@ -265,10 +266,10 @@ A sample directory listing from a UNIX environment is shown in below:
 
 Advantage
 
-* Manipulating files through memory rather than incurring the overhead of using `read()` and `write()` system calls simplifies and speeds up file access and usage.
+* Manipulating files through memory rather than incurring the overhead of using `read()` and `write()` system calls <hh>simplifies and speeds up file access and usage</hh>.
 
 Multiple processes may be allowed to map the same file concurrently, to allow sharing of data. The virtual memory map of each sharing process points to the same page of physical memory. The memory-mapping system calls can also support **copy-on-write** functionality, allowing processes to share a file in read-only mode but to have their own copies of any data they modify.
 
-Quite often, shared memory is in fact implemented by memory mapping files. Under this scenario, processes can communicate using shared memory by having the communicating processes memory-map the same file into their virtual address spaces(e.g. [POSIX shared memory](ch3/#posix-shared-memory)). 
+Quite often, shared memory is in fact implemented by memory mapping files. Under this scenario, processes can communicate using shared memory by having the communicating processes memory-map the same file into their virtual address spaces(e.g. [POSIX shared memory](3 Processes.md)). 
 
 ![Shared_memory_using_memory-mapped_IO](figures/Shared_memory_using_memory-mapped_IO.png)

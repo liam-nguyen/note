@@ -93,7 +93,7 @@ One important principle of OS design is _the separation of **policy** from **mec
 
 #### Monolithic structure
 
-Operating systems with **monolithic structure** (单体结构) place all of the functionality of kernel into a **single**, **static** binary file that runs in a **single** address space.
+Operating systems with **monolithic**(宏内核) structure place all of the functionality of kernel into a **single**, **static** binary file that runs in a **single** address space.
 
 * a common technique for designing operating system
 * e.g. original Unix operating system ( figure below)

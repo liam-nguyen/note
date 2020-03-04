@@ -88,12 +88,16 @@ int[] array = list.stream().mapToInt(i->i).toArray();
 
 
 #### 将数组转化为List
-
-```Java
-Arrays.asList(spam);
-```
-
 https://stackoverflow.com/questions/1073919/how-to-convert-int-into-listinteger-in-java
+
+
+There is no shortcut for converting from `int[]` to `List<Integer>` as `Arrays.asList` does not deal with boxing and will just create a `List<int[]>` which is not what you want. 
+
+```java
+int[] ints = {1, 2, 3};
+List<Integer> intList = new ArrayList<Integer>();
+for (int i : ints) intList.add(i);
+```
 
 
 ```Java

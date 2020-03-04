@@ -4,7 +4,7 @@ toc: false
 date: 2017-10-30
 ---
 
-Apache YARN(Yet Another Resource Negotiator)是Hadoop的集群资源管理系统(**cluster resource management system**). YARN被引入Hadoop2，最初是为了改善MapReduce的实现，但它具有足够的通用性，同样可以支持其他的分布式计算模式。
+Apache **YARN**(Yet Another Resource Negotiator)是Hadoop的**集群资源管理系统**(cluster resource management system). YARN被引入Hadoop2，最初是为了改善MapReduce的实现，但它具有足够的通用性，同样可以支持其他的分布式计算模式。
 
 ![hadoop1.0-2.0](figures/hadoop1.0-2.0.png)
 
@@ -15,10 +15,11 @@ YARN provides APIs for requesting and working with cluster resources, but these 
 
 ### 1 Anatomy of a YARN Application Run
 
-YARN provides its core services via two types of long-running daemon:
+YARN通过两类长期运行的守护进行提供自己的核心服务：
 
-* a ***resource manager*** (资源管理器，one per cluster) to manage the use of resources across the cluster,
-* ***node managers***(节点管理器) running on all the nodes in the cluster to launch and monitor ***containers***.
+* ***resource manager*** (资源管理器): 每个集群一个，管理集群上的资源使用
+* ***node managers***(节点管理器)：每个节点一个，启动和监视容器(container)
+    * 容器用于执行特定应用程序的进行，每个容器都有资源限制(内存，CPU等) 
 
 ![How YARN Runs An Application](figures/HowYARNRunsAnApplication.jpg)
 
@@ -30,7 +31,14 @@ YARN是如何运行一个应用的：
 * steps 4a and 4b: use them to run a distributed computation.
 
 
-> The ApplicationMaster is an instance of a framework-specific library that negotiates resources from the ResourceManager and works with the NodeManager to execute and monitor the granted resources (bundled as containers) for a given application. The ApplicationMaster runs in a container like any other application.
+> The `ApplicationMaster` is an instance of a framework-specific library that negotiates resources from the `ResourceManager` and works with the `NodeManager` to execute and monitor the granted resources (bundled as containers) for a given application. The `ApplicationMaster` runs in a container like any other application.
+
+Application Master
+
+* One per application
+* Framework/application specific
+* Run in a container
+
 
 #### Resource Requests
 

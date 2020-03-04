@@ -62,7 +62,7 @@ Type 2 hypervisors run on a variety of general-purpose operating systems, and ru
 
 #### Paravirtualization
 
-Paravirtualization is a technique in which the guest operating system is modified to work in cooperation with the VMM to optimize performance.
+*Paravirtualization*(准虚拟化) is a technique in which the guest operating system is modified to work in cooperation with the VMM to optimize performance.
 
 Rather than try to trick a guest operating system into believing it has a system to itself, paravirtualization presents the guest with a system that is similar but not identical to the guest’s preferred system. The guest must be modified to run on the paravirtualized virtual hardware. The gain for this extra work is more efficient use of resources and a smaller virtualization layer.
 
@@ -77,7 +77,21 @@ Rather than try to trick a guest operating system into believing it has a system
     ![virtualbox_paravirtualization](figures/virtualbox_paravirtualization.png)
 
 
+#### Emulation
 
+**Problem**: But what if an application or operating system needs to run on a different CPU? 
+
+**Solution**: Emulation translates all of the source CPU’s instructions so that they are turned into the equivalent instructions of the target CPU. Such an environment is no longer virtualized but rather is fully emulated.
+
+It is useful when the host system has one system architecture and the guest system was compiled for a different architecture.
+
+The major challenge of emulation is performance. Instruction-set emulation may run an order of magnitude slower than native instructions, because it may take ten instructions on the new system to read, parse, and simulate an instruction from the old system.
+
+#### Application Containment
+
+The goal of *Application Containment* is to segregate applications, manage their performance and resource use, and create an easy way to start, stop, move, and manage them.
+
+*Containers* are much lighter weight than other virtualization methods. That is, they use fewer system resources and are faster to instantiate and destroy, more similar to processes than virtual machines. Containers are also easy to automate and manage, leading to orchestration tools like docker and Kubernetes.
 
 
 ### 7 Examples

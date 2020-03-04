@@ -10,7 +10,7 @@ On modern operating systems it is **kernel-level threads** —not processes—th
 * To run on a CPU, user-level threads must ultimately be mapped to an associated kernel-level thread, although this mapping may be indirect and may use a lightweight process (LWP).
 
 ### 1 Basic Concepts
-####   CPU-I/O Burst Cycle
+#### CPU-I/O Burst Cycle
 
 Process execution consists of a **cycle** of CPU execution and I/O wait. 进程执行由CPU执行周期和I/O等待周期组成。
 
@@ -39,7 +39,7 @@ Whenever the CPU becomes idle, the operating system must select one of the proce
 * CPU scheduler selects a process from the processes in memory that are ready to execute and allocates the CPU to that process. 调度程序从内存中选择一个能够执行的进程，并为之分配CPU。
 * A ready queue can be implemented as a FIFO queue, a priority queue, a tree, or simply an unordered linked list. 就绪队列可以是FIFO队列，优先队列、树或无序链表。
 
-####   Preemptive and Nonpreemptive Scheduling
+#### Preemptive and Nonpreemptive Scheduling
 
 CPU-scheduling decisions may take place under the following four circumstances: 
 
@@ -106,7 +106,7 @@ where \(0\le\alpha \le 1\), commonly \(\alpha = 1/2\).
 
 #### Round-Robin scheduling, RR
 
-The **round-robin scheduling**(轮转调度) algorithm is similar to FCFS scheduling, but switch occurs after 1 **time quantum** (时间片).
+The **round-robin scheduling**(轮询调度) algorithm is similar to FCFS scheduling, but switch occurs after 1 **time quantum** (时间片).
 
 * Time quantum is a small unit of time, generally from 10 to 100 milliseconds in length.
 * The ready queue is treated as a circular queue.
@@ -148,6 +148,7 @@ In addition, there must be scheduling _*among the queues*_ :
 
 
 #### Multilevel Feedback-Queue Scheduling
+
 The **multilevel feedback queue scheduling**(多级反馈队列调度) algorithm allows a process to move between queues.
 
 * If a process uses too much CPU time, it will be moved to a lower-priority queue.
@@ -379,7 +380,7 @@ Now suppose we use rate-monotonic scheduling:
 
 ### 7 Linux Scheduling
 
-####  Completely Fair Scheduler
+#### Completely Fair Scheduler
 
 The ***Completely Fair Scheduler***(CFS，完全公平调度算法) is the default Linux scheduling algorithm after release 2.6.23 of the kernel.
 
@@ -399,7 +400,7 @@ Each runnable task is placed in a **red-black tree** - a balanced binary search 
 * discover the leftmost node will require $O(\log N)$ operations.
 * Linux scheduler caches the leftmost node in the variable `rb_leftmost`, and requires only retrieving the cached value.
 
-![](figures/15327413379278.gif)
+![](figures/cfs.gif)
 
 #### Load Balancing on NUMA systems
 

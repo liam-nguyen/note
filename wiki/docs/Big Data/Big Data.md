@@ -6,7 +6,7 @@ tags: [Big Data]
 
 [Big Data Specialization](https://www.coursera.org/specializations/big-data)笔记。
 
-## I Big Data Intruction
+## I Big Data Introduction
 
 ### 1 Big data why and where
 
@@ -244,3 +244,4 @@ SaaS = Get full software on-demand
 * e.g. Dropbox
 
 ![](figures/cloud-serive-model.jpg)
+

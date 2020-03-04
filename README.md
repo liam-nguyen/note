@@ -4,8 +4,8 @@
 
 #### Head First设计模式 
 
-* [1 Strategy Pattern](wiki/docs/Java/Head%20First设计模式/1%20Strategy%20Pattern.md)
-* [2 Observer Pattern](wiki/docs/Java/Head%20First设计模式/2%20Observer%20Pattern.md)
+* [1 Strategy Pattern](wiki/docs/wiki/docs/Java/Head%20First设计模式/1%20Strategy%20Pattern.md)
+* [2 Observer Pattern](wiki/docs/wiki/docs/Java/Head%20First设计模式/2%20Observer%20Pattern.md)
 * [3 Decorator Pattern](wiki/docs/Java/Head%20First设计模式/3%20Decorator%20Pattern.md)
 * [4 Factory Pattern](wiki/docs/Java/Head%20First设计模式/4%20Factory%20Pattern.md)
 * [5 Singleton Pattern](wiki/docs/Java/Head%20First设计模式/5%20Singleton%20Pattern.md)
@@ -42,34 +42,27 @@
 * [18 Remote deploy with RMI](wiki/docs/Java/Head%20First%20Java/18%20Remote%20deploy%20with%20RMI.md)
 * [19 Appendix](wiki/docs/Java/Head%20First%20Java/19%20Appendix.md)
 
-#### Java多线程设计模式 
-
-* [Future模式](wiki/docs/Java/Java多线程设计模式/Future模式.md)
-* [序章一 Java线程](wiki/docs/Java/Java多线程设计模式/序章一%20Java线程.md)
-* [序章二 多线程程序的评价标准](wiki/docs/Java/Java多线程设计模式/序章二%20多线程程序的评价标准.md)
-* [1 Single Threaded Execution模式](wiki/docs/Java/Java多线程设计模式/1%20Single%20Threaded%20Execution模式.md)
-* [2 Immutable模式](wiki/docs/Java/Java多线程设计模式/2%20Immutable模式.md)
-* [3 Guarded Suspension模式](wiki/docs/Java/Java多线程设计模式/3%20Guarded%20Suspension模式.md)
-* [4 Balking模式](wiki/docs/Java/Java多线程设计模式/4%20Balking模式.md)
-* [5 Producer-Consumer模式](wiki/docs/Java/Java多线程设计模式/5%20Producer-Consumer模式.md)
-* [6 Read-Write Lock模式](wiki/docs/Java/Java多线程设计模式/6%20Read-Write%20Lock模式.md)
-
 #### Java Web 
 
 * [Ajax](wiki/docs/Java/Java%20Web/Ajax.md)
+* [Bootstrap](wiki/docs/Java/Java%20Web/Bootstrap.md)
 * [CSS](wiki/docs/Java/Java%20Web/CSS.md)
 * [HTML](wiki/docs/Java/Java%20Web/HTML.md)
 * [Head First Servlets and JSP](wiki/docs/Java/Java%20Web/Head%20First%20Servlets%20and%20JSP.md)
 * [JDBC](wiki/docs/Java/Java%20Web/JDBC.md)
+* [JSON](wiki/docs/Java/Java%20Web/JSON.md)
 * [JSP以及JSTL和EL表达式](wiki/docs/Java/Java%20Web/JSP以及JSTL和EL表达式.md)
 * [Java Web](wiki/docs/Java/Java%20Web/Java%20Web.md)
 * [JavaScript](wiki/docs/Java/Java%20Web/JavaScript.md)
 * [MyBatis](wiki/docs/Java/Java%20Web/MyBatis.md)
+* [RESTful](wiki/docs/Java/Java%20Web/RESTful.md)
 * [Spring](wiki/docs/Java/Java%20Web/Spring.md)
+* [SpringBoot](wiki/docs/Java/Java%20Web/SpringBoot.md)
 * [Tomcat](wiki/docs/Java/Java%20Web/Tomcat.md)
 * [XML](wiki/docs/Java/Java%20Web/XML.md)
 * [jQuery](wiki/docs/Java/Java%20Web/jQuery.md)
 * [人员信息管理系统](wiki/docs/Java/Java%20Web/人员信息管理系统.md)
+* [Log4j](wiki/docs/Java/Java%20Web/Log4j.md)
 
 #### Effective Java 
 
@@ -103,6 +96,17 @@
 * [13 线程安全与锁优化](wiki/docs/Java/深入理解Java虚拟机/13%20线程安全与锁优化.md)
 * [14 AppendixC](wiki/docs/Java/深入理解Java虚拟机/14%20AppendixC.md)
 
+#### Scala 
+
+* [Cheat Sheet](wiki/docs/Java/Scala/Cheat%20Sheet.md)
+* [Sbt](wiki/docs/Java/Scala/Sbt.md)
+* [Scala编程](wiki/docs/Java/Scala/Scala编程.md)
+* [functional programming in scala](wiki/docs/Java/Scala/functional%20programming%20in%20scala.md)
+* [scala](wiki/docs/Java/Scala/scala.md)
+* [慕课网Scala入门](wiki/docs/Java/Scala/慕课网Scala入门.md)
+* [第3章 从Java到Scala](wiki/docs/Java/Scala/第3章%20从Java到Scala.md)
+* [第4章 处理对象](wiki/docs/Java/Scala/第4章%20处理对象.md)
+
 #### Java编程思想 
 
 * [1 简介](wiki/docs/Java/Java编程思想/1%20简介.md)
@@ -115,7 +119,7 @@
 * [8 复用类](wiki/docs/Java/Java编程思想/8%20复用类.md)
 * [9 多态](wiki/docs/Java/Java编程思想/9%20多态.md)
 * [10 接口](wiki/docs/Java/Java编程思想/10%20接口.md)
-* [11 Inner Classes](wiki/docs/Java/Java编程思想/11%20Inner%20Classes.md)
+* [11 内部类](wiki/docs/Java/Java编程思想/11%20内部类.md)
 * [12 Holding Your Objects](wiki/docs/Java/Java编程思想/12%20Holding%20Your%20Objects.md)
 * [13 通过异常处理错误](wiki/docs/Java/Java编程思想/13%20通过异常处理错误.md)
 * [14 String](wiki/docs/Java/Java编程思想/14%20String.md)
@@ -129,6 +133,13 @@
 * [22 并发](wiki/docs/Java/Java编程思想/22%20并发.md)
 * [23 Graphical User Interfaces](wiki/docs/Java/Java编程思想/23%20Graphical%20User%20Interfaces.md)
 
+#### 高并发 
+
+* [JDK并发包](wiki/docs/Java/高并发/JDK并发包.md)
+* [Java多线程设计模式](wiki/docs/Java/高并发/Java多线程设计模式.md)
+* [事件驱动，消息驱动](wiki/docs/Java/高并发/事件驱动，消息驱动.md)
+* [多线程基础](wiki/docs/Java/高并发/多线程基础.md)
+
 ### Algorithm 
 
 #### 剑指Offer 
@@ -140,6 +151,12 @@
 * [5 优化时间和空间效率](wiki/docs/Algorithm/剑指Offer/5%20优化时间和空间效率.md)
 * [6 面试中的各项能力](wiki/docs/Algorithm/剑指Offer/6%20面试中的各项能力.md)
 * [7 两个面试案例](wiki/docs/Algorithm/剑指Offer/7%20两个面试案例.md)
+
+#### CS61B 
+
+* [Lab1](wiki/docs/Algorithm/CS61B/Lab1.md)
+* [Lab2](wiki/docs/Algorithm/CS61B/Lab2.md)
+* [Lab3](wiki/docs/Algorithm/CS61B/Lab3.md)
 
 #### Stanford 
 
@@ -163,45 +180,63 @@
 * [Topic 11 - String Sort](wiki/docs/Algorithm/Princeton/Topic%2011%20-%20String%20Sort.md)
 * [Topic 12 - Tries](wiki/docs/Algorithm/Princeton/Topic%2012%20-%20Tries.md)
 
-#### Data Science 
+### Miscellaneous 
+
+#### Python 
+
+* [Python引号](wiki/docs/Miscellaneous/Python/Python引号.md)
+* [Python配置](wiki/docs/Miscellaneous/Python/Python配置.md)
+* [Records](wiki/docs/Miscellaneous/Python/Records.md)
+* [协程](wiki/docs/Miscellaneous/Python/协程.md)
+* [生成器与迭代器](wiki/docs/Miscellaneous/Python/生成器与迭代器.md)
+* [谈谈Python中的拷贝](wiki/docs/Miscellaneous/Python/谈谈Python中的拷贝.md)
+* [闭包和装饰器](wiki/docs/Miscellaneous/Python/闭包和装饰器.md)
+
+#### 面试 
+
+* [Java多线程面试](wiki/docs/Miscellaneous/面试/Java多线程面试.md)
+* [网络面试](wiki/docs/Miscellaneous/面试/网络面试.md)
+
+#### Cpp 
+
+* [EOF](wiki/docs/Miscellaneous/Cpp/EOF.md)
+* [STL中的vector string总结](wiki/docs/Miscellaneous/Cpp/STL中的vector%20string总结.md)
+* [STL源码剖析](wiki/docs/Miscellaneous/Cpp/STL源码剖析.md)
+* [static用法](wiki/docs/Miscellaneous/Cpp/static用法.md)
+* [C++ Primer (Miscellaneous/Cpp/6)%20-%20函数](wiki/docs/Miscellaneous/Cpp/C++%20Primer%20(Miscellaneous/Cpp/6)%20-%20函数.md)
+* [C++ Primer (Miscellaneous/Cpp/12)%20-%20动态内存](wiki/docs/Miscellaneous/Cpp/C++%20Primer%20(Miscellaneous/Cpp/12)%20-%20动态内存.md)
+* [C++面试经典100题](wiki/docs/Miscellaneous/Cpp/C++面试经典100题.md)
+
+#### awesome Install 
+
+* [CentOS日志](wiki/docs/Miscellaneous/awesome%20Install/CentOS日志.md)
+* [Intel Parallel Studio XE](wiki/docs/Miscellaneous/awesome%20Install/Intel%20Parallel%20Studio%20XE.md)
+* [Jupyter Notebook](wiki/docs/Miscellaneous/awesome%20Install/Jupyter%20Notebook.md)
+* [Nasm](wiki/docs/Miscellaneous/awesome%20Install/Nasm.md)
+* [Octave](wiki/docs/Miscellaneous/awesome%20Install/Octave.md)
+* [Proxy](wiki/docs/Miscellaneous/awesome%20Install/Proxy.md)
+* [Youtube](wiki/docs/Miscellaneous/awesome%20Install/Youtube.md)
+* [git](wiki/docs/Miscellaneous/awesome%20Install/git.md)
+* [ubuntu日志](wiki/docs/Miscellaneous/awesome%20Install/ubuntu日志.md)
+* [vagrant搭建ubuntu](wiki/docs/Miscellaneous/awesome%20Install/vagrant搭建ubuntu.md)
+* [黑苹果日志](wiki/docs/Miscellaneous/awesome%20Install/黑苹果日志.md)
+
+### Data Science 
 
 #### Database 
 
-* [MySQL](wiki/docs/Data%20Science/Database/MySQL.md)
+* [MySQL基础](wiki/docs/Data%20Science/Database/MySQL基础.md)
 * [Redis](wiki/docs/Data%20Science/Database/Redis.md)
 * [SQL必知必会](wiki/docs/Data%20Science/Database/SQL必知必会.md)
-* [事务](wiki/docs/Data%20Science/Database/事务.md)
-* [打造扛得住的MySQL架构](wiki/docs/Data%20Science/Database/打造扛得住的MySQL架构.md)
+* [高性能MySQL](wiki/docs/Data%20Science/Database/高性能MySQL.md)
 
-#### 面向程序员的数据挖掘指南 
+#### Practical Data Science 
 
-* [1 推荐系统入门](wiki/docs/Data%20Science/面向程序员的数据挖掘指南/1%20推荐系统入门.md)
-* [2 隐式评价和基于物品的过滤算法](wiki/docs/Data%20Science/面向程序员的数据挖掘指南/2%20隐式评价和基于物品的过滤算法.md)
-* [3 分类](wiki/docs/Data%20Science/面向程序员的数据挖掘指南/3%20分类.md)
-* [4 进一步探索分类](wiki/docs/Data%20Science/面向程序员的数据挖掘指南/4%20进一步探索分类.md)
-* [5 朴素贝叶斯](wiki/docs/Data%20Science/面向程序员的数据挖掘指南/5%20朴素贝叶斯.md)
-* [6 朴素贝叶斯算法和非结构化文本](wiki/docs/Data%20Science/面向程序员的数据挖掘指南/6%20朴素贝叶斯算法和非结构化文本.md)
-* [7 聚类](wiki/docs/Data%20Science/面向程序员的数据挖掘指南/7%20聚类.md)
-
-#### CMU10601 
-
-* [1 Intro to ML](wiki/docs/Data%20Science/CMU10601/1%20Intro%20to%20ML.md)
-* [2 Decision Tree learning](wiki/docs/Data%20Science/CMU10601/2%20Decision%20Tree%20learning.md)
-* [3 Probability and Estimation](wiki/docs/Data%20Science/CMU10601/3%20Probability%20and%20Estimation.md)
-* [4 Naive Bayes](wiki/docs/Data%20Science/CMU10601/4%20Naive%20Bayes.md)
-* [5 Gaussian Naive Bayes](wiki/docs/Data%20Science/CMU10601/5%20Gaussian%20Naive%20Bayes.md)
-* [6 Logistic Regression](wiki/docs/Data%20Science/CMU10601/6%20Logistic%20Regression.md)
-* [7 Linear Regression](wiki/docs/Data%20Science/CMU10601/7%20Linear%20Regression.md)
+* [Jupyter notebook](wiki/docs/Data%20Science/Practical%20Data%20Science/Jupyter%20notebook.md)
+* [Relational Data](wiki/docs/Data%20Science/Practical%20Data%20Science/Relational%20Data.md)
+* [The data collection process](wiki/docs/Data%20Science/Practical%20Data%20Science/The%20data%20collection%20process.md)
 
 ### OS 
-
-#### 深入了解计算机系统Lab 
-
-* [Lab1 Data Lab](wiki/docs/OS/深入了解计算机系统Lab/Lab1%20Data%20Lab.md)
-* [Lab3 Attack Lab](wiki/docs/OS/深入了解计算机系统Lab/Lab3%20Attack%20Lab.md)
-* [Lab4 Cache Lab](wiki/docs/OS/深入了解计算机系统Lab/Lab4%20Cache%20Lab.md)
-* [Lab5 Shell Lab](wiki/docs/OS/深入了解计算机系统Lab/Lab5%20Shell%20Lab.md)
-* [Lab6 Malloc Lab](wiki/docs/OS/深入了解计算机系统Lab/Lab6%20Malloc%20Lab.md)
 
 #### 计算机网络 自顶向下 
 
@@ -212,20 +247,23 @@
 * [3 运输层](wiki/docs/OS/计算机网络%20自顶向下/3%20运输层.md)
 * [4 网络层](wiki/docs/OS/计算机网络%20自顶向下/4%20网络层.md)
 * [5 链路层](wiki/docs/OS/计算机网络%20自顶向下/5%20链路层.md)
+* [6 网络安全](wiki/docs/OS/计算机网络%20自顶向下/6%20网络安全.md)
+
+#### 分布式 
+
+* [Building Large Scale Internet Service](wiki/docs/OS/分布式/Building%20Large%20Scale%20Internet%20Service.md)
+* [Consensus](wiki/docs/OS/分布式/Consensus.md)
+* [Google Chubby](wiki/docs/OS/分布式/Google%20Chubby.md)
 
 #### 深入了解计算机系统 
 
-* [1 计算机系统漫游](wiki/docs/OS/深入了解计算机系统/1%20计算机系统漫游.md)
-* [2 信息的表示和处理](wiki/docs/OS/深入了解计算机系统/2%20信息的表示和处理.md)
-* [3 程序的机器级表示](wiki/docs/OS/深入了解计算机系统/3%20程序的机器级表示.md)
-* [4 处理器体系结构](wiki/docs/OS/深入了解计算机系统/4%20处理器体系结构.md)
-* [5 优化程序性能](wiki/docs/OS/深入了解计算机系统/5%20优化程序性能.md)
-* [6 存储器层次结构](wiki/docs/OS/深入了解计算机系统/6%20存储器层次结构.md)
-* [7 链接](wiki/docs/OS/深入了解计算机系统/7%20链接.md)
-* [8 异常控制流](wiki/docs/OS/深入了解计算机系统/8%20异常控制流.md)
-* [9 虚拟内存](wiki/docs/OS/深入了解计算机系统/9%20虚拟内存.md)
-* [10 系统级IO](wiki/docs/OS/深入了解计算机系统/10%20系统级IO.md)
-* [11 网络编程](wiki/docs/OS/深入了解计算机系统/11%20网络编程.md)
+#### Labs 
+
+* [Lab1 Data Lab](wiki/docs/OS/深入了解计算机系统/Labs/Lab1%20Data%20Lab.md)
+* [Lab3 Attack Lab](wiki/docs/OS/深入了解计算机系统/Labs/Lab3%20Attack%20Lab.md)
+* [Lab4 Cache Lab](wiki/docs/OS/深入了解计算机系统/Labs/Lab4%20Cache%20Lab.md)
+* [Lab5 Shell Lab](wiki/docs/OS/深入了解计算机系统/Labs/Lab5%20Shell%20Lab.md)
+* [Lab6 Malloc Lab](wiki/docs/OS/深入了解计算机系统/Labs/Lab6%20Malloc%20Lab.md)
 
 #### 操作系统概念 
 
@@ -237,41 +275,35 @@
 * [6 Synchronization Tools](wiki/docs/OS/操作系统概念/6%20Synchronization%20Tools.md)
 * [7 Synchronization Examples](wiki/docs/OS/操作系统概念/7%20Synchronization%20Examples.md)
 * [8 DeadLocks](wiki/docs/OS/操作系统概念/8%20DeadLocks.md)
-* [9 Virtual Memory](wiki/docs/OS/操作系统概念/9%20Virtual%20Memory.md)
+* [9 Main Memory](wiki/docs/OS/操作系统概念/9%20Main%20Memory.md)
 * [10 Virtual Memory](wiki/docs/OS/操作系统概念/10%20Virtual%20Memory.md)
 * [11 Mass-Storage Structure](wiki/docs/OS/操作系统概念/11%20Mass-Storage%20Structure.md)
+* [12 IO Systems](wiki/docs/OS/操作系统概念/12%20IO%20Systems.md)
 * [13 File System Interface](wiki/docs/OS/操作系统概念/13%20File%20System%20Interface.md)
+* [15 File System Internals](wiki/docs/OS/操作系统概念/15%20File%20System%20Internals.md)
 * [17 Protection](wiki/docs/OS/操作系统概念/17%20Protection.md)
+* [18 Virtual Machines](wiki/docs/OS/操作系统概念/18%20Virtual%20Machines.md)
 
 ### Big Data 
 
-#### Spark快速大数据分析 
+#### projects 
 
-* [1 Introduction to Data Analysis with Spark](wiki/docs/Big%20Data/Spark快速大数据分析/1%20Introduction%20to%20Data%20Analysis%20with%20Spark.md)
-* [2 Downloading Spark and Getting Started](wiki/docs/Big%20Data/Spark快速大数据分析/2%20Downloading%20Spark%20and%20Getting%20Started.md)
-* [3 Programming with RDDs](wiki/docs/Big%20Data/Spark快速大数据分析/3%20Programming%20with%20RDDs.md)
-* [4 Working with Key Value Pairs](wiki/docs/Big%20Data/Spark快速大数据分析/4%20Working%20with%20Key%20Value%20Pairs.md)
-* [5 Loading and Saving Your Data](wiki/docs/Big%20Data/Spark快速大数据分析/5%20Loading%20and%20Saving%20Your%20Data.md)
-* [6 Advanced Spark Programming](wiki/docs/Big%20Data/Spark快速大数据分析/6%20Advanced%20Spark%20Programming.md)
-* [7 Running on a Cluster**](wiki/docs/Big%20Data/Spark快速大数据分析/7%20Running%20on%20a%20Cluster**.md)
-* [8 Tuning and Debugging Spark](wiki/docs/Big%20Data/Spark快速大数据分析/8%20Tuning%20and%20Debugging%20Spark.md)
-* [9 Spark SQL](wiki/docs/Big%20Data/Spark快速大数据分析/9%20Spark%20SQL.md)
-* [10 Spark Streaming](wiki/docs/Big%20Data/Spark快速大数据分析/10%20Spark%20Streaming.md)
-* [11 Machine Learning with MLlib](wiki/docs/Big%20Data/Spark快速大数据分析/11%20Machine%20Learning%20with%20MLlib.md)
+* [SparkStreaming实时流处理项目](wiki/docs/Big%20Data/projects/SparkStreaming实时流处理项目.md)
+* [中文情感分析](wiki/docs/Big%20Data/projects/中文情感分析.md)
 
 #### Hadoop权威指南 
 
 * [1 Meet Hadoop](wiki/docs/Big%20Data/Hadoop权威指南/1%20Meet%20Hadoop.md)
 * [2 MapReduce](wiki/docs/Big%20Data/Hadoop权威指南/2%20MapReduce.md)
-* [3 The Hadoop Distributed FileSystem](wiki/docs/Big%20Data/Hadoop权威指南/3%20The%20Hadoop%20Distributed%20FileSystem.md)
+* [3 Hadoop分布式文件系统](wiki/docs/Big%20Data/Hadoop权威指南/3%20Hadoop分布式文件系统.md)
 * [4 YARN](wiki/docs/Big%20Data/Hadoop权威指南/4%20YARN.md)
 * [5 Hadoop IO](wiki/docs/Big%20Data/Hadoop权威指南/5%20Hadoop%20IO.md)
-* [6 Developing a MapReduce Application](wiki/docs/Big%20Data/Hadoop权威指南/6%20Developing%20a%20MapReduce%20Application.md)
-* [7 How MapReduce Works](wiki/docs/Big%20Data/Hadoop权威指南/7%20How%20MapReduce%20Works.md)
-* [8 MapReduce Types and Formats](wiki/docs/Big%20Data/Hadoop权威指南/8%20MapReduce%20Types%20and%20Formats.md)
-* [9 MapReduce Features](wiki/docs/Big%20Data/Hadoop权威指南/9%20MapReduce%20Features.md)
-* [10 Setting Up a Hadoop Cluster](wiki/docs/Big%20Data/Hadoop权威指南/10%20Setting%20Up%20a%20Hadoop%20Cluster.md)
-* [11 Adminstering Hadoop](wiki/docs/Big%20Data/Hadoop权威指南/11%20Adminstering%20Hadoop.md)
+* [6 开发MapReduce应用](wiki/docs/Big%20Data/Hadoop权威指南/6%20开发MapReduce应用.md)
+* [7 MapReduce工作机制](wiki/docs/Big%20Data/Hadoop权威指南/7%20MapReduce工作机制.md)
+* [8 MapReduce类型和格式](wiki/docs/Big%20Data/Hadoop权威指南/8%20MapReduce类型和格式.md)
+* [9 MapReduce特性](wiki/docs/Big%20Data/Hadoop权威指南/9%20MapReduce特性.md)
+* [10 构建Hadoop集群](wiki/docs/Big%20Data/Hadoop权威指南/10%20构建Hadoop集群.md)
+* [11 管理Hadoop](wiki/docs/Big%20Data/Hadoop权威指南/11%20管理Hadoop.md)
 * [12 Avro](wiki/docs/Big%20Data/Hadoop权威指南/12%20Avro.md)
 * [13 Parquet](wiki/docs/Big%20Data/Hadoop权威指南/13%20Parquet.md)
 * [14 Flume](wiki/docs/Big%20Data/Hadoop权威指南/14%20Flume.md)
@@ -279,9 +311,7 @@
 * [16 Pig](wiki/docs/Big%20Data/Hadoop权威指南/16%20Pig.md)
 * [17 Hive](wiki/docs/Big%20Data/Hadoop权威指南/17%20Hive.md)
 * [18 Crunch](wiki/docs/Big%20Data/Hadoop权威指南/18%20Crunch.md)
-* [19 Spark](wiki/docs/Big%20Data/Hadoop权威指南/19%20Spark.md)
 * [20 HBase](wiki/docs/Big%20Data/Hadoop权威指南/20%20HBase.md)
-* [21 ZooKeeper](wiki/docs/Big%20Data/Hadoop权威指南/21%20ZooKeeper.md)
 * [22 Composable Data at Center](wiki/docs/Big%20Data/Hadoop权威指南/22%20Composable%20Data%20at%20Center.md)
 * [23 Biological Data Science](wiki/docs/Big%20Data/Hadoop权威指南/23%20Biological%20Data%20Science.md)
 * [24 Cascading](wiki/docs/Big%20Data/Hadoop权威指南/24%20Cascading.md)

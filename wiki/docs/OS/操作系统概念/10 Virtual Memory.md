@@ -20,7 +20,7 @@ ADVANTAGE:
 
 * Programs can be larger than physical memory.
 * Virtual memory abstracts main memory as viewed by the programmer from physical memory. It frees programmers from the concerns of memory-storage limitations.
-* Virtual memory allows processes to share files and memory through [page sharing](ch9/#shared-pages).
+* Virtual memory allows processes to share files and memory through [page sharing](9 Main Memory.md).
 
 
 ![Diagram showing virtual memory that is larger than physical memory](figures/Diagram_showing_virtual_memory_that_is_larger_than_physical_memory.png)

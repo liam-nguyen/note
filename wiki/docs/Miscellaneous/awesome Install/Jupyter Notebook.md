@@ -40,6 +40,17 @@ pip install spylon-kernel
 python -m spylon_kernel install
 ```
 
+#### Sparkmagic
+
+[Sparkmagic](https://github.com/jupyter-incubator/sparkmagic)可以在Jupyter notebook中运行spark和scala。首先安装Sparkmagic和[livy](https://livy.incubator.apache.org/get-started/)。在启动livy和spark后，参照[示例](https://github.com/jupyter-incubator/sparkmagic/blob/master/examples/Magics%20in%20IPython%20Kernel.ipynb)运行Sparkmagic.
+
+```bash
+%load_ext sparkmagic.magics
+%manage_spark
+# 选择Add endpoint: Address: http://centos1:8998 Auth: None
+# 选择Create Session
+```
+
 ### 2 安装插件
 
 [nbextensions](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html)为Jupyter notebook提供了各种各样的插件。

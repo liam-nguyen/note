@@ -13,7 +13,7 @@ tags: [Graph]
 * <C>Edge</C>: also an <C>arc</C>, connects two vertices, and may be one-way(**directed graph**) or two-way(**undirected graph**).
 * Weight: Edges may be weighted to show that there is a cost (<C>weight</C>)to go from one vertex to another. E.g. the distance between the two cities.
 * <C>path</C>: a sequence of vertices that are connected by edges. Formally we could define a path as $w_1, w_2,...,w_n$ such that $(w_i,w_{i+1}) \in E$ for all $1 \le i \le  n-1$. The weighted path length is the sum of the weights of the edges in the path. 
-* <C>cycle</C>: a path in a directed graph, which starts and ends at the same vertex. A graph with no cycles is called an **acyclic graph**. A directed graph with no cycles is called a **directed acyclic graph** or a **DAG**.
+* <C>cycle</C>: a path in a directed graph, which starts and ends at the same vertex. A graph with no cycles is called an **acyclic graph**. A directed graph with no cycles is called a **directed acyclic graph**(有向无环图) or a **DAG**.
 
 ### Representation
 

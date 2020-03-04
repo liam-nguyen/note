@@ -3,7 +3,6 @@
 # 获取当前目录
 basepath=/Users/larry/Documents/note/wiki/
 
-
 set -e
 echo "quick building.... "
 cd $basepath

@@ -79,6 +79,7 @@ public class Insertion {
 ```
 
 #### Analysis
+
 Insertion sort uses $\sim N^2/4$ compares and $\sim N^2/4$ exchanges to sort a randomly ordered array of length $N$ with distinct keys, on the average. The worst case is $\sim N^2/2$ compares and $\sim N ^2/2$ exchanges and the best case is $N-1$ compares and 0 exchanges.
 
 ### Shell Sort

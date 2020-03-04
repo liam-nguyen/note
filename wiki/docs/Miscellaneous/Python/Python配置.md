@@ -38,6 +38,8 @@ Conda可以创建/激活/删除某一个环境。
 ```bash
 # 创建一个名为python27的环境，指定Python版本是2.7
 conda create --name python27 python=2.7
+# 若想要在创建环境同时安装python的一些包：
+conda create --name python27 python=2.7 numpy pandas
 
 # 安装好后，使用activate激活某个环境
 # 激活后，会发现terminal输入的地方多了python27的字样，
@@ -54,10 +56,8 @@ conda remove --name python27 --all
 
 #### 使用Requirement.txt 安装
 
-```
-while read requirement; 
-    do conda install --yes $requirement; 
-done < requirements.txt
+```bash
+conda install --yes --file requirements.txt
 ```
 
 #### 使用Pycharm

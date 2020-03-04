@@ -152,6 +152,9 @@ Cooperating process require an **interprocess communication** (IPC，进程间�
 ![shared_memory_and_message_passing](figures/shared_memory_and_message_passing.png)
 
 
+![IP](figures/IPC.png)
+
+
 ### 5 IPC in shared-memory system
 
 Let's consider the producer-consumer problem, which is a common paradigm for cooperating processes. A *producer* process produces information that is *consumed* by a consumer process.  One solution to the producer-consumer problem uses shared memory.
@@ -187,7 +190,7 @@ Here are several methods for logically implementing a *communication link* betwe
 
 #### Direct/Indirect communication
 
-<font color="green"><big>Direct Communication</big></font>
+##### Direct Communication
 
 Under **direct communication**, each process that wants to communicate must explicitly name the recipient or sender of the communication.
 
@@ -205,7 +208,7 @@ Cons:
 * limited modularity of the resulting process definitions. Changing the identifier of a process may necessitate examining all other process definitions.
 * any such hard-coding techniques, are less desirable.
 
-<font color="green"><big>Indirect Communication</big></font>
+##### Indirect Communication
 
 With **indirect communication**, the message are sent to and receive from **mailboxes**, or **ports**.
 
@@ -375,7 +378,7 @@ mach_msg(&message.header, // message header
 
 A **pipe** acts as a conduit allowing two processes to communicate. Pipes were one of the first IPC mechanisms in early UNIX systems. There are two common types of pipes used on both UNIX and Windows systems: **ordinary pipes** and **named pipes**.
 
-#### Ordinary pipes
+##### Ordinary pipes
 
 **Ordinary pipes** allow two processes to communicate in standard producer-consumer fashion: the producer writes to one end of the pipe (the **write end**) and the consumer reads from the other end (the **read end**).
 
@@ -417,15 +420,21 @@ int main(void)
         pid = fork();
 
         if (pid>0){ /* parent process */
-                close(pipefd[READ_END]);/* close the unused end of the pipe */
-                write(pipefd[WRITE_END], write_msg, strlen(write_msg)+1); /* write to the pipe */
-                close(pipefd[WRITE_END]);  /* close the write end of the pipe */
+                /* close the unused end of the pipe */
+                close(pipefd[READ_END]);
+                /* write to the pipe */
+                write(pipefd[WRITE_END], write_msg, strlen(write_msg +1);
+                /* close the write end of the pipe */                       
+                close(pipefd[WRITE_END]);  
         }
         else if (pid==0){ /* child process */
-                close(pipefd[WRITE_END]); /* close the unused end of the pipe */
-                read(pipefd[READ_END], read_msg, BUFFER_SIZE); /* read from the pipe */
+                /* close the unused end of the pipe */
+                close(pipefd[WRITE_END]); 
+                /* read from the pipe */
+                read(pipefd[READ_END], read_msg, BUFFER_SIZE);                 
                 printf("read: %s\n", read_msg);
-                close(pipefd[READ_END]); /* close the read end of the pipe */
+                /* close the read end of the pipe */
+                close(pipefd[READ_END]);         
         }
         return 0;
 

@@ -1,10 +1,27 @@
+{#-
+  This file was automatically generated - do not edit
+-#}
 {% import "partials/language.html" as lang with context %}
 {% set feature = config.theme.feature %}
 {% set palette = config.theme.palette %}
 {% set font = config.theme.font %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ lang.t('language') }}" class="no-js">
   <head>
+
+ <!-- 百度统计代码 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b6f62cca1f01c8c6a28628994476d789";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
     {% block site_meta %}
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -14,7 +31,12 @@
       {% elif config.site_description %}
         <meta name="description" content="{{ config.site_description }}">
       {% endif %}
-      {% if page.canonical_url %}
+      {% if page and page.meta and page.meta.redirect %}
+        <script>var anchor=window.location.hash.substr(1);location.href="{{ page.meta.redirect }}"+(anchor?"#"+anchor:"")</script>
+        <meta http-equiv="refresh" content="0; url={{ page.meta.redirect }}">
+        <meta name="robots" content="noindex">
+        <link rel="canonical" href="{{ page.meta.redirect }}">
+      {% elif page.canonical_url %}
         <link rel="canonical" href="{{ page.canonical_url }}">
       {% endif %}
       {% if page and page.meta and page.meta.author %}
@@ -36,7 +58,7 @@
         <meta name="lang:{{ key }}" content="{{ lang.t(key) }}">
       {% endfor %}
       <link rel="shortcut icon" href="{{ config.theme.favicon | url }}">
-      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-4.4.0">
     {% endblock %}
     {% block htmltitle %}
       {% if page and page.meta and page.meta.title %}
@@ -48,9 +70,9 @@
       {% endif %}
     {% endblock %}
     {% block styles %}
-      <link rel="stylesheet" href="{{ 'assets/stylesheets/application.11e41852.css' | url }}">
+      <link rel="stylesheet" href="{{ 'assets/stylesheets/application.0284f74d.css' | url }}">
       {% if palette.primary or palette.accent %}
-        <link rel="stylesheet" href="{{ 'assets/stylesheets/application-palette.22915126.css' | url }}">
+        <link rel="stylesheet" href="{{ 'assets/stylesheets/application-palette.01803549.css' | url }}">
       {% endif %}
       {% if palette.primary %}
         {% import "partials/palette.html" as map %}
@@ -61,15 +83,15 @@
       {% endif %}
     {% endblock %}
     {% block libs %}
-      <script src="{{ 'assets/javascripts/modernizr.20ef595d.js' | url }}"></script>
+      <script src="{{ 'assets/javascripts/modernizr.74668098.js' | url }}"></script>
     {% endblock %}
     {% block fonts %}
       {% if font != false %}
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{
-              font.text | replace(' ', '+')  + ':300,400,400i,700|' +
+              font.text | replace(' ', '+') + ':300,400,400i,700|' +
               font.code | replace(' ', '+')
-            }}">
+            }}&display=fallback">
         <style>body,input{font-family:"{{ font.text }}","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"{{ font.code }}","Courier New",Courier,monospace}</style>
       {% endif %}
     {% endblock %}
@@ -80,6 +102,11 @@
     {% for path in config["extra_css"] %}
       <link rel="stylesheet" href="{{ path | url }}">
     {% endfor %}
+    {% block analytics %}
+      {% if config.google_analytics %}
+        {% include "partials/integrations/analytics.html" %}
+      {% endif %}
+    {% endblock %}
     {% block extrahead %}{% endblock %}
   </head>
   {% if palette.primary or palette.accent %}
@@ -153,12 +180,16 @@
                   <h1>{{ page.title | default(config.site_name, true)}}</h1>
                 {% endif %}
 
+<!--添加tag标签 -->
 {% for tag in page.meta.tags %}
-	 <a href="http:localhost/wiki/tags/{{ tag }}" style="color:white" class="tag" > {{ tag }} </a>
+  {% if ' ' in tag %}
+    <a href="https://techlarry.github.io/tags/{{ tag.split() | join('%20') }}/" style="color:white" class="tag" > {{ tag }} </a>
+  {% else %}
+    <a href="https://techlarry.github.io/tags/{{ tag }}/" style="color:white" class="tag" > {{ tag }} </a>
+  {% endif %}
 {% endfor %}
 
                 {{ page.content }}
-
                 {% block source %}
                   {% if page and page.meta and page.meta.source %}
                     <h2 id="__source">{{ lang.t("meta.source") }}</h2>
@@ -181,14 +212,12 @@
           </div>
         </div>
       </main>
-<!--
       {% block footer %}
         {% include "partials/footer.html" %}
       {% endblock %}
--->
     </div>
     {% block scripts %}
-      <script src="{{ 'assets/javascripts/application.9e1f3b71.js' | url }}"></script>
+      <script src="{{ 'assets/javascripts/application.245445c6.js' | url }}"></script>
       {% if lang.t("search.language") != "en" %}
         {% set languages = lang.t("search.language").split(",") %}
         {% if languages | length and languages[0] != "" %}
@@ -196,10 +225,10 @@
           <script src="{{ (path ~ 'lunr.stemmer.support.js') | url }}"></script>
           {% for language in languages | map("trim") %}
             {% if language != "en" %}
-              {% if language == "jp" %}
+              {% if language == "ja" %}
                 <script src="{{ (path ~ 'tinyseg.js') | url }}"></script>
               {% endif %}
-              {% if language in ("da", "de", "du", "es", "fi", "fr", "hu", "it", "jp", "no", "pt", "ro", "ru", "sv", "tr") %}
+              {% if language in ("da", "de", "es", "fi", "fr", "hu", "it", "ja", "nl", "no", "pt", "ro", "ru", "sv", "th", "tr") %}
                 <script src="{{ (path ~ 'lunr.' ~ language ~ '.js') | url }}"></script>
               {% endif %}
             {% endif %}
@@ -214,11 +243,5 @@
         <script src="{{ path | url }}"></script>
       {% endfor %}
     {% endblock %}
-    {% block analytics %}
-      {% if config.google_analytics %}
-        {% include "partials/integrations/analytics.html" %}
-      {% endif %}
-    {% endblock %}
-
   </body>
 </html>

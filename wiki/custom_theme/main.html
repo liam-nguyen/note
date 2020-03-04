@@ -1,22 +1,25 @@
+{#-
+  This file was automatically generated - do not edit
+-#}
 {% import "partials/language.html" as lang with context %}
 {% set feature = config.theme.feature %}
 {% set palette = config.theme.palette %}
 {% set font = config.theme.font %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ lang.t('language') }}" class="no-js">
   <head>
 
-
+ <!-- 百度统计代码 -->
 <script>
-// 百度统计代码
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?75ca3e22b76fe6fc162363fb8a0cb4b0";
+  hm.src = "https://hm.baidu.com/hm.js?b6f62cca1f01c8c6a28628994476d789";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+
 
 
     {% block site_meta %}
@@ -28,7 +31,12 @@ var _hmt = _hmt || [];
       {% elif config.site_description %}
         <meta name="description" content="{{ config.site_description }}">
       {% endif %}
-      {% if page.canonical_url %}
+      {% if page and page.meta and page.meta.redirect %}
+        <script>var anchor=window.location.hash.substr(1);location.href="{{ page.meta.redirect }}"+(anchor?"#"+anchor:"")</script>
+        <meta http-equiv="refresh" content="0; url={{ page.meta.redirect }}">
+        <meta name="robots" content="noindex">
+        <link rel="canonical" href="{{ page.meta.redirect }}">
+      {% elif page.canonical_url %}
         <link rel="canonical" href="{{ page.canonical_url }}">
       {% endif %}
       {% if page and page.meta and page.meta.author %}
@@ -50,21 +58,21 @@ var _hmt = _hmt || [];
         <meta name="lang:{{ key }}" content="{{ lang.t(key) }}">
       {% endfor %}
       <link rel="shortcut icon" href="{{ config.theme.favicon | url }}">
-      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-4.5.0">
     {% endblock %}
     {% block htmltitle %}
       {% if page and page.meta and page.meta.title %}
         <title>{{ page.meta.title }}</title>
       {% elif page and page.title and not page.is_homepage %}
-        <title>{{ page.title }} - {{ config.site_name }}</title>
+        <title>{{ page.title | striptags }} - {{ config.site_name }}</title>
       {% else %}
         <title>{{ config.site_name }}</title>
       {% endif %}
     {% endblock %}
     {% block styles %}
-      <link rel="stylesheet" href="{{ 'assets/stylesheets/application.451f80e5.css' | url }}">
+      <link rel="stylesheet" href="{{ 'assets/stylesheets/application.1b62728e.css' | url }}">
       {% if palette.primary or palette.accent %}
-        <link rel="stylesheet" href="{{ 'assets/stylesheets/application-palette.22915126.css' | url }}">
+        <link rel="stylesheet" href="{{ 'assets/stylesheets/application-palette.a8b3c06d.css' | url }}">
       {% endif %}
       {% if palette.primary %}
         {% import "partials/palette.html" as map %}
@@ -75,22 +83,30 @@ var _hmt = _hmt || [];
       {% endif %}
     {% endblock %}
     {% block libs %}
-      <script src="{{ 'assets/javascripts/modernizr.1aa3b519.js' | url }}"></script>
+      <script src="{{ 'assets/javascripts/modernizr.268332fc.js' | url }}"></script>
     {% endblock %}
     {% block fonts %}
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       {% if font != false %}
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{
-              font.text | replace(' ', '+')  + ':300,400,400i,700|' +
+              font.text | replace(' ', '+') + ':300,400,400i,700|' +
               font.code | replace(' ', '+')
-            }}">
+            }}&display=fallback">
         <style>body,input{font-family:"{{ font.text }}","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"{{ font.code }}","Courier New",Courier,monospace}</style>
       {% endif %}
     {% endblock %}
     <link rel="stylesheet" href="{{ 'assets/fonts/material-icons.css' | url }}">
+    {% if config.extra.manifest %}
+      <link rel="manifest" href="{{ config.extra.manifest | url }}">
+    {% endif %}
     {% for path in config["extra_css"] %}
       <link rel="stylesheet" href="{{ path | url }}">
     {% endfor %}
+    {% block analytics %}
+      {% if config.google_analytics %}
+        {% include "partials/integrations/analytics.html" %}
+      {% endif %}
+    {% endblock %}
     {% block extrahead %}{% endblock %}
   </head>
   {% if palette.primary or palette.accent %}
@@ -116,7 +132,7 @@ var _hmt = _hmt || [];
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     {% if page.toc | first is defined %}
-      <a href="{{ (page.toc | first).url | url }}" tabindex="1" class="md-skip">
+      <a href="{{ (page.toc | first).url }}" tabindex="1" class="md-skip">
         {{ lang.t('skip.link.title') }}
       </a>
     {% endif %}
@@ -132,7 +148,7 @@ var _hmt = _hmt || [];
       {% if feature.tabs %}
         {% include "partials/tabs.html" %}
       {% endif %}
-      <main class="md-main">
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           {% block site_nav %}
             {% if nav %}
@@ -173,6 +189,7 @@ var _hmt = _hmt || [];
   {% endif %}
 {% endfor %}
 
+
                 {{ page.content }}
                 {% block source %}
                   {% if page and page.meta and page.meta.source %}
@@ -196,17 +213,12 @@ var _hmt = _hmt || [];
           </div>
         </div>
       </main>
-
-<!-- 注释掉了 页脚
       {% block footer %}
         {% include "partials/footer.html" %}
       {% endblock %}
     </div>
--->
-
-
     {% block scripts %}
-      <script src="{{ 'assets/javascripts/application.583bbe55.js' | url }}"></script>
+      <script src="{{ 'assets/javascripts/application.a8b5e56f.js' | url }}"></script>
       {% if lang.t("search.language") != "en" %}
         {% set languages = lang.t("search.language").split(",") %}
         {% if languages | length and languages[0] != "" %}
@@ -214,10 +226,10 @@ var _hmt = _hmt || [];
           <script src="{{ (path ~ 'lunr.stemmer.support.js') | url }}"></script>
           {% for language in languages | map("trim") %}
             {% if language != "en" %}
-              {% if language == "jp" %}
+              {% if language == "ja" %}
                 <script src="{{ (path ~ 'tinyseg.js') | url }}"></script>
               {% endif %}
-              {% if language in ("da", "de", "du", "es", "fi", "fr", "hu", "it", "jp", "no", "pt", "ro", "ru", "sv", "tr") %}
+              {% if language in ("ar", "da", "de", "es", "fi", "fr", "hu", "it", "ja", "nl", "no", "pt", "ro", "ru", "sv", "th", "tr", "vi") %}
                 <script src="{{ (path ~ 'lunr.' ~ language ~ '.js') | url }}"></script>
               {% endif %}
             {% endif %}
@@ -231,11 +243,6 @@ var _hmt = _hmt || [];
       {% for path in config["extra_javascript"] %}
         <script src="{{ path | url }}"></script>
       {% endfor %}
-    {% endblock %}
-    {% block analytics %}
-      {% if config.google_analytics %}
-        {% include "partials/integrations/analytics.html" %}
-      {% endif %}
     {% endblock %}
   </body>
 </html>

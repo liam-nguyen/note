@@ -1,6 +1,6 @@
 * [1. Two Sum.md](../Leetcode/1. Two Sum.md)
-* [118. Pascal's Triangle.md](../Leetcode/118. Pascal's Triangle.md)
-* [119. Pascal's Triangle II.md](../Leetcode/119. Pascal's Triangle II.md)
+* [118. Pascals Triangle.md](../Leetcode/118. Pascals Triangle.md)
+* [119. Pascals Triangle II.md](../Leetcode/119. Pascals Triangle II.md)
 * [120. Triangle.md](../Leetcode/120. Triangle.md)
 * [121. Best Time to Buy and Sell Stock.md](../Leetcode/121. Best Time to Buy and Sell Stock.md)
 * [122. Best Time to Buy and Sell Stock II.md](../Leetcode/122. Best Time to Buy and Sell Stock II.md)

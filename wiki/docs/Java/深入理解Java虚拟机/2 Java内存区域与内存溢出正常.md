@@ -10,18 +10,26 @@ date: 2017-10-30
 
 ### 2 运行时数据区域
 
-根据《Java虚拟机规范(Java SE 7版)》的规定， Java虚拟机所管理的内存将会包括以下⼏个运⾏时数据区域。
+Java虚拟机所管理的内存将会包括以下⼏个运⾏时数据区域(runtime data area)。
 
-![](figures/java_runtime_data_area.png)
+![](figures/jvm_architecture.jpg)
 
 
-[http://blog.jamesdbloom.com/JVMInternals.html]
+* Method Area 方法区
+* Heap 堆
+* Stack 栈
+* PC Register 程序计数器寄存器
+* Native Method Stack 本地方法栈
 
-![](figures/jvm_internals.png)
 
-#### 程序计数器
+更加详细的JVM内部图(后面的章节都会涉及到)：
 
-程序计数器(Program Counter Register)是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。每条线程都有⼀个独⽴的程序计数器，各条线程之间计数器互不影响，独⽴存储。
+![jvm_internal_detailed](figures/jvm_internal_detailed.jpg)
+
+
+#### PC寄存器
+
+程序计数器寄存器(Program Counter Register)是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。每条线程都有⼀个独⽴的PC寄存器，各条线程之间计数器互不影响，独⽴存储。
 
 如果线程正在执行的是Java方法，那么这个计数器的值就是正在执行的虚拟机字节码指令的地址；如果正在执行的是`Native`方法，这个计数器值为空(undefined)。此内存区域是唯一一个在Java虚拟机规范中没有规定任何`OutOfMemoryError`情况的区域。
 
@@ -46,7 +54,7 @@ Java虚拟机栈是线程私有的，它的生命周期与线程相同。每个�
 
 Java**堆**(Heap)是线程共享的，在虚拟机启动时创建。Java堆的唯一目的就是存放对象实例，几乎所有的对象实例都在这里分配内存。
 
-Java堆是垃圾收集器管理的主要区域，因此很多时候也被称作"GC堆"(Garbage Collected Heap)。由于现在收集器基本都采用分代收集算法，所以Java堆中还可以细分为：年轻代、老年代；再细致一点的有Eden空间、From Survivor空间、To Survivor空间等([详见垃圾收集](3 垃圾收集器与内存分配策略.md))。
+Java堆是垃圾收集器管理的主要区域，因此很多时候也被称作"GC堆"(Garbage Collected Heap)。由于现在收集器基本都采用分代收集算法，所以Java堆还可以细分为：年轻代、老年代；再细致一点的有Eden空间、From Survivor空间、To Survivor空间等([详见垃圾收集](3 垃圾收集器与内存分配策略.md))。
 
 
 
@@ -62,7 +70,7 @@ Java堆是垃圾收集器管理的主要区域，因此很多时候也被称作"
 
 
 
-Java堆在实现时，既可以实现成固定大小的，也可以是可扩展的，不过当前主流的虚拟机都是按照可扩展来实现的。
+对当前主流的虚拟机来说，Java堆都是可扩展的。
 
 #### 方法区/元空间
 

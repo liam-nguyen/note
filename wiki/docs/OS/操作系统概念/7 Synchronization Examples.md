@@ -138,7 +138,7 @@ do {
 
 #### The Dining-Philosophers Problem
 
-The dining-philosophers problem is an example of a large class of concurrency-control problems. It is a simple representation of the need to allocate several resources among several processes in a deadlock-free and starvation-free manner.
+The **dining-philosophers problem**(哲学家就餐问题) is an example of a large class of concurrency-control problems. It is a simple representation of the need to allocate several resources among several processes in a deadlock-free and starvation-free manner.
 
 Consider five philosophers who spend their lives thinking and eating. 
 
@@ -153,8 +153,8 @@ Consider five philosophers who spend their lives thinking and eating.
 ![dining_philosophers](figures/dining_philosophers.png)
 
 
-[Java solution of Dining Philosophers Problem](../cpj/ch1.md/#dining-philosophers)
-
+<!--[Java solution of Dining Philosophers Problem](../cpj/ch1.md/#dining-philosophers)
+-->
 
 
 

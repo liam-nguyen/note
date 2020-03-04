@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a425725-8907-4521-8bf9-cc3e3a4ecb6c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nav.py" beforeDir="false" afterPath="$PROJECT_DIR$/nav.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parseHTMLTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/parseHTMLTable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/note-quick-imac" beforeDir="false" afterPath="$PROJECT_DIR$/note-quick-imac" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../custom_theme/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../custom_theme/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../custom_theme/main_beifen.html" beforeDir="false" afterPath="$PROJECT_DIR$/../custom_theme/main_beifen.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Algorithm/CS61B/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Algorithm/CS61B/index.md" afterDir="false" />
@@ -21,7 +22,7 @@
       <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/14 Flume.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/14 Flume.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/15 Sqoop.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/15 Sqoop.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/17 Hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/17 Hive.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/19 Spark.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/19 Spark.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/19 Spark.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/2 MapReduce.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/2 MapReduce.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/20 HBase.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/20 HBase.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/3 The Hadoop Distributed FileSystem.md" beforeDir="false" />
@@ -37,9 +38,21 @@
       <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/figures/MapReduceDataFlowWithMultipleReduceTask.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/figures/The relationship of the Streaming executable to the node manager and the task container.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/1 Introduction to Data Analysis with Spark.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/10 Spark Streaming.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/11 Machine Learning with MLlib.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/2 Downloading Spark and Getting Started.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/3 Programming with RDDs.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/4 Working with Key Value Pairs.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/5 Loading and Saving Your Data.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/6 Advanced Spark Programming.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/7 Running on a Cluster**.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/8 Tuning and Debugging Spark.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/9 Spark SQL.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/cover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/index.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Big Data/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Big Data/projects/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/projects/index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Data Science/CMU10601/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/CMU10601/index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/MySQL.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/SQL必知必会.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Database/SQL必知必会.md" afterDir="false" />
@@ -138,12 +151,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nav.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="134" column="11" selection-start-line="134" selection-start-column="11" selection-end-line="134" selection-end-column="11" />
+            <state relative-caret-position="1139">
+              <caret line="270" column="39" selection-start-line="270" selection-start-column="39" selection-end-line="270" selection-end-column="39" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -154,7 +167,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/opt/miniconda3/envs/note/lib/python3.6/codecs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
+            <state relative-caret-position="4785">
               <caret line="319" selection-start-line="319" selection-end-line="319" />
             </state>
           </provider>
@@ -168,6 +181,7 @@
       <find>st</find>
       <find>book</find>
       <find>level</find>
+      <find>0</find>
     </findStrings>
     <replaceStrings>
       <replace>menu</replace>
@@ -194,8 +208,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="564" />
-    <option name="y" value="168" />
+    <option name="x" value="921" />
+    <option name="y" value="122" />
     <option name="width" value="1841" />
     <option name="height" value="1186" />
   </component>
@@ -205,7 +219,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,9 +230,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -274,47 +289,28 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="564" y="168" width="1841" height="1186" extended-state="0" />
-    <editor active="true" />
+    <frame x="921" y="122" width="1841" height="1186" extended-state="0" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49931788" visible="true" weight="0.30714285" />
-      <window_info id="Structure" order="1" sideWeight="0.5006821" side_tool="true" visible="true" weight="0.30714285" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49817184" visible="true" weight="0.30714285" />
+      <window_info id="Structure" order="1" sideWeight="0.50182813" side_tool="true" visible="true" weight="0.30714285" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3299817" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3299817" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40036562" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/nav.py</url>
-          <line>268</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/opt/miniconda3/envs/note/lib/python3.6/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="319" selection-start-line="319" selection-end-line="319" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2019.1/python_stubs/-643577505/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
@@ -324,11 +320,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nav.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="134" column="11" selection-start-line="134" selection-start-column="11" selection-end-line="134" selection-end-column="11" />
+        <state relative-caret-position="1139">
+          <caret line="270" column="39" selection-start-line="270" selection-start-column="39" selection-end-line="270" selection-end-column="39" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/opt/miniconda3/envs/note/lib/python3.6/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4785">
+          <caret line="319" selection-start-line="319" selection-end-line="319" />
         </state>
       </provider>
     </entry>

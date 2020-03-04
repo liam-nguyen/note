@@ -1,5 +1,5 @@
 ---
-title: index.md
+title: Index
 toc: false
 date: 2017-07-07
 ---
@@ -13,6 +13,12 @@ date: 2017-07-07
 * [5 优化时间和空间效率](剑指Offer/5 优化时间和空间效率.md)
 * [6 面试中的各项能力](剑指Offer/6 面试中的各项能力.md)
 * [7 两个面试案例](剑指Offer/7 两个面试案例.md)
+
+#### CS61B 
+
+* [Lab1](CS61B/Lab1.md)
+* [Lab2](CS61B/Lab2.md)
+* [Lab3](CS61B/Lab3.md)
 
 #### Stanford 
 

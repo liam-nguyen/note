@@ -1,5 +1,5 @@
 ---
-title: index.md
+title: Index
 toc: false
 date: 2017-07-07
 ---
@@ -98,6 +98,17 @@ date: 2017-07-07
 * [13 线程安全与锁优化](深入理解Java虚拟机/13 线程安全与锁优化.md)
 * [14 AppendixC](深入理解Java虚拟机/14 AppendixC.md)
 
+#### Scala 
+
+* [Cheat Sheet](Scala/Cheat Sheet.md)
+* [Sbt](Scala/Sbt.md)
+* [Scala编程](Scala/Scala编程.md)
+* [functional programming in scala](Scala/functional programming in scala.md)
+* [scala](Scala/scala.md)
+* [慕课网Scala入门](Scala/慕课网Scala入门.md)
+* [第3章 从Java到Scala](Scala/第3章 从Java到Scala.md)
+* [第4章 处理对象](Scala/第4章 处理对象.md)
+
 #### Java编程思想 
 
 * [1 简介](Java编程思想/1 简介.md)
@@ -128,5 +139,6 @@ date: 2017-07-07
 
 * [JDK并发包](高并发/JDK并发包.md)
 * [Java多线程设计模式](高并发/Java多线程设计模式.md)
+* [事件驱动，消息驱动](高并发/事件驱动，消息驱动.md)
 * [多线程基础](高并发/多线程基础.md)
 

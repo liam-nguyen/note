@@ -33,13 +33,16 @@ abstract class Canine extends Animal {
 
 When you're designing your class inheritance structure, you have to decide which classes are *abstract* and which are *concrete*. 
 
-* **Concrete** classes are those that are specific enough to be instantiated. 
+* **Concrete classes**(具体类) are those that are specific enough to be instantiated. 
 * A **concrete** class just means that it's OK to make objects of that type.
-* An **abstract class** has virtually no use, no value, no purpose in life, unless it is extended.
+* An **abstract class**(抽象类) has virtually no use, no value, no purpose in life, unless it is extended(继承).
 
 ### 2 Abstract methods
 
-An **abstract method** means the method must be **overriden**, whereas an abstract class means the class must be extended.
+An **abstract method**(抽象方法) means the method must be **overriden**(覆盖), whereas an abstract class means the class must be extended.
+
+
+![abstract_method](figures/abstract_method.png)
 
 * There isn't any code that would make sense in the abstract method, you won't put in a method body. e.g. `:::Java  public abstract void eat()`.
 * If you declare an abstract method, you must mark the class abstract as well. You can't have an abstract method in a non-abstract class.

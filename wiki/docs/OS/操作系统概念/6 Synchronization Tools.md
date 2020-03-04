@@ -6,7 +6,7 @@ date: 2017-10-30
 
 ### 1 Background
 
-A <b>{==race condition==}</b>(竞争条件) occurs when several processes access and **manipulate the same data concurrently** and the outcome of the execution **depends on the particular order** in which the access takes place.
+A **race condition**(竞争条件) occurs when several processes access and **manipulate the same data concurrently** and the outcome of the execution **depends on the particular order** in which the access takes place.
 
 多个进程并发访问和操作同一数据，且执行结果与访问发生的特定顺序有关，称之为竞争条件。
 
@@ -155,7 +155,7 @@ while (true) {
 **Atomic variables**(原子变量) provides atomic operations on basic data types such as integers and booleans. Their use is often **limited to single updates of shared data such as counters and sequence generators**.
 
 !!! important
-    It is important to note that although atomic variables provide atomic updates, they do not entirely solve race conditions in all circumstances.
+    Although atomic variables provide atomic updates, they do not entirely solve race conditions in all circumstances.
 
 
 ```c

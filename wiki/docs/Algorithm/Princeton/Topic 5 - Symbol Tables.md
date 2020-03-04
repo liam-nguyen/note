@@ -8,7 +8,7 @@ top: 5
 
 ### Symbol Tables
 
-> Definition. A *symbol table* is a data structure for key-value pairs that supports two operations: <BC>insert</BC> (put) a new pair into the table and <BC>search</BC> for (get) the value associated with a given key.
+> Definition. A *symbol table*(符号表) is a data structure for key-value pairs that supports two operations: <BC>insert</BC> (put) a new pair into the table and <BC>search</BC> for (get) the value associated with a given key.
 
 key-value pair abstraction.
 

@@ -178,9 +178,9 @@ The Big Picture on encapsulated behaviors:
 
 HAS-A can be better than IS-A: The HAS-A relationship is an interesting one: each duck has a <C>FlyBehavior</C> and a <C>QuackBehavior</C> to which it delegates flying and quacking.
 
-When you put two classes together like this you’re using ***composition*** . Instead of inheriting their behavior, the ducks get their behavior by being *composed* with the right behavior object.
+When you put two classes together like this you’re using ***composition***(组合). Instead of inheriting their behavior, the ducks get their behavior by being *composed* with the right behavior object.
 
-> **Design Principle**: Favor composition over inheritance.
+> **Design Principle**: Favor composition over inheritance. <small>优先选择组合而不是继承</small>
 
 #### An Example: GameCar
 

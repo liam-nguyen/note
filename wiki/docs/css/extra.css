@@ -70,6 +70,29 @@ hh {
 }
 
 
+h {
+  color: green;
+  font-size: 18px;
+}
+
+
 red {
   color: red;
+}
+
+blue {
+  color: blue;
+}
+
+yellow {
+  color: yellow;
+}
+
+green {
+  color: green;
+}
+
+
+brown {
+  color: rgb(197,142,1);
 }

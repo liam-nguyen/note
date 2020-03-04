@@ -1,5 +1,5 @@
 ---
-title: Princeton
+title: Index
 toc: false
 date: 2017-07-07
 ---

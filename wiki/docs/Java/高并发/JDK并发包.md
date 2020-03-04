@@ -103,12 +103,12 @@ public void release()
 #### ReadWriteLock
 
 
-ReadWriteLock是JDK5中提供的读写分离锁。如果在系统中，读操作次数远远⼤于写操作，则读写锁就可以发挥最⼤的功效，提升系统的性能。
+`ReadWriteLock`是JDK5中提供的读写分离锁。如果在系统中，读操作次数远远⼤于写操作，则读写锁就可以发挥最⼤的功效，提升系统的性能。
 
 
-#### countDownLatch
+#### CountDownLatch
 
-countDownLatch通常用来控制线程等待，它可以让某一个线程等待直到倒计时结束，再开始执行。
+`CountDownLatch`通常用来控制线程等待，它可以让某一个线程等待直到倒计时结束，再开始执行。
 
 
 ### 2 线程池

@@ -1,6 +1,10 @@
-### Practical Data Science 
+---
+title: Index
+toc: false
+date: 2017-07-07
+---
 
-* [Jupyter notebook](Jupyter%20notebook) 
-* [The data collection process](The%20data%20collection%20process) 
-* [Relational Data](Relational%20Data) 
+* [Jupyter notebook](Jupyter notebook.md)
+* [Relational Data](Relational Data.md)
+* [The data collection process](The data collection process.md)
 

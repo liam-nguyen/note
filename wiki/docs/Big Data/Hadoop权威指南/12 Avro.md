@@ -5,7 +5,7 @@ date: 2017-10-30
 ---
 
 
-Apache Avro is a language-neutral data serialization system. The project was created by Doug Cutting to address the major downside of Hadoop <C>Writables</C>: **lack of language portability** [see [Chapter5](ch5.md#3-serialization)]. Having a data format that can be processed by many languages makes it easier to share datasets with a wider audience.
+Apache Avro is a language-neutral data serialization system. The project was created by Doug Cutting to address the major downside of Hadoop <C>Writables</C>: **lack of language portability** [see [Hadoop IO](5 Hadoop IO.md/#3-serialization)]. Having a data format that can be processed by many languages makes it easier to share datasets with a wider audience.
 
 Avro data is described using a language-independent **schema**(模式). Schemas are usually written in JSON, and data is usually encoded using a binary format.
 
