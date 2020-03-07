@@ -5,9 +5,12 @@ date: 2017-3-30
 top: 8
 ---
 
-### Anaconda 
+### 1 Conda
 
-[Anaconda ](https://www.continuum.io/why-anaconda)(/ˌænə'kɑndə/)是一个用于科学计算的python发行版，支持各种系统，提供了包管理和环境管理的功能。Anaconda 利用`conda`来进行package和environment的管理。
+* conda是一种通用包管理系统，旨在构建和管理任何语言和任何类型的软件。
+* [Anaconda ](https://www.continuum.io/why-anaconda)(/ˌænə'kɑndə/)是一个用于科学计算的python发行版，支持各种系统，提供了包管理和环境管理的功能。里面预装好了conda、某个版本的python、众多packages、科学计算工具等等，就是把很多常用的不常用的库都给你装好了。
+* Miniconda，顾名思义，它只包含最基本的内容——python与conda，以及相关的必须依赖项，对于空间要求严格的用户，Miniconda是一种选择。就只包含最基本的东西，其他的库得自己装。
+
 
 
 #### Conda的包管理
@@ -53,6 +56,34 @@ source deactivate python27 # for Linux & Mac
 conda remove --name python27 --all
 ```
 
+#### Channel
+
+通过修改用户目录下的`.condarc`文件配置镜像。例如添加[TUNA镜像](https://mirror.tuna.tsinghua.edu.cn/help/anaconda/)：
+
+```text
+channels:
+  - defaults
+show_channel_urls: true
+channel_alias: https://mirrors.tuna.tsinghua.edu.cn/anaconda
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  ```
+  
+  运行`conda clean -i`清除索引缓存，保证用的是镜像站提供的索引。
+
+
+
 
 #### 使用Requirement.txt 安装
 
@@ -77,7 +108,7 @@ conda install --yes --file requirements.txt
 * [Installing the IPython kernel](https://ipython.readthedocs.io/en/latest/install/kernel_install.html)
 
 
-### Virtualenv
+### 2 Virtualenv
 
 
 #### Install

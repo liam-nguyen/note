@@ -98,17 +98,6 @@ date: 2017-07-07
 * [13 线程安全与锁优化](深入理解Java虚拟机/13 线程安全与锁优化.md)
 * [14 AppendixC](深入理解Java虚拟机/14 AppendixC.md)
 
-#### Scala 
-
-* [Cheat Sheet](Scala/Cheat Sheet.md)
-* [Sbt](Scala/Sbt.md)
-* [Scala编程](Scala/Scala编程.md)
-* [functional programming in scala](Scala/functional programming in scala.md)
-* [scala](Scala/scala.md)
-* [慕课网Scala入门](Scala/慕课网Scala入门.md)
-* [第3章 从Java到Scala](Scala/第3章 从Java到Scala.md)
-* [第4章 处理对象](Scala/第4章 处理对象.md)
-
 #### Java编程思想 
 
 * [1 简介](Java编程思想/1 简介.md)

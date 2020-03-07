@@ -247,10 +247,15 @@ better_text = re.sub(r"(\w+)\s([Ss])cience", r"\1 \2hmience", text)
 
 There is an order of operations in regular expressions
 
-`abc|def` matches the strings "abc" or "def", not "ab(c or d)ef" You can get around this using parenthesis e.g. `a(bc|de)f` This also creates a group, use `a(?:bc|de)f` if you don’t want to capture it.
+`abc|def` matches the strings "abc" or "def", not "ab(c or d)ef". You can get around this using parenthesis e.g. `a(bc|de)f` This also creates a group, use `a(?:bc|de)f` if you don’t want to capture it.
 
 
-By default, regular expressions try to capture as much text as possible (greedy matching), If you want to capture the least amount of text possible use `<(.*?)>` this will just match the <a> term.
+By default, regular expressions try to capture as much text as possible (greedy matching). You can make them match the shortest possible string instead using `?`. This is called lazy matching.
+
+```python
+re.match(r"\(.*\)", "(1 + 2) * (3 + 4)").group(0) # '(1 + 2) * (3 + 4)'
+re.match(r"\(.*?\)", "(1 + 2) * (3 + 4)").group(0) #'(1 + 2)'
+```
 
 
 进一步阅读资料[Regular Expression HOWTO](https://docs.python.org/3/howto/regex.html).

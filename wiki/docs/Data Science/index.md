@@ -4,10 +4,46 @@ toc: false
 date: 2017-07-07
 ---
 
+#### Database 
+
+* [MySQL基础](Database/MySQL基础.md)
+* [Redis](Database/Redis.md)
+* [SQL必知必会](Database/SQL必知必会.md)
+* [高性能MySQL](Database/高性能MySQL.md)
+
+#### Python 
+
+* [Python引号](Python/Python引号.md)
+* [Python配置](Python/Python配置.md)
+* [Records](Python/Records.md)
+* [协程](Python/协程.md)
+* [生成器与迭代器](Python/生成器与迭代器.md)
+* [谈谈Python中的拷贝](Python/谈谈Python中的拷贝.md)
+* [闭包和装饰器](Python/闭包和装饰器.md)
+
 #### projects 
 
 * [SparkStreaming实时流处理项目](projects/SparkStreaming实时流处理项目.md)
 * [中文情感分析](projects/中文情感分析.md)
+
+#### Scala 
+
+* [Cheat Sheet](Scala/Cheat Sheet.md)
+* [Sbt](Scala/Sbt.md)
+* [Scala编程](Scala/Scala编程.md)
+* [functional programming in scala](Scala/functional programming in scala.md)
+* [scala](Scala/scala.md)
+* [慕课网Scala入门](Scala/慕课网Scala入门.md)
+* [第3章 从Java到Scala](Scala/第3章 从Java到Scala.md)
+* [第4章 处理对象](Scala/第4章 处理对象.md)
+
+#### Practical Data Science 
+
+* [Free text and natural language processing](Practical Data Science/Free text and natural language processing.md)
+* [Intro](Practical Data Science/Intro.md)
+* [Jupyter notebook](Practical Data Science/Jupyter notebook.md)
+* [Relational Data](Practical Data Science/Relational Data.md)
+* [The data collection process](Practical Data Science/The data collection process.md)
 
 #### Hadoop权威指南 
 
