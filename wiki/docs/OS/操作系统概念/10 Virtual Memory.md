@@ -6,7 +6,7 @@ date: 2017-10-30
 
 ### 1 Background
 
-Various memory-management strategies discussed in [Chapter 9](ch9.md) have the same goal to keep many processes in memory  simultaneously to allow multiprogramming.
+Various memory-management strategies discussed in [Main Memory](9 Main Memory.md) have the same goal to keep many processes in memory  simultaneously to allow multiprogramming.
 
 PROBLEM: However, they tend to require that an entire process be in memory before it can execute.  In many cases, the entire program is not needed:
 

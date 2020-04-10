@@ -1,8 +1,4 @@
----
-title: Index
-toc: false
-date: 2017-07-07
----
+###  Practical Data Science 
 
 * [Free text and natural language processing](Free text and natural language processing.md)
 * [Intro](Intro.md)

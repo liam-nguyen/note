@@ -120,3 +120,9 @@ https://cloud.tencent.com/developer/article/1436931
     <version>${scala.version}</version>
 </dependency>
 ```
+
+
+### 3 日志
+#### grep-console
+
+使用`grep-console`插件调整日志颜色、日志折叠。

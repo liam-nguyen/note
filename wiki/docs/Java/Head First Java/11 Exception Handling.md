@@ -8,7 +8,7 @@ date: 2017-10-30
 **Methods in Java use exceptions to tell the calling code, "Something Bad Happened. I failed."**
 
 * If a method can fail at runtime, a method has to declare the exceptions it might throw. 
-* You may find a **throws** clause in the risky(exception-throwing) method'sdeclaration. 
+* You may find a **throws** clause in the risky(exception-throwing) method's declaration. 
 *  _It's the risky method that *throws* the exception to *you*._
 
 ```Java
@@ -37,15 +37,15 @@ try {
 
 The compiler checks for everything except **RuntimeExceptions**.
 
-![Excetions_and_its_subclass](figures/Excetions_and_its_subclass.png)
+![](figures/throwable.jpg)
 
-
-* Exceptions that are NOT subclass of `RuntimeException` are checked for by the compiler. They're called "**checked exceptions**"(检查型异常).
-* The compiler cares about all subclasses of Exception, unless they are a special type, `RuntimeException` (**unchecked exceptions**, 非检查型异常).
-* Any exception class that extends `RuntimeException` *gets a free pass*.
-* `RuntimeException`s can be thrown anywhere, with or without throws declarations or try/catch blocks.
-* Most `RuntimeException`s come from a problem in your **code logic**, rather than a condition that fails at runtime in ways that you cannot predict or prevent.
-    * e.g. You *cannot* guarantee the server is up. You *cannot* guarantee the file is there. But you *can* make sure your code doesn't index of the end of an array.
+* Error表示系统错误或资源耗尽，例如VirtualMachineError, OutOfMemeoryError, StackOverflowError。
+* `RuntimeException`不受编译器检查，所以也叫**unchecked exceptions**(非检查型异常)。
+    * `RuntimeException`能够在任何地方被抛出，可以使用也可以不使用throw语句或try/catch块。
+    * 大多数`RuntimeException`来自于代码逻辑中的问题，而不是来自你不可预测或阻止的在运行时失败的情形。
+    * 例如你不能保证文件就在那里，但是你可以确保你的索引不超过数组末尾。
+* 其他不是 `RuntimeException`的异常受编译器检查，因此叫做"**checked exceptions**"(检查型异常).
+    * 检查异常要求程序员进行处理，否则会有编译错误。
 
 #### Flow control in try/catch blocks
 

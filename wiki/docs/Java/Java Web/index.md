@@ -1,9 +1,6 @@
----
-title: Index
-toc: false
-date: 2017-07-07
----
+###  Java Web 
 
+* [Log4j](Log4j.md)
 * [Ajax](Ajax.md)
 * [Bootstrap](Bootstrap.md)
 * [CSS](CSS.md)
@@ -22,5 +19,4 @@ date: 2017-07-07
 * [XML](XML.md)
 * [jQuery](jQuery.md)
 * [人员信息管理系统](人员信息管理系统.md)
-* [Log4j](Log4j.md)
 

@@ -41,12 +41,16 @@ The controller has one or more registers for data and control signal to accompli
 
 I/O device control typically consists of four registers:
 
+![a_typical_io_port](figures/a_typical_io_port.png)
+
+
 * data-in register: read by the host to get input
 * data-out register: written by the host to send output
 * status register: indicate states, such as whether the current command has completed, whether a byte is available to be read from the data-in register
 * control register: written by the host to start a command or change the mode of a device
 
-Polling becomes inefficient when it is attempted repeatedly yet rarely finds a device ready for service, while other useful CPU processing remains undone
+Today, most I/O is performed by device controllers using memory-mapped I/O.
+
 
 #### Polling
 
@@ -62,6 +66,9 @@ The complete protocol for interaction between the host and a controller can be i
 
 In step 1, the host is **busy-waiting** or **polling**: it is in a loop, reading the status register over and over util the `busy` bit becomes clear. In such instances, it may be more efficient to arrange for the hardware controller to notify the CPU when the device becomes ready for service, rather than to require the CPU to poll repeatedly for an I/O completion. The hardware mechanism that enables a device to notify the CPU is called an interrupt.
 
+Polling becomes inefficient when it is attempted repeatedly yet rarely finds a device ready for service, while other useful CPU processing remains undone.
+
+
 #### Interrupts
 
 The CPU hardware has a wire called the **interrupt-request line** that the CPU senses after executing every instruction:
@@ -72,19 +79,20 @@ The CPU hardware has a wire called the **interrupt-request line** that the CPU s
 
 ![interrupt-driven-IO-cycle](figures/interrupt-driven-IO-cycle.png)
 
-The interrupt mechanism accepts an address—a number that selects a specific interrupt-handling routine from a small set. In most architectures, this address is an offset in a table called the **interrupt vector**(中断向量). This vector contains the memory addresses of specialized interrupt handlers.
+The interrupt mechanism accepts an address—a number that selects a specific interrupt-handling routine from a small set. In most architectures, this address is an offset in a table called the **interrupt vector**(中断向量). This vector contains the memory addresses of specialized interrupt handlers. In practice, however, computers have more devices (and, hence, interrupt handlers) than they have address elements in the interrupt vector, so each element in the interrupt vector points to the head of a list of interrupt handlers (**interrupt chaining**).
 
 !!! example "Interrupt Vector for the Intel Pentium Processor"
 
-    The vector number from 0 to 31, which are nonmaskable, are used to signal various error conditions (which cause system crashes), page faults (needing immediate action), and debugging requests (stopping normal operation and jumping to a debugger application). The vector number from 32 to 255, which are maskable, are used for purposes such as device-generated interrupts.
+    The vector number from 0 to 31, which are *nonmaskable*, are used to signal various error conditions (which cause system crashes), page faults (needing immediate action), and debugging requests (stopping normal operation and jumping to a debugger application). The vector number from 32 to 255, which are *maskable*, are used for purposes such as device-generated interrupts.
     
     ![interrupt_vector](figures/interrupt_vector.png)
+
 The interrupt mechanism also implements a system of **interrupt priority levels**. These levels enable the CPU to defer the handling of low-priority interrupts without masking all interrupts and make it possible for a high-priority interrupt to preempt the execution of a low-priority interrupt.
 
 
 #### DMA
 
-For a device that does large transfers, such as a disk drive, it seems wasteful to use an expensive general-purpose processor to watch status bits and to feed data into a controller register one byte at a time—a process termed programmed I/O (PIO). Computers avoid burdening the main CPU with PIO by offloading some of this work to a special-purpose processor called a **direct memory-access** (DMA, 直接内存访问) controller.
+For a device that does large transfers, such as a disk drive, it seems wasteful to use an expensive general-purpose processor to watch status bits and to feed data into a controller register one byte at a time—a process termed **programmed I/O**(PIO). Computers avoid burdening the main CPU with PIO by offloading some of this work to a special-purpose processor called a **direct memory-access** (DMA, 直接内存访问) controller.
 
 In summary, DMA is used to avoid programmed I/O for large data movement and it bypasses CPU to transfer data directly between I/O device and memory.
 
@@ -98,7 +106,7 @@ In summary, DMA is used to avoid programmed I/O for large data movement and it b
 
 ![A_kernel_IO_structure](figures/A_kernel_IO_structure.png)
 
-The purpose of the device-driver layer is to hide the differences among device controllers from the I/O subsystem of the kernel. Each type of operating system has its own standards for the device-driver interface.
+The purpose of the device-driver layer is to hide the differences among device controllers from the I/O subsystem of the kernel. Unfortunately, each type of operating system has its own standards for the device-driver interface.
 
 Most operating systems also have an **escape** (or back door) that transparently passes arbitrary commands from an application to a device driver. In UNIX, this system call is `ioctl()` (for “I/O control”). The `ioctl()` system call enables an application to access any functionality that can be implemented by any device driver, without the need to invent a new system call.
 
@@ -110,6 +118,15 @@ Block Device
 
 * e.g. HDD
 * commands: `read()`, `write()`, `seek()`
+* ways to access a block device
+    * raw I/O
+        * access as a simple linear array of blocks; pass controls of the device directly to the application,
+        * e.g. operating system itself, database-management systems,
+    * direct I/O
+        *  disables buffering and locking 
+    * memory-mapped I/O
+        * access to disk storage via an array of bytes in main memory
+        * actual data transfers are performed only when needed to satisfy access to the memory image
 
 
 Character-Stream Device
@@ -150,7 +167,7 @@ Most operating system provide the network **socket** interface. To support the i
 
 
 ### 4 Kernel I/O Subsystem
-
+kernel’s I/O subsystem provides several services — scheduling, buffering, caching, spooling, device reservation, and error handling.
 
 #### Buffering
 
@@ -163,6 +180,7 @@ A **buffer**(缓冲), is a memory area that stores data being transferred betwee
 * support copy semantics for application I/O
     * With copy semantics, the version of the data written to disk is guaranteed to be the version at the time of the application system call, independent of any subsequent changes in the application’s buffer. 
     * A simple way in which the operating system can guarantee copy semantics is for the `write()` system call to copy the application data into a kernel buffer before returning control to the application.
+
 #### Caching
 
 A **cache**(缓存) is a region of fast memory that holds copies of data. 
@@ -177,12 +195,35 @@ A **cache**(缓存) is a region of fast memory that holds copies of data.
     * a buffer may hold the only existing copy of a data item, whereas a cache, by definition, holds a copy on faster storage of an item that resides elsewhere.
     * a buffer is used for data transfer, while a cache is used for faster data transfer.
 
+#### Spooling and Device Reservation
+
+A **spool**(Simultaneous Peripheral Operations On-Line) buffers data for (peripheral) devices such as printers that cannot support interleaved data streams.
+
+If multiple processes want to print at the same time, they each send their print data to files stored in the spool directory. When each file is closed, then the application sees that print job as complete, and the print scheduler sends each file to the appropriate printer one at a time.
+
+#### Error Handling
+
+* I/O requests can fail for many reasons, either transient(buffers overflow) or permanent(disk crash).
+* I/O requests usually return an error bit ( or more ) indicating the problem. UNIX systems also set the global variable *errno* to one of a hundred or so well-defined values to indicate the specific error that has occurred.
+
+#### I/O Protection
+
+A user process may accidentally or purposely attempt to disrupt the normal operation of a system by attempting to issue illegal I/O instructions. To prevent users from performing illegal I/O, users cannot issue I/O instructions directly; they must do it through the operating system:
+
+* a user program executes a system call to request that the operating system perform I/O on its behalf.
+* the operating system, executing in monitor mode, checks that the request is valid and, if it is, does the I/O requested. 
+* the operating system then returns to the user.
+
+
+![](figures/protected_io.jpg)
+
 #### Kernel Data Structures
+The kernel needs to keep state information about the use of I/O components.
 
 ![](figures/kernel_data_structures_io.jpg)
 
 
-见[系统级IO](../深入了解计算机系统/10 系统级IO.md)
+见[系统级IO](10 系统级IO.md)
 
 #### Power Management
 

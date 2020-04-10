@@ -1,8 +1,4 @@
----
-title: Index
-toc: false
-date: 2017-07-07
----
+#  大数据算法 
 
 * [1. 共同URL](1. 共同URL.md)
 

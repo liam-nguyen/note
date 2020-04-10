@@ -3,7 +3,7 @@ title: MyBatis
 ---
 
 
-### 概述
+### 1 概述
 
 > [MyBatis](http://www.mybatis.org/mybatis-3/zh/index.html)是一款优秀的持久层框架，它支持定制化SQL、存储过程以及高级映射。MyBatis避免了几乎所有的JDBC代码和手动设置参数以及获取结果集。MyBatis可以使用简单的XML或注解来配置和映射原生信息，将接口和Java的POJOs映射成数据库中的记录。
 
@@ -15,13 +15,13 @@ ORM: 对象关系映射(Object Relation Mapping)
 
 ![orm 模型](figures/orm.png)
 
-ORM模型可以用传统JDBC实现，但是传统JDBC程序的设计缺陷
+ORM模型可以用传统JDBC实现，但是传统JDBC程序有以下设计缺陷：
 
 * 大量配置信息硬编码：将数据库位置、密码等保存在代码中，违反软件开发的[OCP原则](../Head First设计模式/3 Decorator Pattern.md#2-the-open-closed-principle)
 * 大量的无关业务处理的编码：数据库连接的打开和关闭，sql语句的建立和发送
 * 扩展优化极为不便：数据库连接池
 
-适合于：
+其适合于：
 
 * 更加关注SQL优化的项目
 * 需求频繁更新改动的项目
@@ -29,7 +29,7 @@ ORM模型可以用传统JDBC实现，但是传统JDBC程序的设计缺陷
 ![mybatis_framework](figures/mybatis_framework.png)
 
 
-### 核心组件
+### 2 核心组件
 
 MyBatis的核心组件分为四部分：
 
@@ -60,7 +60,7 @@ SqlSessionFactory SqlSessionFactory = null;
 * 配置缓存
 * 提供动态SQL
 
-### MyBatis配置
+### 3 MyBatis配置
 
 
 MyBatis配置文件并不复杂，它所有的元素如下：
@@ -344,7 +344,7 @@ public interface RoleMapper {
 </mapper>
 ```
     
-### 映射器
+### 4 映射器
 
 映射器是MyBatis最复杂且最重要的组件。它由一个接口加上XML文件(或者注解)组成。在映射器中可以配置参数、SQL语句、存储过程、缓存、级联等复杂的内容，并且通过简易的映射规则映射到指定的POJO或者其他对象上，映射器能够有效消除JDBC底层的代码。
 
@@ -435,8 +435,9 @@ MyBatis会严格按照驼峰命名的方式做自动映射。如果需要更为�
 
 MyBatis中可以使用`RowBounds`进行分页。
 
-```java tab= "Mapper接口"
-public List<Role> findByRowBounds(@Param("roleName") String roleName, @Param("note") String note, RowBounds rowBounds);
+```java tab="Mapper接口"
+public List<Role> findByRowBounds(@Param("roleName") String roleName, 
+    @Param("note") String note, RowBounds rowBounds);
 ```
 
 ```xml tab="mapper配置"

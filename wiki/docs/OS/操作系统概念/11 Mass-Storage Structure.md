@@ -66,6 +66,9 @@ Before it can use a drive to hold files, Storage devices needs:
 3. **volume creation and management**(卷): implicit creation with partition
 4. **logical formatting**(逻辑格式化)：the operating system stores the initial file-system data structures onto the device.
 
+![low_level_formatting](figures/low_level_formatting.png)
+
+
 
 !!! note ""Partition v.s. Volume"
     

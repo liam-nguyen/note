@@ -1,8 +1,4 @@
----
-title: Index
-toc: false
-date: 2017-07-07
----
+###  Head First Java 
 
 * [1 Dive in A Quick Dip](1 Dive in A Quick Dip.md)
 * [2 Classes and Objects](2 Classes and Objects.md)

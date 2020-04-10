@@ -1,8 +1,4 @@
----
-title: Index
-toc: false
-date: 2017-07-07
----
+#  编译原理 
 
 * [1 简介](1 简介.md)
 

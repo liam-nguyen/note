@@ -47,5 +47,5 @@ A Bloom filter is remarkably simple. It consists of a bit array and a handful of
     
     * Compute the two hashes of "quux", and get the values 4, 3, 5 and 0.
     * Check bit 4 in the bit array. It is not set, so "quux" cannot be present. We do not need to check bit 3.
-
+    
     ![](figures/bloom-filter-demo.jpg)

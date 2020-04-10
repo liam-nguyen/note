@@ -46,7 +46,7 @@ The operating system keeps a table, called the **open-file-table**, containing i
 
 ISSUES: Several different applications open the same file at the same time.
 
-SOLUTION: The operating system uses two levels of internal tables: a per-process table and a system-wide table.[参见 内核数据结构](../深入了解计算机系统/10 系统级IO.md)
+SOLUTION: The operating system uses two levels of internal tables: a per-process table and a system-wide table.[参见 内核数据结构](10 系统级IO.md)
 
 * The per-process table tracks all files that a process has open.
     *  It Stores information regarding the process's use of the file (e.g. the current file pointer for each file, access rights to the file and accounting information)

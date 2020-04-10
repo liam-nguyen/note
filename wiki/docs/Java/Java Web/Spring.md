@@ -1130,7 +1130,7 @@ execution(<访问修饰符>?<返回类型><方法名>(<参数>)<异常>)
 
 
 #### Spring-MyBatis
-目前大部分的Java互联网项目，都是用Spring MVC+ Spring + MyBatis搭建平台的。使用Spring IoC可以有效管理各类Java资源，达到热插拔的功能；通过AOP框架，数据库事务可以委托给Spring处理，消除很大一部分的事务代码，配合MyBatis的高灵活、可配置、可优化SQL等特性，完全可以构建高性能的大型网站。
+目前大部分的Java互联网项目，都是以Spring MVC+ Spring + MyBatis平台搭建的。使用Spring IoC可以有效管理各类Java资源，达到热插拔的功能；通过AOP框架，数据库事务可以委托给Spring处理，消除很大一部分的事务代码，配合MyBatis的高灵活、可配置、可优化SQL等特性，完全可以构建高性能的大型网站。
 
 MyBatis社区开发了MyBatis-Spring项目([Maven主页](https://mvnrepository.com/artifact/org.mybatis/mybatis-spring)).
 
@@ -1143,7 +1143,7 @@ MyBatis社区开发了MyBatis-Spring项目([Maven主页](https://mvnrepository.c
 </bean>
 ```
 
-MyBatis的运行之需要提供Mapper的接口，其实现是由MyBatis的动态代理实现的，所以Spring也没有办法为其实现Mapper类并注册。通过扫描的方式去配置Mapper类是最简单的方式。
+MyBatis的运行需要提供Mapper的接口，其实现是由MyBatis的动态代理实现的，所以Spring也没有办法为其实现Mapper类并注册。通过扫描的方式去配置Mapper类是最简单的方式。
 
 ```xml
 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -1253,7 +1253,7 @@ public interface PlatformTransactionManager {
     void rollback(TransactionStatus status);
 ```
 
-在Spring中，有多种事务管理器的实现，常用的是`DataSourceTransactionManager`。
+在Spring中，有多种事务管理器的实现，常用的是`DataSourceTransactionManager`(适用于JDBC)。
 
 
 ![spring-transaction-class-diagram](figures/spring-transaction-class-diagram.jpg)
@@ -1306,7 +1306,7 @@ public interface TransactionStatus{
 
 [[详见Spring官方文档](https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#spring-data-tier)]
 
-使用声明式事务非常简单，之需要在类和方法上加上@`@Transactional`注解，并在配置上类加上`@EnableTransactionManagement`即可。其中`@Transactional`注解的可配置项如下：
+使用声明式事务可以通过注解或者XML配置。前者只需要在类和方法上加上`@Transactional`注解，并在配置类上加上`@EnableTransactionManagement`即可。其中`@Transactional`注解的可配置项如下：
 
 
 | 配置项 | 含义 |  备注 |
@@ -1317,17 +1317,20 @@ public interface TransactionStatus{
 | timeout | 超时时间 | 单位为秒，当超时时，会引发异常，默认会导致事务回滚 |
 | readOnly | 是否开启只读事务 | 默认为false |
 
+
+
+
 Spring的声明式事务是通过AOP代理实现的，其事务通知(transactional advice)是由XML或者注解提供的。
 
 ![](figures/conceptual_view_of_transaction.png)
 
 
-在Spring IoC容器初始化时，Spring会读入注解或者XML配置的事务信息，并且保存到一个事务定义类里面(`TransactionDefinition`接口的子类)，以备将来使用。当运行时会让Spring拦截注解标注的某一个方法或者类的所有方法。
+在Spring IoC容器初始化时，Spring会读入注解或者XML配置的事务信息，并且保存到一个事务定义类里面(`TransactionDefinition`接口的子类)，以备将来使用。当运行时会让Spring拦截注解标注的某一个方法或者类的所有方法。首先Spring通过事务管理器创建事务，并设置隔离级别、超时时间等属性。Spring通过反射的方式调度开发者的代码，如果发生异常，则将数据库回滚，否则将事务提交。
 
 ![@transactiona](figures/@transactional.png)
 
 
-要使用`@Transactional`注解，需要配置注解驱动
+注意要使用`@Transactional`注解，需要配置注解驱动
 
 ```xml
 <tx:annotation-driven transaction-manager="transactionManager"/>
@@ -1457,7 +1460,6 @@ Spring的声明式事务是通过AOP代理实现的，其事务通知(transactio
     	   <property name="sqlSessionFactoryBeanName" value="SqlSessionFactory" />
     	   <property name="annotationClass" value="org.springframework.stereotype.Repository" />
     	</bean>
-    	
     </beans>
     ```
     
@@ -1471,25 +1473,31 @@ Spring的声明式事务是通过AOP代理实现的，其事务通知(transactio
     ```java tab="RoleListServiceImpl"
     @Service
     public class RoleListServiceImpl implements RoleListService {
-    	@Autowired
-    	private RoleService roleService = null;
-    	Logger log = Logger.getLogger(RoleListServiceImpl.class);
-    	@Override
-    	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
-    	public int insertRoleList(List<Role> roleList) {
-    		int count = 0;
-    		for (Role role : roleList) {
-    			try {
-    				count += roleService.insertRole(role);
-    			} catch (Exception ex) {
-    				log.info(ex);
-    			}
-    		}
-    		return count;
-    	}
+    	  @Autowired
+    	  private RoleService roleService = null;
+    	  Logger log = Logger.getLogger(RoleListServiceImpl.class);
+    	  
+    	  @Override
+    	  @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+    	  public int insertRoleList(List<Role> roleList) {
+    		   int count = 0;
+    		   for (Role role : roleList) {
+    			    try {
+    				    count += roleService.insertRole(role);
+    			    } catch (Exception ex) {
+    				    log.info(ex);
+    			    }
+    		   }
+    		 return count;
+    	  }
+    }
+    public interface RoleListService {
+	     public int insertRoleList(List<Role> roleList);
     }
     ```
-    
+
+
+
     
 ### 7 Spring MVC
 
@@ -1512,7 +1520,7 @@ Spring MVC基于模型-视图-控制器(MVC)模式实现，是Spring提供给Web
 ![](figures/spring_mvc_process_jiantu.jpg)
 
 1. 客户端发送请求，带有用户所请求内容的信息。Spring MVC所有的请求都会通过前端控制器(DispatcherServlet)；
-2. 前端控制器查询一个或多个处理器映射(HanderMapping)来确定请求处理顺序。处理器映射会根据请求所携带的URI信息来进行决策；
+2. 前端控制器查询一个或多个处理器映射(HandlerMapping)来确定请求处理顺序。处理器映射会根据请求所携带的URI信息来进行决策；
 3. 一旦选择了合适的控制器，DispatcherServlet会将请求发送给选中的控制器(Controller)；
 4. 控制器在完成处理后，返回模型和视图(ModelAndView)；
 5. DispatcherServlet将会使用视图解析器(ViewResolver)来将逻辑视图名匹配为一个特定的视图实现(例如JSP)；

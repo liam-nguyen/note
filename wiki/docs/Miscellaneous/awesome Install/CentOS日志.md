@@ -22,7 +22,7 @@ ONBOOT=yes
 IPADDR=192.168.56.106
 NETMASK=255.255.255.0
 NAME="eth3"
-HWADDR=08:00:27:73:6D:33
+HWADDR=08:00:27:DD:BB:5E
 ```
 
 随后重启网络服务: `service network restart`(Centos7命令为`systemctl restart network.service`)。随后运行`yum install net-tools`来安装`ifconfig`工具。
@@ -50,13 +50,13 @@ systemctl enable sshd.service
 然后利用`ssh-copy-id`命令将密钥拷贝到虚拟机，过程中选择yes，并输入密码。
 
 ```bash
-ssh-copy-id centos
+ssh-copy-id hadoop@centos
 ```
 
 然后在主机上登陆虚拟机
 
 ```bash
-ssh centos
+ssh hadoop@centos
 ```
 
 
@@ -79,17 +79,25 @@ yum makecache
 #### 常用软件
 
 安装常用开发软件
+
 ```bash
 yum -y install vim git wget 
 ```
 
 #### 配置用户
 
-为用户user添加sudo权限。修改`/etc/sudoers`文件
+新增用户和用户组
+
+```bash
+useradd hadoop # 新增用户
+passwd hadoop # 设置密码
+```
+
+为用户hadoop添加sudo权限。修改`/etc/sudoers`文件
 
 ```text
 root ALL=(ALL) ALL
-user ALL=(ALL) ALL #user改成您的用户名
+hadoop ALL=(ALL) ALL #hadoop改成您的用户名
 ```
 
 #### 修改主机名
@@ -102,13 +110,12 @@ user ALL=(ALL) ALL #user改成您的用户名
 
 ```
 # zsh
-yum -y install zsh
-yum -y install  git
+yum -y install git, zsh
 # 安装oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-由于往往有多台虚拟机，所以希望显示[登陆用户，主机名，路径]这样的信息，否则很容易搞混虚拟机，产生误操作。在`～/.zshrc`文件中添加
+由于往往有多台虚拟机，所以希望显示[登陆用户@主机名 路径]这样的信息，否则很容易搞混虚拟机，产生误操作。在`～/.zshrc`文件中添加
 
 ```bash
 PROMPT='%{$fg_bold[yellow]%}%n@%m ${ret_status} %{$fg[cyan]%}%d%{$reset_color%} $(git_prompt_info)'
@@ -134,7 +141,7 @@ mysqladmin -u root  password 'new-password';
 
 ```sql
 #使用mysql数据库        
- use mysql；
+use mysql；
 #修改          
 update user set password=password("new-password") where user="root";
 #刷新权限        
@@ -171,7 +178,6 @@ service iptables stop
 chkconfig iptables off
 # Centos 7
 systemctl stop firewalld.service
-
 ```
 
 或者把Hadoop、Mysql等常用端口开放了，但是端口有点多，稍嫌麻烦：
@@ -195,48 +201,35 @@ sudo ntpdate  time.apple.com
 ```bash
 vim /etc/crontab
 # 每分钟同步时间
-*/1 * * * * ntpdate ntp1.aliyun.com
+*/1 * * * * ntpdate root ntp1.aliyun.com
 ```
 
 
+#### 共享文件夹
+
+共享文件夹的所有者为root，所属的组是vboxsf，并且只有这两个用户有访问权限。需要将当期登录用户加入到vboxsf组：
+
+```bash
+sudo usermod -a -G vboxsf hadoop
+```
+
+### 2 运维
 #### 克隆
 
-选中虚拟机以后，选择右键clone。注意需要修改新的系统的主机名，网络地址，host文件。
+选中处于暂停的虚拟机后，右键选择clone。注意需要修改新的系统的主机名，网络地址，host文件。
 
+#### 扩容
 
-### 2 大数据搭建
-#### Hadoop 集群
+首先进行扩容
 
-<!--#### Unable to load native-hadoop library
+```bash
+# 注意: --resize后面的单位是M
+VBoxManage modifymedium "/path/to/vdi/" --resize 51200
+```
 
+运行lsblk命令查看系统磁盘会发现新增的sda2。接下来下载[GParted](https://gparted.org/download.php)软件，并挂载该ISO文件后启动。选择需要扩容的硬盘，右键Resize/Move，选择大小后确定。一切就绪后，点击Apply即可。由于使用了LVM，还需要使LVM知道这些变更。使用`pvs`查看VG(即下面的vg_livedvd)，随后：
 
--->
-
-
-!!! problem "unable to load native library"
-
-    Centos6遇到这个问题，一般是缺少GLIBC_2.14。可以用命令`ldd $HADOOP_HOME/lib/native/libhadoop.so.1.0.0`验证。
-    
-    ```bash
-    wget  http://ftp.gnu.org/gnu/glibc/glibc-2.17.tar.gz
-    tar -xvf glibc-2.17.tar.gz
-    cd glibc-2.17
-    mkdir build
-    cd build 
-    ../configure --prefix=/usr --disable-profile --enable-add-ons \
-            --with-headers=/usr/include --with-binutils=/usr/bin
-    make -j 8
-    make  install
-    strings /lib64/libc.so.6 | grep GLIBC
-    ```
-
-
-#### spark集群
-
-
-
-
-### 3 Centos升级
-
-
-
+```bash
+lvextend -l+100%FREE /dev/vg_livedvd/lv_root
+resize2fs /dev/vg_livedvd/lv_root
+```

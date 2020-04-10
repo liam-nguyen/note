@@ -10,7 +10,7 @@ tags: [Markdown]
 [Pandoc](https://pandoc.org)可以方便的转换Markdown格式。其中一个最有用的功能是多个md文件生成pdf文档。
 
 ```bash
-pandoc --toc -o book.pdf title.txt *.md --pdf-engine=xelatex
+pandoc --toc -o book.pdf title.txt *.md --pdf-engine=xelatex 
 ```
 
 其中title.text是pdf文档的题目信息

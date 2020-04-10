@@ -1,314 +1,298 @@
 import os
-import time
-import codecs
 import re
-
-"""
-给每个文件夹生成一个导航文件
-"""
+import codecs
 
 # escape these directories when scanning
 INVALID_DIR = {'figures', 'custom_theme', 'tags', 'css', '爬虫', 'Mila', 'Prob', 'APUE',
-               'Projects', '其他', 'Tags', 'cpj', 'CSE521', 'Mila', 'Spark快速大数据分析'}
-
-# top_categeory
-TOP_CATEGORY = {'Java', 'Algorithm', 'OS', 'Big Data', 'Data Science', 'Miscellaneous', 'Leetcode'}
+               'Projects', 'Tags', 'cpj', 'CSE521', 'Mila', 'Spark快速大数据分析'}
 
 # escape these files when scanning
-INVALID_FILES = {'index.md', '目录.md'}
+INVALID_FILES = {'目录.md'}
 
-# 当前时间
-CURRTIME = "2017-07-07"
-CURRTIMES = time.strftime("%Y-%m-%d", time.localtime())
+TOP = "/Users/larry/Documents/note/wiki/docs/"
 
-# 配置文件
-CONFIG_FILE = "mkdocs.yml"
-
-# 文件开始格式
-FILEMETA = """---
-title: %s
-toc: false
-date: %s
----
-
-"""
-
-
-def get_wiki_site():
-    cur_path = os.getcwd()
-    if cur_path.endswith('/bin'):
-        cur_path = cur_path[:-4]
-    return cur_path
-
-
-def is_md_file(filename):
+class File:
     """
-    Is the file a markdown file?
+    文件
     """
-    return filename[-3:] == '.md'
+
+    def __init__(self, name, path):
+        """
+        构建一个文件
+        :param path: 文件路径, 绝对路径
+        :param name: 文件名称
+        """
+        self.name = name
+        self.path = path
+
+    def is_hidden_file(self):
+        """
+        return true if the given file is a hidden file
+        """
+        return self.name.split("/")[-1].startswith(".")
 
 
-def is_hidden_file(filename):
-    """
-    return true if the given file is a hidden file
-    """
-    return filename.split("/")[-1].startswith(".")
+    def is_md_file(self):
+        """
+        Is the file a markdown file?
+        """
+        return self.name[-3:] == '.md'
 
 
-def is_valid_file(path):
+    def is_valid_folder(self):
+        """
+        Return true if the  given file is a valid folder
+        """
+        if not os.path.isdir(self.path):
+            return False
+        if self.is_hidden_file():
+            return False
+        if self.name in INVALID_DIR:
+            return False
+        return True
+
+    def is_valid_file(self):
+        """
+        Return true if the  given file is either markdown file or a valid directory
+        """
+        if not self.is_md_file():
+            return False
+        if self.is_hidden_file():
+            return False
+        if self.name in INVALID_FILES:
+            return False
+        return True
+
+
+
+class Item:
     """
-    Return true if the  given file is either markdown file or a valid directory
+    条目：可以是一本书，或者一个章节，或整个导航
     """
-    if is_hidden_file(path):
+
+    def __init__(self, name, path):
+        """
+        :param name: 条目名称
+        :param path: 条目路径，绝对路径
+        """
+        self.name = name
+        self.path = path
+        #  子条目
+        self.items = []
+
+    def add_item(self, item):
+        """
+        在该条目下添加一个子条目
+        :param item: 子条目
+        """
+        self.items.append(item)
+        return self
+
+    def add_items(self, items):
+        """
+        在该条目下添加多个子条目
+        :param items: 子条目列表
+        """
+        self.items.extend(items)
+        return self
+
+    def __contains__(self, item):
+        """
+        查询是否包含某个子条目
+        :param item: 子条目
+        :return: 是否包含该子条目
+        """
+        for _item in self.items:
+            if _item == item:
+                return True
         return False
-    return is_md_file(path) or os.path.isdir(path)
 
-
-def index(path):
-    """
-    给每个文件夹生成一个导航文件
-    并更新"mkdocs.yml"文件
-    """
-
-    # path对应的必须是个文件夹
-    if not os.path.isdir(path):
-        raise NameError("The path of Directory is INCORRECT.")
-    # 处理文件夹下面的每一个文件
-    items = []  # items, 文件名列表
-    menus = []  # menus
-    for filename in os.listdir(path):
-        file_path = os.path.join(path, filename)
-        # not a valid file
-        if not is_valid_file(file_path):
-            continue
-        # it is a directory
-        elif os.path.isdir(file_path) and filename not in INVALID_DIR:
-            x = index(file_path)
-            if x:  # valid content?
-                (menu_content, meta_menu) = x
-                menus.append((filename, menu_content, meta_menu))
-        # it is a markdown file ?
-        elif is_md_file(file_path) and not is_hidden_article(file_path) and filename not in INVALID_FILES:
-            items.append(filename)
-
-    # 生成一个导航文件
-    if menus:  # 生成书的导航
-        index_menus = create_index_menus(menus)
-        meta_menuses = create_meta_menus(path, menus, items)
-        if path == os.path.join(get_wiki_site(), 'docs'):  # 这个是总目录
-            filename = '目录.md'
-            index_menus = replace_space(index_menus)  # 把路径中的空格替换
-            # 在配置文件mkdocs.yml中更新nav选项，以便生成正确的目录结构
-            update_mkdocs(os.path.join(os.path.split(path)[0], CONFIG_FILE), meta_menuses)
-        else:
-            # 这个是每本书的目录
-            filename = 'index.md'
-        write_index_menus(os.path.join(path, filename), index_menus)
-        return index_menus, meta_menuses
-    elif items and len(items) >= 2:  # 生成每本书的章节导航，但需要章节数大于3
-        index_items = create_index_items(items)
-        write_index_items(path, index_items)
-        # 产生每本书的元信息
-        meta_menu = create_meta_items(path, items)
-        return index_items, meta_menu
-
-
-class Nav:
-    """
-    导航：可以是一本书，或者一个章节
-    """
-    def __init__(self, title, location):
-        self.title = title
-        self.location = location
-
-
-class Item(Nav):
-    """
-    导航项目
-    """
-    def __str__(self):
-        return self.to_nav(0)
-
-    def to_nav(self, level):
+    def __eq__(self, other):
         """
-        选择第n级目录，并打印目录
+        判断条目是否相等
+        :param other: 另一个条目
+        :return: 条目是否相等
         """
-        return "    " * level + "- '" + self.title + "': '" + self.location + "'"
+        if self.name != other.name:
+            return False
+        if self.path != other.path:
+            return False
+        if set(self.items) != set(other.items):
+            return False
+        return True
 
-
-class Menu(Nav):
-    """
-    导航菜单
-    """
-    def __init__(self, title, location, items):
-        super().__init__(title, location)
-        self.items = items
+    def print(self, level):
+        """
+        打印输出
+        :param level: 第几级子条目，从0级开始
+        :return: 字符串
+        """
+        s = level * "    " + "- '" + self.name + "':  '" + self.path + "'\n"
+        for item in self.items:
+            s += item.print(level+1)
+        return s
 
     def __str__(self):
-        return self.to_nav(0)
+        return self.print(0)
 
-    def to_nav(self, level):
+
+    def type(self):
         """
-        选择第n级目录，并打印目录
+        返回条目等级：1，2，3。。。
         """
-        if isinstance(self.items[-1], Menu):  # 需要排序
-            self.items = sorted(self.items, key=lambda x: x.title)
-        rest = '\n'.join([item.to_nav(level + 1) for item in self.items])
-        if level < 0:   # 这一级目录跳过
-            return rest
-        return "    " * level + "- '" + self.title + "': " + "\n" + rest
-
-
-def update_mkdocs(path, meta_menuses):
-    """
-    在配置文件mkdocs.yml中更新nav选项
-    """
-    old_contents = []  # 列表每一项代表文件中的每一行
-    with codecs.open(path, mode='r', encoding='utf-8') as f:
-        old_contents = f.read()
-    # 寻找到nav标签，并且删除
-    try:
-        start_pos_of_nav = old_contents.index("nav:")
-    except:
-        start_pos_of_nav = len(old_contents)
-    contents = old_contents[0:start_pos_of_nav]
-    contents += ("nav:" + '\n')
-    new_contents = meta_menuses.to_nav(-1)
-    # 移除多余空格
-    with codecs.open(path, mode='w', encoding='utf-8') as f:
-        f.write(contents + new_contents)
-
-
-def replace_space(string):
-    """
-    将路径中的空格替换成%20
-    """
-    new_string = ""
-    for line in string.split('\n'):
-        match = re.search(r"\(.*\)", line)
-        if match:
-            revised = re.sub(r"\s", r"%20", match.group())
-            line = re.sub(r"\(.*\)", revised, line)
-        new_string += line + '\n'
-    return new_string
-
-
-def write_index_menus(path, contents):
-    """
-    把书本/课程导航写入文件
-    """
-    category = path.split(r'/')[-1]
-    title = FILEMETA % ('Index', CURRTIME)
-    with codecs.open(path, mode='w', encoding='utf-8') as f:
-        f.write(title + contents)
-
-
-def create_index_menus(menus):
-    """
-    创建菜单的导航
-    """
-    index_menus = []
-    for menu_name, menu_content, meta_menu in menus:
-        if menu_name in TOP_CATEGORY:
-            title = '### %s \n\n' % menu_name
+        if not self.items:
+            return 1
         else:
-            title = '#### %s \n\n' % menu_name
-        index_menus.append(title)
-        index_menus.append(menu_content.replace('(', '(' + menu_name + '/'))
-    return ''.join(index_menus)
+            return max(list(map(lambda item: item.type() + 1, self.items)))
+
+    def traverse(self):
+        """
+        遍历文件夹，自动匹配、添加、生成子条目
+        """
+        for filename in os.listdir(self.path):
+            filepath = os.path.join(self.path, filename)
+            file = File(filename, filepath)
+            if file.is_valid_file():
+                self.add_item(Item(filename, filepath))
+            elif file.is_valid_folder():
+                item = Item(filename, filepath)
+                item.traverse()
+                self.add_item(item)
+        self.sort_items()
+
+    def sort_items(self):
+        """
+        根据数字和字母顺序将子条目进行排序：升序
+        """
+        digit_sort = []
+        letter_sort = []
+        for item in self.items:
+            # 提取章节号
+            item_number = re.search(r'\d+', item.name)
+            # 如果章节号存在，则依据章节号排序
+            if item_number:
+                digit_sort.append((int(item_number.group()), item))
+            # 特殊情况：把index.md 放在最前面
+            elif item.name == "index.md":
+                digit_sort.append((-9999, item))
+            else:  # 否则根据字母排序
+                letter_sort.append((item.name, item))
+        letter_sort.sort(key=lambda x: x[0])
+        digit_sort.sort(key=lambda x: x[0])
+        # 先数字顺序，然后字母顺序
+        digit_sort.extend(letter_sort)
+        self.items = list(map(lambda x: x[1], digit_sort))
+
+    def generate_index(self):
+        """
+        生成index文件内容: 只适用于type=2
+        """
+        index_content = []
+        for item in self.items:
+            if item.name == 'index.md':  # 生成index不能包含自己
+                continue
+            index_content.append('* [%s](%s)\n' % (item.name.replace('.md', ''), item.name))
+        index_content.append('\n')
+        return ''.join(index_content)
+
+    def generate_index_title(self, type):
+        """
+        index文件的标题, type来自self.type()
+        """
+        # 如果是总index的话，就不要标题了
+        if self.name == "docs":
+            return ""
+        return (6 - type) * "#" + '  %s \n\n' % self.name
+
+    def write_index(self):
+        """
+        将该条目写入到index文件中
+        返回index文件内容
+        """
+        # 包含子条目吗？
+        type = self.type()
+        if type == 1:
+            return '* [%s](%s)\n' % (self.name.replace('.md', ''), self.name)
+        elif type == 2:
+            # 只有几个条目，就不要有index了
+            if len(self.items) < 4:
+                return ""
+            content = []
+            # 对于每个子条目，也写入index文件中，并返回子条目的内容
+            content = self.generate_index()
+            with codecs.open(os.path.join(self.path, 'index.md'), 'w') as file:
+                file.write(self.generate_index_title(3) + content)
+                return self.generate_index_title(type) + content
+        else:
+            content = ""
+            for item in self.items:
+                content += item.write_index()
+            with codecs.open(os.path.join(self.path, 'index.md'), 'w') as file:
+                file.write(self.generate_index_title(4) + content)
+                return self.generate_index_title(type) + content
+
+    def yaml(self, level):
+        """
+        生成yaml条目
+        """
+        if self.type() == 1:
+            s = level * "    " + "- '" + self.name.replace('.md', '') + "': '" + self.path.replace(TOP, "") + "'\n"
+
+        else:
+            s = level * "    " + "- '" + self.name + "': \n"
+
+        # 剩余部分
+        for item in self.items:
+            s += item.yaml(level+1)
+        return s
+
+    def generate_yaml(self):
+        """
+        生成yaml目录
+        :return:
+        """
+        s = ""
+        for item in self.items:
+            s += item.yaml(0)
+        return s
 
 
-def create_meta_menus(path, menus, items):
-    """
-    创建菜单的元信息
-    menus: 菜单
-    items: 项目
-    """
-    menuses = []
-    if items:
-        menuses.extend(create_meta_items(path, items).items)
-    path = path.split("docs/")[-1]
-    for menu_name, menu_content, meta_menus in menus:
-        menuses.append(meta_menus)
-
-    meta_menus = Menu(path.split("/")[-1], path, menuses)
-    return meta_menus
-
-
-def write_index_items(path, contents):
-    """
-    把项目导航写入文件
-    """
-    menu = path.split(r'/')[-1]
-    title = FILEMETA % ("Index", CURRTIME)
-    with codecs.open(os.path.join(path, 'index.md'), mode='w', encoding='utf-8') as f:
-        f.write(title + contents)
-
-
-def create_index_items(items):
-    """
-    返回写入到导航文件中的内容，用于生成index.md文件
-    items：项目列表，包含每一章名称以及路径
-    """
-    index_items = []
-    items = sort_items(items)
-    for item_name in items:
-        index_items.append('* [%s](%s)\n' % (item_name.replace('.md', ''), item_name))
-    index_items.append('\n')
-    return ''.join(index_items)
-
-
-def create_meta_items(path, items):
-    """
-    创建每本书的每个章节的元信息，用于生成左边的目录导航
-    items：章节列表，包含每一章名称以及相对路径
-    """
-    meta_items = []
-    items = sort_items(items)
-    path = path.split("docs/")[1]
-    meta_items.append(Item("index", path + "/" + "index.md"))
-    for item_name in items:
-        name = item_name.replace('.md', '')
-        location = path + "/" + item_name
-        meta_items.append(Item(name, location))
-    meta_menu = Menu(path.split("/")[-1], path + "/index.md", meta_items)
-    return meta_menu
-
-
-def sort_items(items):
-    """
-    根据章节序号进行排序
-    """
-    digit_sort = []
-    letter_sort = []
-    for item_name in items:
-        item_number = re.search(r'\d+', item_name)
-        # 如果章节号存在，则依据章节号排序
-        if item_number:
-            digit_sort.append((int(item_number.group()), item_name))
-        else:  # 否则根据字母排序
-            letter_sort.append((item_name, item_name))
-    letter_sort.sort()
-    digit_sort.sort()
-    # 字母在前面
-    letter_sort.extend(digit_sort)
-    return map(lambda x: x[1], letter_sort)
-
-def is_hidden_article(path):
-    """
-    返回hiddden元信息
-    """
-    tags = []
-    with codecs.open(path, mode='r', encoding="utf-8") as f:
-        for i in range(10): # search for first 10 lines
-            line = f.readline()
-            tokens = line.split(':')
-            tage = tokens[0].strip().lower()
-            if tage == 'hidden':
-                if tokens[1].strip().lower() == 'true':
-                    return True
-    return False
+    def write_yml(self, ymlfile):
+        """
+        把条目写入yml文件中
+        """
+        old_contents = []  # 列表每一项代表文件中的每一行
+        with codecs.open(ymlfile, mode='r', encoding='utf-8') as f:
+            old_contents = f.read()
+        # 寻找到nav标签，并且删除
+        try:
+            start_pos_of_nav = old_contents.index("nav:")
+        except:   # nav:标签可能不存在
+            start_pos_of_nav = len(old_contents)
+        contents = old_contents[0:start_pos_of_nav]
+        contents += ("nav:" + '\n')
+        contents += self.generate_yaml()
+        with codecs.open(ymlfile, mode='w', encoding='utf-8') as f:
+            f.write(contents)
 
 
 if __name__ == "__main__":
-    index(os.path.join(get_wiki_site(), 'docs'))
+    blog_item = Item("docs", "/Users/larry/Documents/note/wiki/docs")
+    blog_item.traverse()
+    blog_item.write_yml("/Users/larry/Documents/note/wiki/mkdocs.yml")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

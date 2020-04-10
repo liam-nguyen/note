@@ -87,7 +87,7 @@ The mutual-exclusion condition must hold.
 
 SOLUTION: Allows a thread to request resources only when it has none.
 
-e.g [多线程设计模式 - Balking模式](../../Java/高并发/多线程设计模式.md)
+e.g [多线程设计模式 - Balking模式](多线程设计模式.md)
 
 3. No Preemption
 

@@ -42,10 +42,18 @@ Type 1 hypervisors: operating-system-like software built to provide virtualizati
 Type 1 hypervisors run in kernel mode, taking advantage of hardware protection. Because they are operating systems, they must also provide CPU scheduling, memory management, I/O management, protect and so on.
 
 
-!!! example "VMware ESX"
-    
-    ![](figures/vmware_esx.jpg)
+!!! example "KVM"
 
+    ![](figures/kvm.png)
+
+    KVM(Kernel-based Virtual Machine)is a full virtualization solution for the AMD64/Intel 64. It consists of two main component[^1]:
+    
+    * A set of kernel modules (kvm.ko, kvm-intel.ko, and kvm-amd.ko) that provides the core virtualization infrastructure and processor-specific drivers.
+    * A user space program (qemu-system-ARCH) that provides emulation for virtual devices and control mechanisms to manage VM Guests (virtual machines).
+    
+    
+    
+    
 #### Type 2
 
 Type 2 hypervisors: applications that run on standard operating systems but provide VMM features to guest operating systems.
@@ -68,7 +76,7 @@ Rather than try to trick a guest operating system into believing it has a system
 
 !!! example "VirtualBox Paravirtualization Interface"
 
-    VirtualBox enables the exposure of a paravirtualization interface for more accurate and efficient execution of software within a VM. Three paravirtualization interfaces are provided:
+    VirtualBox enables the exposure of a paravirtualization interface for more accurate and efficient execution of software within a VM. Three paravirtualization interfaces are provided[^2]:
     
     * **Minimal**: Announces the presence of a virtualized environment. Additionally, reports the TSC and APIC frequency to the guest operating system. This provider is mandatory for running any Mac OS X guests.
     * **KVM**: Presents a Linux KVM hypervisor interface which is recognized by Linux kernels starting with version 2.6.25. VirtualBox's implementation currently supports paravirtualized clocks and SMP spinlocks. This provider is recommended for Linux guests.
@@ -91,7 +99,7 @@ The major challenge of emulation is performance. Instruction-set emulation may r
 
 The goal of *Application Containment* is to segregate applications, manage their performance and resource use, and create an easy way to start, stop, move, and manage them.
 
-*Containers* are much lighter weight than other virtualization methods. That is, they use fewer system resources and are faster to instantiate and destroy, more similar to processes than virtual machines. Containers are also easy to automate and manage, leading to orchestration tools like docker and Kubernetes.
+*Containers* are much lighter weight than other virtualization methods. That is, they use fewer system resources and are faster to instantiate and destroy, more similar to processes than virtual machines. Containers are also easy to automate and manage, leading to orchestration tools like [docker](Docker.md) and Kubernetes.
 
 
 ### 7 Examples
@@ -102,3 +110,7 @@ The goal of *Application Containment* is to segregate applications, manage their
 VMware Workstation is a popular commercial application that abstracts Intel x86 and compatible hardware into isolated virtual machines.At the heart of VMware is the virtualization layer, which abstracts the physical hardware into isolated virtual machines running as guest operating systems. Each virtual machine has its own virtual CPU, memory, disk drives, network interfaces, and so forth.
 
 ![vmware_workstation](figures/vmware_workstation.png)
+
+
+[^1]: Introduction to KVM Virtualization, https://documentation.suse.com/sles/12-SP4/html/SLES-all/cha-kvm-intro.html
+[^2]: Paravirtualization Providers, https://docs.oracle.com/en/virtualization/virtualbox/6.1/admin/gimproviders.html

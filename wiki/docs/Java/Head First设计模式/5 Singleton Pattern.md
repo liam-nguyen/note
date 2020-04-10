@@ -138,7 +138,7 @@ public class Singleton {
 
 !!! note
     
-    使用`Singleton.class` 而不是`this`,是因为`getInstance()`是一个静态方法。静态方法没有this关键字(见[Head First Java](../Head First Java/10 Numbers and Statics.md))。
+    使用`Singleton.class` 而不是`this`,是因为`getInstance()`是一个静态方法。静态方法没有this关键字(见[Head First Java](10 Numbers and Statics.md))。
 
 采用`volatile`关键字修饰也是很有必要的，`:::java uniqueInstance = new Singleton()`; 这段代码其实是分为三步执行：
 
@@ -148,7 +148,7 @@ public class Singleton {
 
 但是由于JVM会重排指令，执行顺序有可能变成 1->3->2。指令重排在单线程环境下不会出现问题，但是在多线程环境下会导致一个线程获得还没有初始化的实例。例如，线程T1执行了1和 3，此时线程T2调用`getUniqueInstance()`后发现 `uniqueInstance`不为空，因此返回`uniqueInstance`，但此时`uniqueInstance`还未被初始化。
 
-使用`volatile`可以**禁止指令重排序优化**，保证在多线程环境下也能正常运行(volatile的讨论参见[深入了解Java虚拟机](../深入理解Java虚拟机/12 Java内存模型与线程.md/#volatile))。
+使用`volatile`可以**禁止指令重排序优化**，保证在多线程环境下也能正常运行(volatile的讨论参见[深入了解Java虚拟机](12 Java内存模型与线程.md/#volatile))。
 
 
 #### 问题: 序列化
@@ -255,9 +255,9 @@ public class Singleton {
 
 枚举不仅能避免多线程同步问题，而且还能防止反序列化重新创建新的对象。
 
-关于Enum的用法和原理见[Java编程思想](../Java编程思想/20 枚举类型.md)
+关于Enum的用法和原理见[Java编程思想](20 枚举类型.md)
 
-> This approach is functionally equivalent to the public field approach, except that it is more concise, provides the serialization machinery for free, and provides an ironclad guarantee against multiple instantiation, even in the face of sophisticated serialization or reflection attacks. While this approach has yet to be widely adopted, *a single-element enum type is the best way to implement a singleton*. <small>[Effective Java](../Effective Java/2 Creating and Destroying Objects.md)</small>
+> This approach is functionally equivalent to the public field approach, except that it is more concise, provides the serialization machinery for free, and provides an ironclad guarantee against multiple instantiation, even in the face of sophisticated serialization or reflection attacks. While this approach has yet to be widely adopted, *a single-element enum type is the best way to implement a singleton*. <small>[Effective Java](2 Creating and Destroying Objects.md)</small>
 
 
 ```Java

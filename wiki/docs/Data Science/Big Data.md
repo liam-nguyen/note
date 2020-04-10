@@ -161,7 +161,7 @@ Two key components of HDFS
 
 ![](figures/name_node_data_node.jpg)
 
-[View in Detail](Hadoop权威指南/3 The Hadoop Distributed FileSystem.md)
+[View in Detail](Hadoop基础.md)
 
 
 #### yarn

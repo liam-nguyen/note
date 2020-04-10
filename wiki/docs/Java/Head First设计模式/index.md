@@ -1,8 +1,4 @@
----
-title: Index
-toc: false
-date: 2017-07-07
----
+###  Head First设计模式 
 
 * [1 Strategy Pattern](1 Strategy Pattern.md)
 * [2 Observer Pattern](2 Observer Pattern.md)

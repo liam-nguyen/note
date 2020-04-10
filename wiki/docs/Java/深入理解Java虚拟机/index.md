@@ -1,8 +1,4 @@
----
-title: Index
-toc: false
-date: 2017-07-07
----
+###  深入理解Java虚拟机 
 
 * [1 走进Java](1 走进Java.md)
 * [2 Java内存区域与内存溢出正常](2 Java内存区域与内存溢出正常.md)

@@ -2,145 +2,595 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a425725-8907-4521-8bf9-cc3e3a4ecb6c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Database/figures/15851210738719.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Database/figures/15853055501828.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Database/figures/15853056919514.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Database/figures/15853152769569.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Database/figures/15854937774922.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Database/figures/15854945095604.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Database/数据仓库.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Azkaban.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/ELK.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Flink.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Flume.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Hadoop基础.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Hive.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Hue.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Impala.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Kafka.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Oozie.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/1 简介.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/2 Structured API.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/3 Low-level APIs.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/4 Spark是如何在集群上运行的.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/5 Spark Streaming.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/6 MLlib.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/7 调优.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/columnar_in_memory_format.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/dag_example.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/numeric_rdd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/pairRDD_action.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/reduce_by_key_reduce_by_key.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/spark_sql_architecture.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/static_memory_assignment.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/the_architecture_of_a_spark_application.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/the_spark_application_tree.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/tungsten_binary_encoding.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/unified_memory_management.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/unified_memory_management_evict.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/附录.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Zeppelin.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15838676748517.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15842460352209.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15843540410618.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15844026130750.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15844027893044.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15844030264622.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15844030322946.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15844030418410.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15844086214556.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15844881940973.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15854022554764.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/Kafka_producer_components.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/Picture1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/consumer_partition_number.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/flink_API.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/flink_architecture.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/flink_datastream_transform.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/flink_event_driven.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/flink_on_yarn_per_job.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/flink_on_yarn_session.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/flink_standalone_architecture.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/flink_stateful.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/flink_transform_overview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hdfs-ha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hdfs_federation.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hdfs_layer.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/kafka_example_segment_files.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/kafka_in_zookeeper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/kafka_message_format.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/kafka_parition_replica.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/log_index_message.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/mapreduce_compression.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/orc_file_structrure.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/time_window_demo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/yarn_ha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/关于MapReduce.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nav.py" beforeDir="false" afterPath="$PROJECT_DIR$/nav.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/note-imac" beforeDir="false" afterPath="$PROJECT_DIR$/note-imac" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/note-quick-imac" beforeDir="false" afterPath="$PROJECT_DIR$/note-quick-imac" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../custom_theme/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../custom_theme/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../custom_theme/main_beifen.html" beforeDir="false" afterPath="$PROJECT_DIR$/../custom_theme/main_beifen.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickBuild.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickBuild.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Algorithm/CS61B/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Algorithm/CS61B/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Algorithm/Princeton/Topic 3 - Sorting.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Algorithm/Princeton/Topic 3 - Sorting.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Algorithm/Princeton/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Algorithm/Princeton/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Algorithm/Stanford/Topic - Graph.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Algorithm/Stanford/Topic - Graph.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Algorithm/Stanford/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Algorithm/Stanford/index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Algorithm/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Algorithm/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Algorithm/其他/Bloom Filter.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Algorithm/其他/Bloom Filter.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Algorithm/其他/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Algorithm/其他/index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Algorithm/剑指Offer/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Algorithm/剑指Offer/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Big Data.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Big Data.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/1 Meet Hadoop.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/1 Meet Hadoop.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/10 Setting Up a Hadoop Cluster.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/11 Adminstering Hadoop.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/12 Avro.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/12 Avro.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/14 Flume.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/14 Flume.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/15 Sqoop.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/15 Sqoop.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/17 Hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/17 Hive.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/19 Spark.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/2 MapReduce.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/2 MapReduce.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/20 HBase.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/20 HBase.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/3 The Hadoop Distributed FileSystem.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/4 YARN.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/4 YARN.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/5 Hadoop IO.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/5 Hadoop IO.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/6 Developing a MapReduce Application.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/7 How MapReduce Works.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/8 MapReduce Types and Formats.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/9 MapReduce Features.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/figures/15368265326304.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/figures/15368265789576.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/figures/EfficientlyMerging40FileSegamentsWithAMergeFactorOf10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/figures/EfficientlyMerging40FileSegamentsWithAMergeFactorOf10.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/figures/MapReduceDataFlowWithMultipleReduceTask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/figures/The relationship of the Streaming executable to the node manager and the task container.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/Hadoop权威指南/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/1 Introduction to Data Analysis with Spark.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/10 Spark Streaming.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/11 Machine Learning with MLlib.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/2 Downloading Spark and Getting Started.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/3 Programming with RDDs.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/4 Working with Key Value Pairs.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/5 Loading and Saving Your Data.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/6 Advanced Spark Programming.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/7 Running on a Cluster**.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/8 Tuning and Debugging Spark.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/9 Spark SQL.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/cover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/Spark快速大数据分析/index.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Big Data/projects/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Big Data/projects/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Data Science/CMU10601/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/CMU10601/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/MySQL.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/SQL必知必会.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Database/SQL必知必会.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Algorithm/大数据算法/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Algorithm/大数据算法/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Big Data.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Big Data.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database System Concepts.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/MySQL基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Database/MySQL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/Redis.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Database/Redis.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/figures/Screen Shot 2019-06-23 at 2.40.51 PM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/figures/high_performace_mysql.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/figures/mycli.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/figures/redis-data-structure.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/figures/redis_master_slave.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Database/figures/redis_master_slave.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/figures/sentinel.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Database/figures/sentinel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/figures/slave_of.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Database/figures/slave_of.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Database/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/高性能MySQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Database/高性能MySQL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Database/高性能MySQL.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Elastic Stack.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop/cover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/1 Meet Hadoop.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/10 构建Hadoop集群.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/11 管理Hadoop.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/12 Avro.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Avro.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/13 Parquet.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/文件格式.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/14 Flume.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/15 Sqoop.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Sqoop.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/16 Pig.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/17 Hive.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/18 Crunch.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/2 MapReduce.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/20 HBase.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/HBase.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/22 Composable Data at Center.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/23 Biological Data Science.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/24 Cascading.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/3 Hadoop分布式文件系统.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/4 YARN.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/YARN.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/5 Hadoop IO.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/6 开发MapReduce应用.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/7 MapReduce工作机制.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/8 MapReduce类型和格式.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/9 MapReduce特性.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/15368282693146.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15368282693146.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/15380337582983.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15380337582983.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/15668092152192.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15668092152192.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/15704709924589.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15704709924589.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/15704732211403.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15704732211403.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/15707886696744.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15707886696744.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/AClientReadingDataFromHDFS.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/AClientReadingDataFromHDFS.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/AClientWritingDataToHDFS.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/AClientWritingDataToHDFS.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/AccessingHdfsOverHttpOrHdfsProxies.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/AccessingHdfsOverHttpOrHdfsProxies.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/AgentTier.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/AgentTier.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/Data-local-a-rack-local-b-off-rack-c-mapTasks.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/Data-local-a-rack-local-b-off-rack-c-mapTasks.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/EfficientlyMerging40FileSegamentsWithAMergeFactorOf10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/EfficientlyMerging40FileSegamentsWithAMergeFactorOf10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/FSDataInputStream.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/FSDataInputStream.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/FanOut.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/FanOut.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/FileInputFormat_InputSplit_HDFSBlocks.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/FileInputFormat_InputSplit_HDFSBlocks.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/FlumeAgent.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/FlumeAgent.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/HFILE.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/HFILE.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/HadoopFamily.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/HadoopFamily.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/HowHadoopRunsAMapReduceJob.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/HowHadoopRunsAMapReduceJob.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/HowYARNRunsAnApplication.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/HowYARNRunsAnApplication.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/InputFormat_hierarchy.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/InputFormat_hierarchy.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/LocalFileSystemUML.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/LocalFileSystemUML.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/MapReduceDataFlowWithMultipleReduceTask.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/MapReduceDataFlowWithMultipleReduceTask.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/MapReduceLogicalDataFlow.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/MapReduceLogicalDataFlow.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/SinkGroup.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/SinkGroup.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/TheInternalStructureOfASequenceFileWithBlockCompression.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/TheInternalStructureOfASequenceFileWithBlockCompression.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/TheInternalStructureOfSequenceFile.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/TheInternalStructureOfSequenceFile.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/TheMapSide.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/TheMapSide.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/Two_Flume_agents_connected_by_an_Avro_sink-source_pair.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/Two_Flume_agents_connected_by_an_Avro_sink-source_pair.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/WritableClassHierarchy.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/WritableClassHierarchy.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/YARNApplications.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/YARNApplications.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/YARNScheduler.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/YARNScheduler.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/a_typical_replica_pipeline.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/a_typical_replica_pipeline.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/average_random_loopup_parquet.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/average_random_loopup_parquet.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/checkpointing.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/checkpointing.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/datanode_directory_structure.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/datanode_directory_structure.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/first_read.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/first_read.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/flume_example.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/flume_example.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/hadoop1.0-2.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hadoop1.0-2.0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/hbaseDataModel.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hbaseDataModel.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/hbase_architecture.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hbase_architecture.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/hbase_block_cache.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hbase_block_cache.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/hbase_minor_compaction.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hbase_minor_compaction.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/hbase_recover.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hbase_recover.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/hbase_writing.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hbase_writing.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/hive_architecture.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hive_architecture.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/hive_architecture_Ok.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hive_architecture_Ok.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/hive_buckets_example.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hive_buckets_example.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/hive_partitions_buckets.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hive_partitions_buckets.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/hive_partitions_examples.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/hive_partitions_examples.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/memstore.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/memstore.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/metascore_configurations.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/metascore_configurations.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/namenode_directory.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/namenode_directory.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/namenode_directory_structure.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/namenode_directory_structure.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/outputformat.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/outputformat.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/parquet_file_format.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/parquet_file_format.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/regionserver.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/regionserver.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/sqoop_import_explain.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/sqoop_import_explain.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/sqoop_import_export_data.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/sqoop_import_export_data.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/figures/the_checkpointing_process.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/the_checkpointing_process.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Hadoop权威指南/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Kafka.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch10.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch11.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch12.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch13.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch14.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch3.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch4.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch5.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch6.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch7.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch8.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/ch9.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Mila/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Netty.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Netty.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Data Science/Practical Data Science/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Practical Data Science/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Prob/ch1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Prob/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Python/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Python/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Python机器学习基础教程.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Python机器学习基础教程.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Scala/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Scala/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Spark权威指南.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Storm.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Storm.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/Zeppelin.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/ZooKeeper.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/ZooKeeper.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/15819525816628.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15819525816628.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/15819526667541.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15819526667541.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/15819601926466.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/15819601926466.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/DStream_demo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/DStream_demo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/DStream_stateless.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/DStream_stateless.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/High-level_overview_of_Kafka_producer_components.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/Life_cycle_of_spark_application.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/Life_cycle_of_spark_application.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/StreamingContext.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/StreamingContext.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/a_bigdata_ecosystem.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/a_bigdata_ecosystem.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/a_consumer_group_reading_from_a_topic.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/a_consumer_group_reading_from_a_topic.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/accumulator_variable.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/accumulator_variable.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/adding_a_new_consumer_group_ensures_no_messages_are_missed.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/adding_a_new_consumer_group_ensures_no_messages_are_missed.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/basic_spark_data_types.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/basic_spark_data_types.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/broadcast_variables.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/broadcast_variables.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/complex_spark_data_types.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/complex_spark_data_types.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/components_and_libraries_of_spark.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/components_and_libraries_of_spark.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/continuous_application.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/continuous_application.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/distributed_versus_single_machine_analysis.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/distributed_versus_single_machine_analysis.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/dstream_window.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/dstream_window.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/example_of_stages.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/example_of_stages.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/kafka_and_zookeeper.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/kafka_and_zookeeper.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/mllib_transformers.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/mllib_transformers.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/narrow_and_wide_transformations.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/narrow_and_wide_transformations.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/one-record-at-time-minibatch.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/one-record-at-time-minibatch.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/pairRDD_action.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/pairRDD_transformations.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/pairRDD_transformations.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/rdd_action_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/rdd_action_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/rdd_transformations_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/rdd_transformations_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/replication_of_partitions_in_a_cluster.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/replication_of_partitions_in_a_cluster.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/representation_of_a_topic_with_multiple_partitions.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/representation_of_a_topic_with_multiple_partitions.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/spark-un:structured_data_view.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/spark-un:structured_data_view.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/spark_client_mode.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/spark_client_mode.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/spark_cluster_mode.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/spark_cluster_mode.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/spark_read_mode.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/spark_read_mode.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/spark_save_mode.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/spark_save_mode.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/structured-unstructured_data.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/structured-unstructured_data.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/structured_streaming_input.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/structured_streaming_input.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/the_architecture_of_a_spark_application.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/the_catalyst_optimizer.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/the_catalyst_optimizer.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/the_machine_learning_workflow.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/the_machine_learning_workflow.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/the_physical_planning_process.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/the_physical_planning_process.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/the_structured_api_logical_planning_process.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/Spark/figures/the_structured_api_logical_planning_process.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/watch_creation_operations.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/watch_creation_operations.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/figures/zookeeper_data_model.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/Hadoop/figures/zookeeper_data_model.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Data Science/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Data Science/面向程序员的数据挖掘指南/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/面向程序员的数据挖掘指南/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Effective Java/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/projects/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/projects/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Data Science/统计学习方法.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Data Science/统计学习方法.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/1 Introduction.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/10 Exceptions.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/11 Concurrency.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/12 Serialization.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/2 Creating and Destroying Objects.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/3 Methods Common to All Objects.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/4 Classes and interfaces.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/5 Generics.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/6 Enums and Annotations.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/7 Lambdas and Streams.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/8 Methods.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/9 General Programming.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Effective Java/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Head First Java/11 Exception Handling.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Head First Java/11 Exception Handling.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Java/Head First Java/7 Inheritance and polymorphism.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Head First Java/7 Inheritance and polymorphism.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Java/Head First Java/8 Interfaces and Abstract Classes.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Head First Java/8 Interfaces and Abstract Classes.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Java/Head First Java/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Head First Java/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Java/Head First设计模式/1 Strategy Pattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Head First设计模式/1 Strategy Pattern.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Head First设计模式/11 Proxy Pattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Head First设计模式/11 Proxy Pattern.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Head First设计模式/5 Singleton Pattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Head First设计模式/5 Singleton Pattern.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Head First设计模式/figures/DecoratorPatternUML.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Head First设计模式/figures/DecoratorPatternUML.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Java/Head First设计模式/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Head First设计模式/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Java/Java Web/Log4j.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Java Web/Log4j.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java Web/MyBatis.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Java Web/MyBatis.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java Web/Spring.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Java Web/Spring.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java Web/SpringBoot.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Java Web/SpringBoot.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Java/Java Web/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Java Web/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/Java编程思想/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/1 简介.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/10 接口.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/11 内部类.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/12 Holding Your Objects.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/13 通过异常处理错误.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/14 String.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/15 类型信息.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/16 泛型.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/17 Arrays.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/18 Containers in Depth.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/19 IO.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/2 对象导论.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/20 枚举类型.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/21 注解.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/22 并发.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/23 Graphical User Interfaces.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/3 Everything is an Object.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/4 Operators.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/5 Controlling Execution.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/6 初始化和管理.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/7 Access Control.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/8 复用类.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/9 多态.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/cover.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/figures/15377184002455.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/figures/EnumSet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/figures/InterfaceQueue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/figures/listIterator.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/Java编程思想/index.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Java/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Java/其他/Java record.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/其他/Java record.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/10 早期(编译期)优化.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/10 早期(编译期)优化.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/1 走进Java.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/1 走进Java.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/12 Java内存模型与线程.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/12 Java内存模型与线程.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/13 线程安全与锁优化.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/13 线程安全与锁优化.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/2 Java内存区域与内存溢出正常.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/2 Java内存区域与内存溢出正常.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/3 垃圾收集器与内存分配策略.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/3 垃圾收集器与内存分配策略.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/figures/java_runtime_data_area.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/figures/jvm_internals.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/figures/java_history.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/figures/jvm_architecture.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/figures/jvm_architecture.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/figures/parnew.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/figures/serial.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/深入理解Java虚拟机/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/JDK并发包.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/高并发/JDK并发包.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Java/高并发/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/多线程设计模式.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Leetcode/118. Pascal's Triangle.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Leetcode/119. Pascal's Triangle II.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/JDK并发包.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/Java多线程设计模式.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/15725425484710.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/15725425548585.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/FutureTask.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/Immutable_Pattern_UML.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/Producer-Consumer-UML.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/balking.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/blockingqueue-uml.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/concurrent_QUEUE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/future_class_diagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/future_pattern.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/guarded-suspension-shi-xu-tu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/guarded-suspension-uml.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/single-threaded-execution.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/threadpool.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/wait_nofity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/figures/xian-cheng-de-zhuang-tai-qian-yi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/事件驱动，消息驱动.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Java/高并发/多线程基础.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Leetcode/LintCode/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Leetcode/LintCode/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Leetcode/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Leetcode/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Cpp/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/Cpp/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Git.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/Git.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Intellij IDEA.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/Intellij IDEA.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Markdown.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/Markdown.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Maven.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/Maven.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Python/Python配置.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/Python/Python配置.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Scala/collections-diagrams.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Scala/reduceLeft_add.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Scala/scala_types.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Scala/慕课网Scala入门.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Scala/慕课网Scala入门.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Scala/第3章 从Java到Scala.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Scala/第3章 从Java到Scala.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Scala/第4章 处理对象.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/Scala/第4章 处理对象.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/TensorFlow/1 TF系统框架.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/TensorFlow/2 TF核心概念.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/TensorFlow/3 TF代码分析初步.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/TensorFlow/4 TF OpKernels简介.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/TensorFlow/5 TF - Graph模块.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/TensorFlow/TF会话生命周期.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/VSCODE.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/CentOS日志.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/CentOS日志.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/Mac OS使用.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/Mac环境下搭建Hadoop家族产品.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/Mac环境下搭建Hadoop家族产品.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/Youtube.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/Youtube.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/搭建远程下载服务器.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/黑苹果日志.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/黑苹果日志.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/Youtube.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/git.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/git.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/ubuntu日志.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/awesome Install/ubuntu日志.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/建站日志.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/建站日志.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/UNIX环境高级编程/3 文件IO.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/UNIX环境高级编程/figures/process_table_entry.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/UNIX环境高级编程/figures/two_independent_processes_with_the_same_file_open.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/Miscellaneous/面试/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Miscellaneous/面试/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/APUE/3 文件IO.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/APUE/3 文件IO.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/APUE/Linux系统管理.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/Docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/Docker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/Linux私房菜(Centos 7).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/ULK/12 The Virtual FileSystem.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/ULK/12 The Virtual FileSystem.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/ULK/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/ULK/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/figures/comparison_of_an_IA_32_processor_suporting_hyper-threading_technology_and_a_traditional_dual_processor_system.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/figures/comparison_of_an_IA_32_processor_suporting_hyper-threading_technology_and_a_traditional_dual_processor_system.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/figures/crontab_symbol.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/figures/docker_components.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/figures/linuxsifangcai_15660873828746.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/figures/linuxsifangcai_disk_mbr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/figures/linuxsifangcai_file_system_hierarchy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/figures/linuxsifangcai_gpt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/figures/linuxsifangcai_grub_stages.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/figures/linuxsifangcai_linux_boot_process.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/figures/linuxsifangcai_mbr.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/figures/linuxsifangcai_mbr_vs_gpt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/figures/linuxsifangcai_primary_logical_extended_partition.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/figures/load_pipeling.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/figures/load_pipeling.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/OS/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/分布式/Building Large Scale Internet Service.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/分布式/Consensus.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/分布式/Google Chubby.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/分布式/figures/15658709632698.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/分布式/figures/byzantine_general.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/分布式/figures/chubby_system_structure.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/分布式/figures/correspondence_between_database_and_parliament.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/分布式/index.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/10 Virtual Memory.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/10 Virtual Memory.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/11 Mass-Storage Structure.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/11 Mass-Storage Structure.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/12 I:O Systems.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/12 IO Systems.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/12 IO Systems.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/13 File System Interface.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/13 File System Interface.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/2 Operating System structures.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/2 Operating System structures.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/3 Processes.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/3 Processes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/5 CPU Scheduling.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/5 CPU Scheduling.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/6 Synchronization Tools.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/6 Synchronization Tools.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/7 Synchronization Examples.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/7 Synchronization Examples.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/15 File System Internals.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/15 File System Internals.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/18 Virtual Machines.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/18 Virtual Machines.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/8 DeadLocks.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/8 DeadLocks.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/9 Virtual Memory.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/15327413379278.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/permissions_in_a_unix_system.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/permissions_in_a_unix_system.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/9 Main Memory.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/9 Main Memory.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/A_kernel_IO_structure.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/A_kernel_IO_structure.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/Paging_hardware.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/Paging_hardware.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/example_of_even_parity.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/example_of_even_parity.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/interrupt-driven-IO-cycle.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/interrupt-driven-IO-cycle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/kernel_data_structures_io.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/kernel_data_structures_io.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/raid_levels.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/raid_levels.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/figures/vmware_esx.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/OS/操作系统概念/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/操作系统概念/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/10 系统级IO.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/10 系统级IO.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/2 信息的表示和处理.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/2 信息的表示和处理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/4 处理器体系结构.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/4 处理器体系结构.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/6 存储器层次结构.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/6 存储器层次结构.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/9 虚拟内存.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/9 虚拟内存.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/platter.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统Lab/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统Lab/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/2 应用层.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/2 应用层.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/4 网络层.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/4 网络层.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/5 链路层.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/5 链路层.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/css/extra.css" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/css/extra.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/1 计算机系统漫游.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/10 系统级IO.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/11 网络编程.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/2 信息的表示和处理.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/3 程序的机器级表示.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/4 处理器体系结构.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/5 优化程序性能.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/6 存储器层次结构.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/7 链接.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/8 异常控制流.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/9 虚拟内存.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/Labs/Lab1 Data Lab.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/Labs/Lab3 Attack Lab.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/Labs/Lab4 Cache Lab.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/Labs/Lab5 Shell Lab.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/Labs/Lab6 Malloc Lab.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/Labs/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/cover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/AGarbageCollectorsViewOfMemoryAsADirectedGraph.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/ASlopeOfSpatialLocality.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/AddressTranslationWithAPageTable.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/CImplicitConversion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/CategoriesOfSinglePrecisionFoatingPointValue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/Core i7 Level 1-­‐3 Page Table Entries-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/CoreI7AddressTranslation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/CoreI7Level1-3PageTableEntries.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/CoreI7Level4PageTableEntries.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/CoreI7PageTableTranslation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/Direct-mappedCache.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/Dynamic_Linking.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/Exceptions_classify.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/General Cache Concept.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/GeneralFormatOfAnHTTPRequestMessage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/HexadecimalNotation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/IntelCoreI7MemorySystem.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/IntelCoreI7ProcessorInternalDiePhotograph.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/InternetDomainNames.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/LineMatchingAndWordSelectionInADirectmappedCache.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/LineMatchingAndWordSelectionInASetAssociativeCache.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/LinuxPageFaultHandling.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/Operand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/RidgesOfTemporalLocalityInTheMemoryMountain.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/SetAssociativeCache.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/SetSelectionInADirect-mappedCache.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/SetSelectionInASetAssociativeCache.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/SizesInBytesOfCNumericDataTypes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/SolidStateDiskSSD-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/StandardFloatingPointFormats.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/TLB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/TheMemoryMountain.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/Transferring_Internet_Data_Via_Encapsulation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/TranslationWithAK-­levelPageTable.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/TwosComplimentToUnsigned.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/TypicalRangesForCIntegralDataTypesOnA64BitMachine.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/UnsingedToTwoCompliment.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/VirtualAddressSpaceOfALinuxProcess.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/a_child_process_inherits_its_parents_open_files-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/a_child_process_inherits_its_parents_open_files.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/bridgedEthernetSegment.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/cache_conflix_on_direct_mapped_caches.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/cache_types.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/calling_open_twice_with_the_same_filename_argument.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/client-serverModel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/clientAndServersCommunicateViaSocketDescriptors.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/cmpAndTest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/compiler_system.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/directory_hierarchy_of_linux.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/dup2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/elf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/elfFile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/ethernetSegment.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/example HTTP transaction.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/exception_table.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/explict_list.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/external_fragmentation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/general_organization_of_a_cache.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/hardwareAndSoftwareOrganizationOfAnInternetApplication.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/hdd_structure.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/how_the_unix_kernel_represents_open_files.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/implicit_list.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/integerOpp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/internal_fragmentation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/internets.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/last_level_internets.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/little-endian-AND-big-endian.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/memory_hierarchy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/mov.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/page_table.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/physical_address.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/private_copy_on_write.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/pushqPopq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/register.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/set_selection_in_a_fully_associative_cache.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/signalVector.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/socketPair.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/socketsInterface.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/stack_frame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/task_struct.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/the_basic_principle_of_caching_in_a_memory_hierarchy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/user-level-memory-mapping.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/usingPortsToIdentifyServices.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/virtual_memory.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/vm_as_cache.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/vm_protection_tool.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/figures/webServerBasics.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/深入了解计算机系统/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/编译原理/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/编译原理/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机组成与设计.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/OS/计算机组成与设计.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/1 计算机网络和因特网.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/2 应用层.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/3 运输层.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/4 网络层.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/5 链路层.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/6 网络安全.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/Socket Programming.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/WireShark Lab.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/15455521315321.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/15466810304411.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/15598844788130.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/15622932960428.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/15622940581424.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/A_hybrid_fiber-coaxial_access_network.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/Clients_requesting_objects_through_a_Web_cache.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/Cookie_technology.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/Dividing_file_data_into_TCP_segments.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/General_format_of_an_HTTP_request_message.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/General_format_of_an_HTTP_response_message.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/Interaction_of_the_various_DNS_servers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/Interconnection_of_ISPs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/Packet_switching.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/ProxyServerDemo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/TCP_segment.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/UDP_segment.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/WireSharkInterface.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/application_processes_sockets_and_underlying_transport_protocol-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/application_processes_sockets_and_underlying_transport_protocol.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/arp_table.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/circuit_switching_demo_telephone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/conditional_get.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/dhcp-mac.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/dhcp_discover_offer_request_ack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/dsl_internet_access-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/dsl_internet_access.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/duichengjiamihegongyaojiami.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/encapsulation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/establish_close_datagram_network.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/establish_close_virtual_circuit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/evolution_of_TCP_congestion_window.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/fast_restransmit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/fdm-tdm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/four-way-handshake.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/fowarding.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/http_authentication.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/http_request-response_behavior.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/icmp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/icmp_time_exceeded.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/icmp_unreachable.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/idempotence.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/internet_protocol_stack-OSI_reference_model.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/ip_address_ABCDE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/ip_datagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/ip_layer_structure.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/ip_subnet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/nat_demo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/non-persistent-connections.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/packet_sniffer_structure.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/portion_of_the_hierarchy_of_DNS_servers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/receive_window.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/recursive_queirs_in_DNS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/router_fowarding_table.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/slow-start.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/some_pieces_of_internet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/store_and_forward_packet_switching.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/syns_queue_accept_queue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/tcp_congestion_control.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/tcp_connection.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/tcp_socket.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/the_nodal_deplay_at_router_A.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/three-way-handshake.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/figures/udp_socket.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/OS/计算机网络 自顶向下/index.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/tags/Array.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tags/Array.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tags/CSAPP.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tags/CSAPP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/tags/Java.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/tags/Java.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/目录.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/目录.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mkdocs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../mkdocs.yml" afterDir="false" />
     </list>
@@ -155,8 +605,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nav.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="270" column="39" selection-start-line="270" selection-start-column="39" selection-end-line="270" selection-end-column="39" />
+            <state relative-caret-position="704">
+              <caret line="283" lean-forward="true" selection-start-line="283" selection-end-line="283" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -165,23 +615,69 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/quickBuild.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/opt/miniconda3/envs/note/lib/python3.6/posixpath.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/note-centos.sh">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/note-imac">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/note-quick-imac">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/note-quick-centos.sh">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/opt/miniconda3/envs/note/lib/python3.6/codecs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4785">
-              <caret line="319" selection-start-line="319" selection-end-line="319" />
+            <state relative-caret-position="626">
+              <caret line="892" selection-start-line="892" selection-end-line="892" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>print</find>
       <find>st</find>
       <find>book</find>
       <find>level</find>
       <find>0</find>
+      <find>TOP_CATEGORY</find>
+      <find>lint</find>
+      <find>!=</find>
+      <find>yml</find>
+      <find>__</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>menu</replace>
@@ -193,23 +689,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/nav2.py" />
         <option value="$PROJECT_DIR$/nav.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/bin.iml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="921" />
-    <option name="y" value="122" />
+    <option name="x" value="530" />
+    <option name="y" value="238" />
     <option name="width" value="1841" />
     <option name="height" value="1186" />
   </component>
@@ -219,6 +706,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,7 +718,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -252,7 +739,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.nav2">
     <configuration name="nav" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="bin" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -274,6 +761,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="nav2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/nav2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.nav2" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -289,20 +802,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="921" y="122" width="1841" height="1186" extended-state="0" />
+    <frame x="530" y="238" width="1841" height="1186" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49817184" visible="true" weight="0.30714285" />
-      <window_info id="Structure" order="1" sideWeight="0.50182813" side_tool="true" visible="true" weight="0.30714285" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4954296" visible="true" weight="0.30714285" />
+      <window_info id="Structure" order="1" sideWeight="0.50457036" side_tool="true" visible="true" weight="0.30714285" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3299817" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40036562" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.44606948" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.37294334" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3299817" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -310,28 +824,117 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>self.name=&quot;Leetcode&quot;</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.name==&quot;Hadoop&quot;</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>filename=='Java'</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>filename='Java'</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>filename=='java'</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>path=='/Users/larry/Documents/note/wiki/docs'</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>title==&quot;Java&quot;</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="setValue">
+      <expression>
+        <expression-string>'/Users/larry/Documents/note/wiki/docs'</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2019.1/python_stubs/-643577505/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="514" column="4" lean-forward="true" selection-start-line="512" selection-start-column="7" selection-end-line="516" selection-end-column="4" />
+        <state relative-caret-position="390">
+          <caret line="3605" lean-forward="true" selection-start-line="3593" selection-end-line="3749" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nav.py">
+    <entry file="file://$PROJECT_DIR$/note-centos.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note-imac">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note-quick-imac">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note-quick-centos.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/opt/miniconda3/envs/note/lib/python3.6/posixpath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="270" column="39" selection-start-line="270" selection-start-column="39" selection-end-line="270" selection-end-column="39" />
+        <state relative-caret-position="226">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/opt/miniconda3/envs/note/lib/python3.6/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="892" selection-start-line="892" selection-end-line="892" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/quickBuild.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nav2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="270" column="34" selection-end-line="298" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/opt/miniconda3/envs/note/lib/python3.6/codecs.py">
+    <entry file="file://$PROJECT_DIR$/nav.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4785">
-          <caret line="319" selection-start-line="319" selection-end-line="319" />
+        <state relative-caret-position="704">
+          <caret line="283" lean-forward="true" selection-start-line="283" selection-end-line="283" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -25,9 +25,10 @@ def getWebURL(path):
 	:param path: markdown文件路径
 	:return:
 	"""
-	doc_path = os.path.join(get_wiki_site(), 'docs/') 
-	urlpath = quote(path)# 处理中文以及特殊字符
-	return urlpath.replace(doc_path, LOCALHOST).replace('.md', '/')
+	doc_path = os.path.join(get_wiki_site(), 'docs/')
+	urlpath = path.replace(doc_path, LOCALHOST).replace('.md', '/')
+	#urlpath = quote(path)# 处理中文以及特殊字符
+	return urlpath
 
 def getMostRecentModifiedFile(path):
 	"""

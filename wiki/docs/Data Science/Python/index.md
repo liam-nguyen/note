@@ -1,8 +1,4 @@
----
-title: Index
-toc: false
-date: 2017-07-07
----
+###  Python 
 
 * [Python引号](Python引号.md)
 * [Python配置](Python配置.md)

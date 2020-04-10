@@ -128,7 +128,7 @@ Maven提供的打包插件有多种，具体目录见[官网](http://maven.apach
 | maven-jar-plugin | maven 默认打包插件，用来创建 project jar |
 | maven-shade-plugin | 用来打可执行包，executable(fat) jar |
 | maven-assembly-plugin | 支持定制化打包方式，例如 apache 项目的打包方 |
- 
+
 
 ##### maven-jar-plugin
 
@@ -215,7 +215,32 @@ Maven提供的打包插件有多种，具体目录见[官网](http://maven.apach
     </executions>
 </plugin>
 ```
- 
+
+##### java与scala混合打包
+
+使用`maven-scala-plugin`将java和scala一起打包。
+
+```xml
+<plugin>
+    <groupId>org.scala-tools</groupId>
+    <artifactId>maven-scala-plugin</artifactId>
+    <version>2.15.2</version>
+    <executions>
+        <execution>
+            <id>scala-compile-first</id>
+            <goals>
+                <goal>compile</goal>
+            </goals>
+            <configuration>
+                <includes>
+                    <include>**/*.scala</include>
+                </includes>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+```
+
 ### 3 目录结构
 
 Maven有一个标准的目录结构。如果你在项目中遵循Maven的目录结构，就无需在pom文件中指定源代码、测试代码等目录。
@@ -239,9 +264,9 @@ Maven有一个标准的目录结构。如果你在项目中遵循Maven的目录�
 * resources目录包含项目的资源文件，比如应用的国际化配置的属性文件等。
 * 如果是一个web项目，则webapp目录为web项目的根目录，其中包含如WEB-INF等子目录。
 * target目录是由Maven创建的，其中包含编译后的类文件、jar文件等。当执行maven的clean目标后，target目录会被清空。
- 
+
 ### 4 Maven仓库
- 
+
 Maven仓库就是存储jar包和一些元数据信息的目录。其中的元数据即pom文件，描述了该jar包属于哪个项目，以及jar包所需的外部依赖。该元数据信息使得Maven可以递归地下载所有的依赖，直到整个依赖树都下载完毕并放到你的本地仓库中。Maven有三种类型的仓库：本地仓库(local)、中央仓库(central)、远程仓库(remote)。
 
 #### 本地仓库
@@ -301,8 +326,20 @@ Maven的中央仓库由Maven社区提供。默认情况下，所有不在本地�
 </repositories>
 ```
 
- 
+#### 仓库切换
+
+如果希望使用阿里云镜像，如下执行：
+
+```bash
+mvn help-effective-settings -Daliyun=central
+```
+
 ### 5 其他
+
+##### 多线程
+
+ 指明多线程进行编译：-Dmaven.compile.fork=true
+
  
 
 
