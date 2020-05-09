@@ -143,7 +143,8 @@ StructType(StructField(DEST_COUNTRY_NAME,StringType,true),
 
 可以让数据源定义schema(叫做*schema-on-read*)，也可以显示定义schema。Schema-on-read适用于临时分析数据，可能会引起一些数据精度问题(例如`long`设置为`int`)。在ETL时，自定义schema往往更好。
 
-!!! example ""
+    
+=== "Schema on read"
 
     ```scala
     /* schema on read */
@@ -153,21 +154,21 @@ StructType(StructField(DEST_COUNTRY_NAME,StringType,true),
      |-- DEST_COUNTRY_NAME: string (nullable = true)
      |-- ORIGIN_COUNTRY_NAME: string (nullable = true)
      |-- count: long (nullable = true)
+    ```
     
-    /* 指定schema */
+=== "指定schema"
+
+    ```scala
     val myManualSchema = StructType(Array(StructField("DEST_COUNTRY_NAME", StringType, true), 
-        StructField("ORIGIN_COUNTRY_NAME", StringType, true), StructField("count", LongType, false,
-        Metadata.fromJson("{\"hello\":\"world\"}")) )) 
+        StructField("ORIGIN_COUNTRY_NAME", StringType, true), 
+        StructField("count", LongType, false,
+Metadata.fromJson("{\"hello\":\"world\"}")) )) 
     val df = spark.read.format("json").schema(myManualSchema).load("2015-summary.json")
     ```
 
+​    
+=== "RDD转成DataFrame"
 
-​    
-​    
-!!! note "RDD转成DataFrame"
-​    
-    把RDD直接转换成DataFrame需要提供schema。例如：
-    
     ```scala
       // log schema
     val logschema: StructType = StructType(Array(

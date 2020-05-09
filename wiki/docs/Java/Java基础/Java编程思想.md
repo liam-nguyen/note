@@ -2,6 +2,7 @@
 title: Java编程思想
 ---
 
+![](figures/cover.jpg)
 
 ###  1 简介
 
@@ -92,11 +93,19 @@ When you create an inner class, an object of that inner class has a *link* to *t
 
 ```java
 public class Outer {
+    private List<Integer> ints = new ArrayList<>();
     public class Inner {
         public Outer getOuter() {
             // 直接使用this，将会得到Inner's this
             return Outer.this;
         }
+        
+        public boolean exists(Integer int) {
+            // 使用Outer.this.ints得到外部类的字段
+            if (Outer.this.ints.contains(int) return true;
+            return false;
+        }
+        
     }
 
     public Inner getInner() {
@@ -166,9 +175,8 @@ The `contents()` method combines the creation of the return value with the defin
 
 如果只是需要一个对接口的引用，可以满足需求的话，直接通过外围类实现接口，而不需要使用内部类。
 
-使用内部类最吸引人的原因是：
+使用内部类最吸引人的原因是：*每个内部类都能独立地继承一个接口的实现，所以无论外部类是否已经继承了某个接口类的实现，对于内部类都没有影响。*
 
-*每个内部类都能独立地继承一个接口的实现，所以无论外围类是否已经继承了某个接口类的实现，对于内部类都没有影响。*
 ###  12 Holding Your Objects
 
 

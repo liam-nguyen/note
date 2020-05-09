@@ -133,6 +133,7 @@ Indexed allocation does suffer from wasted space, however. The pointer overhead 
     ![the_unix_inode](figures/the_unix_inode.png)
 
 
+
 #### 5 Free-Space Management
 
 To keep track of free disk space, the system maintains a free-space list. The free-space list records all free device blocks—those not allocated to some file or directory.
@@ -208,7 +209,7 @@ What do we have in a group:
 - Assume block is size if 4 KB.
 - The first block of each group contains a superblock (i.e. superblock info) that is 1024 bytes long. 
 - Superblock keeps some general info about the filesystem
-- After the first block in a group, a few blocks keeps info about all groups. It means a few blocks store group descriptors table (GDT). Some of these block may be empty and reserved. 
+- After the first block in a group, a few blocks keeps info about all groups. It means a few blocks store **group descriptors table** (GDT). Some of these block may be empty and reserved. 
 - After that comes bitmap that occupies one block. It is a bitmap for the group. Each group has it own bitmap. 
 - Then comes an inode bitmap; showing which inodes are free. 
 - After that comes the inodes (inode table). Each group stores a set of nodes. The number of inodes stored in a group is the same for all groups. So the inode table of the partition is divided into groups: each group stores a portion of the table.
@@ -220,6 +221,55 @@ In group 0, superblock info starts at offset 1024 of the first block of the grou
 
 ![ext3_group_structure_group0](figures/ext3_group_structure_group0.png)
 
+#### inode
+
+```c
+struct ext2_inode {
+        __u16   i_mode;         /* File type and access rights */
+        __u16   i_uid;          /* Low 16 bits of Owner Uid */
+        __u32   i_size;         /* Size in bytes */
+        __u32   i_atime;        /* Access time */
+        __u32   i_ctime;        /* Creation time */
+        __u32   i_mtime;        /* Modification time */
+        __u32   i_dtime;        /* Deletion Time */
+        __u16   i_gid;          /* Low 16 bits of Group Id */
+        __u16   i_links_count;  /* Links count */
+        __u32   i_blocks;       /* Blocks count */
+        __u32   i_flags;        /* File flags */
+	...
+	__u32   i_block[EXT2_N_BLOCKS];  /* Pointers to blocks */
+	...
+};
+```
+
+
+#### data block
+
+
+对于常规文件，文件的数据存储在data block中。对于目录来说，其在data block中存储的内容为目录中的文件。
+
+
+![](figures/data_block_of_directory_ext2.png)
+
+
+```c
+struct ext2_dir_entry_2 {
+	__u32	inode;			/* Inode number */
+	__u16	rec_len;		/* Directory entry length */
+	__u8	name_len;		/* Name length */
+	__u8	file_type;
+	char	name[EXT2_NAME_LEN];	/* File name */
+};
+```
+
+#### Locating a file
+
+To find out the inode belonging to the file we first need to descend through its path, starting from the root directory, until we reach the file's parent directory. At this point we can locate the ext2_dir_entry_2 entry corresponding to hello.txt and then its inode number[^2].
+
+
+
+![](figures/locating_a_file.png)
+
 
 
 
@@ -227,4 +277,4 @@ In group 0, superblock info starts at offset 1024 of the first block of the grou
 
 
 [^1]: CS 342 Operating Systems - Spring 2019, http://www.cs.bilkent.edu.tr/~korpe/courses/cs342spring2019/
-
+[^2]: The ext2 Filesystem, http://cs.smith.edu/~nhowe/Teaching/csc262/oldlabs/ext2.html

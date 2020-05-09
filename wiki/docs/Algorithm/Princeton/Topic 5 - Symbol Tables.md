@@ -256,6 +256,8 @@ private int rank(K key) {
 }
 ```
 
+循环在结束时，lo的值正好等于表中小于被查找的键的键的数量。
+
 
 #### Analysis
 
@@ -271,7 +273,7 @@ The central question is whether we can devise algorithms and data structures tha
 
 ### Binary Search Trees
 
-> Definition. A *binary search tree* (BST) is a binary tree where each node has a <CB>Comparable</CB> key (and an associated value) and satisﬁes the restriction that the key in any node is larger than the keys in all nodes in that node’s left subtree and smaller than the keys in all nodes in that node’s right subtree.
+> Definition. A *binary search tree* (BST) is a binary tree where each node has a <CB>Comparable</CB> key (and an associated value) and satisfies the restriction that the key in any node is larger than the keys in all nodes in that node’s left subtree and smaller than the keys in all nodes in that node’s right subtree.
 
 
 ![AnatomyOfABinarySearchTree](figures/AnatomyOfABinarySearchTree.png)

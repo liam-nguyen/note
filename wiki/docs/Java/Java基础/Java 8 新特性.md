@@ -8,10 +8,10 @@ top: 10
 ### 1 Lambda表达式
 
 
-lambda表达式由参数、箭头和函数主体组成。可以把Lambda表达式理解为简洁地表示可传递的匿名函数的一种方式：它没有名称，但它有参数列表、函数主体、返回类型，可能还有一个可以抛出的异常列表。
+Lambda表达式由参数、箭头和函数主体组成。可以把Lambda表达式理解为简洁地表示可传递的匿名函数的一种方式：它没有名称，但它有参数列表、函数主体、返回类型，可能还有一个可以抛出的异常列表。
 
 
-![](figures/15845181747984.jpg)
+![](figures/lambda.jpg)
 
 * `(Apple a1, Apple a2)`: 参数列表 — 这里它采用了Comparator中compare方法的参数，两个Apple。
 *  `->`: 箭头， 把参数列表与Lambda主体分开。
@@ -26,6 +26,7 @@ Lambda的基本语法是
 
 
 #### 函数式接口
+
 函数式接口(funtional interface)就是定义且只定义了⼀个抽象⽅法的接口。函数式接口的抽象⽅法的签名称为函数描述符。函数式接口可以带 有`@FunctionalInterface`的注解，但不是必须的。常见的函数式接口有`Comparable`, `Runnable`, `Callable`。
 
 ```java
@@ -121,6 +122,7 @@ String twoLines = processFile((BufferedReader br) -> br.readLine()
 ```
 
 #### 常见的函数式接口
+
 Java 8在`java.util.function`包中引入了几个新的函数式接口。
 
 
@@ -129,7 +131,7 @@ Java 8在`java.util.function`包中引入了几个新的函数式接口。
 
 
 ##### Predicate
-Predicate<T>接口定义了一个名叫test的抽象方法，它接受泛型T对象，并返回一个boolean。
+`Predicate<T>`接口定义了一个名叫test的抽象方法，它接受泛型T对象，并返回一个boolean。
 
 以下是源码的一部分：
 ```java
@@ -158,7 +160,7 @@ List<String> nonEmpty = filter(listOfStrings, (String s) -> !s.isEmpty());
 
 ##### Consumer
 
-Consumer<T>定义了一个名叫accept的抽象方法，它接受泛型T的对象，没有返回（void）。你如果需要访问类型T的对象，并对其执行某些操作，就可以使用这个接口.
+`Consumer<T>`定义了一个名叫accept的抽象方法，它接受泛型T的对象，没有返回（void）。你如果需要访问类型T的对象，并对其执行某些操作，就可以使用这个接口.
 
 ```java
 @FunctionalInterface 
@@ -181,7 +183,7 @@ forEach(
 
 ##### Function
 
-Function<T, R>接口定义了一个叫作apply的方法，它接受一个泛型T的对象，并返回一个泛型R的对象
+`Function<T, R>`接口定义了一个叫作apply的方法，它接受一个泛型T的对象，并返回一个泛型R的对象
 
 ```java
 @FunctionalInterface 
@@ -204,9 +206,10 @@ List<Integer> l = map(
 ```
 
 **原始类型特化**
-我们介绍了三个泛型函数式接口：Predicate<T>、Consumer<T>和Function<T,R>。还有些函数式接口专为某些类型而设计。
 
->如果基础类型也使用这些函数式接口，比如Predicate<Integer>通过自动拆箱装箱是可以实现的，但这在性能方面是要̶出代价的。装箱的本质就是把原来的原始类型包装起来，并保存在堆里。因此，装箱后值需要更多的内存，并需要额外的内存搜索来获取被包装的原始值。
+我们介绍了三个泛型函数式接口：`Predicate<T>`、`Consumer<T>`和`Function<T,R>`。还有些函数式接口专为某些类型而设计。
+
+> 如果基础类型也使用这些函数式接口，比如`Predicate<Integer>`通过自动拆箱装箱是可以实现的，但这在性能方面是要̶出代价的。装箱的本质就是把原来的原始类型包装起来，并保存在堆里。因此，装箱后值需要更多的内存，并需要额外的内存搜索来获取被包装的原始值。
 
 Java 8为我们前面所说的函数式接口带来了一个专门的版本，以便在输入和输出都是原始类型时避免自动装箱的操作。
 
@@ -280,6 +283,7 @@ portNumber = 31337;
 ##### 使用方法引用
 
 方法引用其实就是为了使代码可读性更高，例如：
+
 ```java
 // 直接使用lambda
 inventory.sort((Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight()));
@@ -371,9 +375,7 @@ public static Fruit giveMeFruit(String fruit, Integer weight){
 
 用不同的排序策略给一个Apple列表排序，并需要展示如何把一个原始粗暴的解决方法一步步优化。
 
-> Java 8的API已经为你提供了一个List可用的sort方法，你不用自己去实现它。那么最困难的部分已经搞定了
-
-但是，如何把排序策略传递给sort方法呢？你看，sort方法的签名是这样的：```void sort(Comparator<? super E> c)```。而`Comparator`是函数式接口，可以传递方法。因此我们可以认为sort的行为被参数化了。传递给它的排序策略不同，其行为也会不同。
+Java 8的API已经为你提供了一个List可用的`sort`方法，你不用自己去实现它。那么最困难的部分已经搞定了。但是，如何把排序策略传递给`sort`方法呢？你看，`sort`方法的签名是这样的：```void sort(Comparator<? super E> c)```。而`Comparator`是函数式接口，可以传递方法。因此我们可以认为`sort`的行为被参数化了。传递给它的排序策略不同，其行为也会不同。
 
 - 首先我们的第一个解决办法可能是：
 ```java
@@ -414,6 +416,7 @@ public static <T, U extends Comparable<? super U>> Comparator<T> comparing(
 ```
 
 它可以像下面这样用：
+
 ```java
 Comparator<Apple> c = Comparator.comparing((a) -> a.getWeight());
 ```
@@ -443,19 +446,15 @@ inventory.sort(Comparator.comparing(Apple::getWeight);
 
 #### 复合Lambda表达式
 
-Java 8的好几个函数式接口都有为方便而设计的方法。具体而言，许多函数式接口，比如用
-于传递Lambda表达式的Comparator、Function和Predicate都提供了允许你进行复合的方法。
+Java 8的好几个函数式接口都有为方便而设计的方法。具体而言，许多函数式接口，比如用于传递Lambda表达式的`Comparator`、`Function`和`Predicate`都提供了允许你进行复合的方法。
 
-这意味着你可以把多个简单的Lambda复合成复杂的表达式。比如，
-你可以让两个谓词之间做一个or操作，组合成一个更大的谓词。而且，你还可以让一个函数的结
-果成为另一个函数的输入。
+这意味着你可以把多个简单的Lambda复合成复杂的表达式。比如，你可以让两个谓词之间做一个or操作，组合成一个更大的谓词。而且，你还可以让一个函数的结果成为另一个函数的输入。
 
-你可能会想，函数式接口中怎么可能有更多的方法呢？（毕竟，这可是违背了函数式接口的定义啊！）
-窍门在于，提供的允许进行复合操作的方法都是默认方法，也就是说它们不是抽象方法。
+你可能会想，函数式接口中怎么可能有更多的方法呢？（毕竟，这可是违背了函数式接口的定义啊！）窍门在于，提供的允许进行复合操作的方法都是默认方法，也就是说它们不是抽象方法。
 
 ##### 比较器复合
-我们前面看到，你可以使用静态方法Comparator.comparing，如下所示：
-```Comparator<Apple> c = Comparator.comparing(Apple::getWeight);```
+
+我们前面看到，你可以使用静态方法`Comparator.comparing`，如下所示：`Comparator<Apple> c = Comparator.comparing(Apple::getWeight);`
 
 - 逆序
 > 如果我们需要对之前的排序策略进行逆序怎么办？用不着去建立另一个Comparator的实例。接口有一个默认方法reversed可以使给定的比较器逆序
@@ -931,6 +930,38 @@ menu.stream().forEach(System.out::println);
 这个：[Java 8 Stream的性能到底如何？](https://segmentfault.com/a/1190000004171551) 这个：[Java performance tutorial – How fast are the Java 8 streams?](https://jaxenter.com/java-performance-tutorial-how-fast-are-the-java-8-streams-118830.html)
 但是，很多关于集合线程安全性方面的考虑，Stream已经帮我们做了，如果在多线程场景下，java7的写法再加上一堆的同步锁等操作。结果究竟如何也不得而知。
 
+#### 3 使用`Optional`
+
+如果对象不存在，那么调用对象的方法便会抛出`NullPointerException`异常。为了避免`NullPointerException`异常，通常需要在必要的地方添加null的检查。
+
+```java
+public String getCarInsuranceName(Person person) {
+    if (person != null) {
+        Car car = pserson.getCar();
+        if (car != null) {
+            Insurance insurance = car.getInsurance();
+            if (insurance != null) {
+                return insurance.getName();
+            }
+    }
+}
+```
+
+
+但很显然，这种嵌套的if语句块增加了代码缩进的层数，不具备扩展性，也牺牲了代码的可读性。总结来说，使用null会带来种种问题；
+
+[Scala语言](Scala编程.md)中的`Option[T]`既可以包含类型为`T`的变量，也可以不包含该变量。但要使用它，必须显示地调用`Option`类型的`available`操作，检查该变量是否有值，而这其实也是一种变相的`null`检查。
+
+Java 8中引入了新的类`java.util.Optional<T>`，用来封装T类型的值的类。
+
+* 通过静态工厂方法`Optional.empty`声明一个空的`Optional`
+    *  `Optional<Car> optCar = Optional.empty();`
+* 通过静态工厂方法`Optional.of`创建一个`Optional`对象
+    * `Optional<Car> optCar = Optional.of(car);`
+* 可接收null的`Optional`
+    * `Optional<Car> optCar = Optional.ofNullable(car);`
+
+![](figures/optional_demo.jpg)
 
 <!--
 ### 使用流
@@ -3281,3 +3312,5 @@ Stream<Character> stream = IntStream.range(0, SENTENCE.length())
 ```
 
 -->
+
+[^1]: https://github.com/caotinging/Java8Action

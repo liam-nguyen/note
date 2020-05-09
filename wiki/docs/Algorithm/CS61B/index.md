@@ -1,6 +1,6 @@
-#  CS61B 
+###  CS61B 
 
-* [Lab1](Lab1.md)
-* [Lab2](Lab2.md)
-* [Lab3](Lab3.md)
+* [Lab1](CS61B/Lab1.md)
+* [Lab2](CS61B/Lab2.md)
+* [Lab3](CS61B/Lab3.md)
 

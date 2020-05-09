@@ -1,5 +1,6 @@
 ##  深入理解计算机系统 
 
+* [index](index.md)
 * [1 计算机系统漫游](1 计算机系统漫游.md)
 * [2 信息的表示和处理](2 信息的表示和处理.md)
 * [3 程序的机器级表示](3 程序的机器级表示.md)
@@ -13,9 +14,9 @@
 * [11 网络编程](11 网络编程.md)
 ####  Labs 
 
-* [Lab1 Data Lab](Lab1 Data Lab.md)
-* [Lab3 Attack Lab](Lab3 Attack Lab.md)
-* [Lab4 Cache Lab](Lab4 Cache Lab.md)
-* [Lab5 Shell Lab](Lab5 Shell Lab.md)
-* [Lab6 Malloc Lab](Lab6 Malloc Lab.md)
+* [Lab1 Data Lab](Labs/Lab1 Data Lab.md)
+* [Lab3 Attack Lab](Labs/Lab3 Attack Lab.md)
+* [Lab4 Cache Lab](Labs/Lab4 Cache Lab.md)
+* [Lab5 Shell Lab](Labs/Lab5 Shell Lab.md)
+* [Lab6 Malloc Lab](Labs/Lab6 Malloc Lab.md)
 

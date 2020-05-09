@@ -96,3 +96,8 @@ green {
 brown {
   color: rgb(197,142,1);
 }
+
+
+.md-typeset code  {
+  font-size: 0.75em;
+}

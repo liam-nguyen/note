@@ -78,9 +78,9 @@ custom_channels:
   menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  ```
+```
   
-  运行`conda clean -i`清除索引缓存，保证用的是镜像站提供的索引。
+运行`conda clean -i`清除索引缓存，保证用的是镜像站提供的索引。
 
 
 
@@ -131,13 +131,13 @@ The command `--no-site-packages` requires the environment should not access to g
 
 Before running your program in your created environment, you need to activate it:
 
-```python
+```bash
 source .venv/bin/activate
 ```
 
 And remember to deactivate it whenever you are done:
 
-```
+```bash
 deactivate
 ```
 

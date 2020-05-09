@@ -13,8 +13,8 @@ MySQL是一个开源、多线程的关系型数据库管理系统(RDBMS)。
 
 
 * 连接器(Connector)：负责跟客户端建立连接、获取权限、维持和管理连接。
-* 查询缓存(Query Cache): 将查询结果按 K-V的形式进行缓存，K 是查询的语句，V 是查询的结果。当一个表发生更新后，该表对应的所有缓存均会失效。
-* 分析器(Parser): 分析器有两个功能：**词法分析**、**语法分析**。对于一个SQL语句，分析器首先进行词法分析，对SQL语句进行拆分，识别出各个字符串代表的含义。然后就是语法分析，分析器根据定义的语法规则判断SQL是否满足MySQL语法。
+* 查询缓存(Query Cache): 将查询结果按K-V的形式进行缓存，K是查询的语句，V是查询的结果。当一个表发生更新后，该表对应的所有缓存均会失效。
+* 分析器(Parser): 分析器有两个功能：^^词^^法分析、^^语^^法分析**。对于一个SQL语句，分析器首先进行词法分析，对SQL语句进行拆分，识别出各个字符串代表的含义。然后就是语法分析，分析器根据定义的语法规则判断SQL是否满足MySQL语法。
 * 优化器(Optimizer): 优化器在获取到分析器的结果后，通过表结构和SQL语句选择最佳执行方案，比如：多表关联时，各个表如何进行连接；当表中有索引时，应该怎样选择索引等等。
 * key cache: 通常供MyISAM存储引擎缓存索引数据
 * 存储引擎： InnoDB, MyISAM, MEMORY, ARCHIVE, CSV.
@@ -56,9 +56,10 @@ SQL标准中定义了四种隔离级别，每一种级别都规定了一个事�
 * **未提交读**(READ UNCOMMITTED): 事务中的修改，即使没有提交，对其他事务也都是可见的。事务可以读取未提交的数据，这也被称为**脏读**(dirty read)。在实际应用中一般很少使用。
 * **提交读**(READ COMMITTED): 一个事务从开始直到提交之前，所做的任何修改对其他事务都是不可见的。也叫做不可重复读(nonrepeatable read)，因为执行两次同样查询，可能得到不一样的结果。
 * **可重复读**(REPEATABLE READ): 在同一个事务中多次读取同样记录的结果是一致的。但无法解决**幻读**(phantom read)的问题: 当某个事务在读取某个范围内的记录时，另外⼀个事务又在该范围内插⼊了新的记录，当之前的事务再次读取该范围的记录时，会产⽣幻⾏。InnoDB存储引擎通过多版本并发控制(MVCC)解决了幻读的问题。
-* **序列化读**(SERIAZABLE)：所有的事务操作都必须串行操作。这种隔离级别最高，但是牺牲了系统的并发性。简单来说，序列化会在读取的每一行数据上都加锁，所以可能导致大量的超时和锁争用的问题。
+* **可串行化**(SERIAZABLE)：所有的事务操作都必须串行操作。这种隔离级别最高，但是牺牲了系统的并发性。简单来说，SERIAZABLE会在读取的每一行数据上都加锁，所以可能导致大量的超时和锁争用的问题。
 
 ![](figures/transaction_isolation_level.jpg)
+
 
 
 
@@ -728,15 +729,14 @@ MySQL提供两种相似的日期类型：DATETIME和TIMESTAMP。
 
 
 
-### 4 存储引擎
+### 4 InnoDB存储引擎
 
-#### InnoDB
 
-MySQL默认事务型存储引擎，拥有良好的性能和自动崩溃恢复特性。
+InnoDB是MySQL默认事务型存储引擎，拥有良好的性能和自动崩溃恢复特性。
 
 * 设计目的：处理大量的短期(short-lived)事务(短期事务大部分情况是正常提交的，很少被回滚)
 * 特点：
-    * 数据存储在表空间(tablespace)中，由InnoDB管理的黑盒子，有一系列的数据文件组成。
+    * 数据存储在表空间(tablespace)中，由InnoDB管理的黑盒子，由一系列的数据文件组成。
     * 采用MVVC支持高并发，实现四个标准的隔离级别，默认为REPEATABLE READ，并且通过间隙锁(next-key locking)策略使得InnoDB锁定查询涉及的行，还会对索引中的间隙进行锁定，防止幻读出现。
     * 基于聚簇索引(clustered index)建立，对主键查询有很高的性能。但是二级索引(secondary index，非主键索引)必须包含主键列，如主键索引过大，其它的所有索引都会很大。
     * 从磁盘读取数据采用可预测性预读、自动在内存中创建hash索引以加速读操作的自适应索引(adaptive hash index)、加速插入操作的插入缓冲区(insert buffer)
@@ -744,36 +744,79 @@ MySQL默认事务型存储引擎，拥有良好的性能和自动崩溃恢复特
 
 
 
-
-
+[^1]:
 
 ![](figures/15854945095604.png)
 
-https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html
 
-从InnoDB存储引擎的逻辑结构看，所有数据都被逻辑地存放在一个空间内，称为表空间(tablespace)，而表空间由段（sengment）、区（extent）、页（page）组成。 在一些文档中extend又称块（block）。
-
-
+从InnoDB存储引擎的逻辑结构看，所有数据都被逻辑地存放在一个空间内，称为表空间(tablespace)，而表空间由段(sengment)、区(extent)、页(page)组成:
 
 
 ![](figures/15859098288031.png)
 
-* 表空间（Tablespace）是一个逻辑容器，表空间存储的对象是段，在一个表空间中可以有一个或多个段，但是一个段只能属于一个表空间。数据库由一个或多个表空间组成，表空间从管理上可以划分为系统表空间(system tablespace)、用户表空间、撤销表空间(undo tablespace)、临时表空间(temporary tablespace)等。
-* 段（Segment）由一个或多个区组成，区在文件系统是一个连续分配的空间（在 InnoDB 中是连续的 64 个页），不过在段中不要求区与区之间是相邻的。段是数据库中的分配单位，不同类型的数据库对象以不同的段形式存在。当我们创建数据表、索引的时候，就会相应创建对应的段，比如创建一张表时会创建一个表段，创建一个索引时会创建一个索引段。
-* 在 InnoDB 存储引擎中，一个区会分配 64 个连续的页。因为 InnoDB 中的页大小默认是 16KB，所以一个区的大小是 64*16KB=1MB。在任何情况下每个区大小都为1MB，为了保证页的连续性，InnoDB存储引擎每次从磁盘一次申请4-5个区。默认情况下，InnoDB存储引擎的页大小为16KB，即一个区中有64个连续的页。
-* 页是InnoDB存储引擎磁盘管理的最小单位，每个页默认16KB；InnoDB存储引擎从1.2.x版本碍事，可以通过参数innodb_page_size将页的大小设置为4K、8K、16K。若设置完成，则所有表中页的大小都为innodb_page_size，不可以再次对其进行修改，除非通过mysqldump导入和导出操作来产生新的库。
+* 表空间(Tablespace):一个逻辑容器，表空间存储的对象是段，在一个表空间中可以有一个或多个段，但是一个段只能属于一个表空间。数据库由一个或多个表空间组成，表空间从管理上可以划分为系统表空间(system tablespace)、用户表空间、撤销表空间(undo tablespace)、临时表空间(temporary tablespace)等。
+* 段(Segment)：数据库中的分配单位，不同类型的数据库对象以不同的段形式存在。当我们创建数据表、索引的时候，就会相应创建对应的段，比如创建一张表时会创建一个表段，创建一个索引时会创建一个索引段。段由一个或多个区组成。
+* 区(extent): 在文件系统是一个连续分配的空间(连续的64个页)。为了保证页的连续性，InnoDB存储引擎每次从磁盘一次申请多个区。
+* 页(Page)：InnoDB存储引擎磁盘管理的最小单位，每个页默认16KB，可以通过参数`innodb_page_size`设置页的大小。
 
-##### 锁
+#### 文件格式
 
-InnoDB有三种行锁的算法：
+MySQL使用InnoDB存储表时，会将表的定义(.frm)和数据索引(.ibd)分开存储。MySQL的目录结构为：
+
+=== "InnoDB"
+    ```text
+    |--- mysql
+        |--- data
+            |--- ib_logfile0
+            |--- ib_logfile1
+            |--- ibdata1
+            |--- 数据库
+                |--- 表名.frm
+                |--- 表名.ibd
+    ```
+
+=== "MyISAM"
+    ```text
+    |--- mysql
+        |--- data
+            |--- 数据库
+                |--- 表名.frm
+                |--- 表名.myd
+                |--- 表名.myi
+                |--- 表名.log        
+    ```
+    
+* `.frm`文件：保存了每个表的元数据，包括表结构的定义等，该文件与数据库引擎无关。
+* `.ibd`文件：InnoDB引擎开启了独立表空间(my.ini中配置innodb_file_per_table = 1)产生的存放该表的数据和索引的文件。
+* `ibdata`文件：系统表空间文件，存储InnoDB系统信息、用户数据库表数据、索引
+* `ib_logfile`文件：日志文件
+
+
+
+
+
+#### 锁
+
+<!--InnoDB有三种行锁的算法：
 
 * Record Lock：单个行记录上的锁。
 * Gap Lock：间隙锁，锁定一个范围，但不包括记录本身。GAP锁的目的，是为了防止同一事务的两次当前读，出现幻读的情况。
-* Next-Key Lock：1+2，锁定一个范围，并且锁定记录本身。对于行的查询，都是采用该方法，主要目的是解决幻读的问题。
+* Next-Key Lock：1+2，锁定一个范围，并且锁定记录本身。对于行的查询，都是采用该方法，主要目的是解决幻读的问题。-->
 
 
+InnoDB支持**多粒度锁**(multiple granularity locking)，允许行级锁和表级锁共存。**意向锁**(Intention Locks)是一种不与行级锁冲突的表级锁，分为
 
-##### 多版本并发控制
+* 意向共享锁(intention shared lock, IS): 事务有意向对表中的某些行加共享锁(S锁)
+    * 事务要获取某些行的S锁，必须先获得表的IS锁
+    * `SELECT column FROM table ... LOCK IN SHARE MODE;`
+* 意向排他锁(intention exclusive lock, IX): 事务有意向表中的某些行加排他锁(X锁)
+    * 事务要获取某些行的X锁，必须先获得表的IX锁
+    * `SELECT column FROM table ... FOR UPDATE;`
+
+意向锁是由数据引擎自己维护的，用户无法手动操作意向锁，在为数据行加共享/排他锁之前，InnoDB会先获取该数据行所在表格的意向锁。
+
+
+#### 多版本并发控制
 
 https://dev.mysql.com/doc/refman/8.0/en/innodb-multi-versioning.html
 
@@ -784,7 +827,7 @@ InnoDB的内部实现中为每一行数据增加了三个隐藏列用于实现MV
 ![](figures/15859133806087.jpg)
 
 
-* DB_ROW_ID	：6字节，	包含一个随着新行插入而单调递增的行ID, 当由innodb自动产生聚集索引时，聚集索引会包括这个行ID的值，否则这个行ID不会出现在任何索引中。
+* DB_ROW_ID	：6字节，包含一个随着新行插入而单调递增的行ID, 当由innodb自动产生聚集索引时，聚集索引会包括这个行ID的值，否则这个行ID不会出现在任何索引中。
 * DB_TRX_ID：	6字节，	用来标识最近一次对本行记录做修改(insert|update)的事务的标识符, 即最后一次修改(insert|update)本行记录的事务id。delete操作在内部来看是一次update操作，更新行中的删除标识位DELELE_BIT。
 * DB_ROLL_PTR：	7字节，	指向当前数据的undo log记录，回滚数据通过这个指针来寻找记录被更新之前的内容信息。
 * DELELE_BIT：用于标识该记录是否被删除
@@ -799,7 +842,6 @@ UndoLog
 
 数据操作
 
-
 * insert：创建一条记录，DB_TRX_ID为当前事务ID，DB_ROLL_PTR为NULL。
 * delete：将当前行的DB_TRX_ID设置为当前事务ID，DELELE_BIT设置为1。
 * update：复制一行，新行的DB_TRX_ID为当前事务ID，DB_ROLL_PTR指向上个版本的记录，事务提交后DB_ROLL_PTR设置为NULL。
@@ -809,7 +851,6 @@ UndoLog
 
 
 MySQL的一致性读，是通过一个叫做[read view](https://github.com/twitter/mysql/blob/master/storage/innobase/include/read0read.h#L124)的结构来实现的
-
 
 设要读取的行的最后提交事务id(即当前数据行的稳定事务id)为 trx_id_current, 当前新开事务id为 new_id, 当前新开事务创建的快照read view 中最早的事务id为up_limit_id, 最迟的事务id为low_limit_id(注意这个low_limit_id=未开启的事务id=当前最大事务id+1)
 
@@ -822,12 +863,11 @@ MySQL的一致性读，是通过一个叫做[read view](https://github.com/twitt
 5. 将该可见行的值返回。
 
 
-
 MySQL的InnoDB存储引擎默认事务隔离级别是RR(可重复读), 是通过 "行排他锁+MVCC" 一起实现的, 不仅可以保证可重复读, 还可以部分防止幻读, 而非完全防止。
 
 
-
-#### MyISAM
+### 5 其他存储引擎
+####  MyISAM 存储引擎
 
 支持全文索引、压缩、空间函数(GIS)，不支持事务和行级锁，并且崩溃后无法安全恢复。对于只读数据，或者表比较小，可以忍受修复(repair)操作，可以考虑MyISAM。
 
@@ -846,7 +886,7 @@ MySQL的InnoDB存储引擎默认事务隔离级别是RR(可重复读), 是通过
 
 ![characteristics_of_different_storage_engine](figures/characteristics_of_different_storage_engine.png)
 
-### 5 查询性能优化
+### 6 查询性能优化
 
 ####  MySQL数据库结构优化
 数据库结构优化的目的
@@ -1046,4 +1086,4 @@ WHERE TIME>=60
 
 
 
-
+[^1]: https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html

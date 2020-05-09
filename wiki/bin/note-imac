@@ -4,7 +4,7 @@
 basepath=/Users/larry/Documents/note/wiki/bin
 cd $basepath
 
-set -e
+#set -e
 
 echo "preparing..."
 python rename.py

@@ -237,7 +237,7 @@ docker exec -it  fffb421bc528 bash
 
 数据卷可以在Dockerfile中使用VOLUME指定，也可以在启动container时指定
 
-```
+```bash
 # Dockerfile
 VOLUME /var/lib/mysql
 # mysql是volume的name， /var/lib/mysql是volume的路径
@@ -259,7 +259,8 @@ docker run -d --mount source=mysql,target=/var/lib/mysql  \
 # /home/mysql是本机路径，/root/mysql是容器路径
 docker run -d -v /home/mysql:/root/mysql \
     -e MYSQL_ROOT_PASSWORD='root' mysql
-docker run -d --mount type=bind,source=/home/mysql,target=/root/mysql -e MYSQL_ROOT_PASSWORD='root' mysql
+docker run -d --mount type=bind,source=/home/mysql,target=/root/mysql \
+    -e MYSQL_ROOT_PASSWORD='root' mysql
 ```
 
 
@@ -286,9 +287,11 @@ $  /home/docker docker port web
 
 ```bash
 # 创建test1容器
-docker run -d --name test1 busybox /bin/sh -c "while true; do sleep 3600; done"
+docker run -d --name test1 busybox \
+    /bin/sh -c "while true; do sleep 3600; done"
 # 创建test2容器，link到test1
-docker run -d --name test2 --link test1 busybox /bin/sh -c "while true; do sleep 3600; done"
+docker run -d --name test2 --link test1 busybox \
+    /bin/sh -c "while true; do sleep 3600; done"
 # test1，test2互相ping对方的ip，是可以ping通的
 docker exec test1 ping 172.17.0.3
 docker exec test2 ping 172.17.0.2
@@ -299,12 +302,7 @@ docker run exec test2 ping test1
 
 
 
-
-
-
-### 2 容器编排
-
-#### Docker Compose
+### 2 Docker Compose
 
 Docker Compose可以实现对Docker容器集群的快速编排。它允许用户通过一个单独的模版文件(`docker-compose.yml`)来定义一组相关联的应用容器为一个项目。使用Docker Compose一般分三步：
 
@@ -357,13 +355,36 @@ services:
 ![docker_swarm](figures/docker_swarm.png)
 
 
-#### Kubenetes
+### 3 Kubenetes
+
+[Kubenetes](https://kubernetes.io/zh/)是用于自动部署，扩展和管理容器化应用程序的开源系统。
 
 
 
+
+K8s包括一个Master节点和多个Node节点[^1]。
 
 ![](figures/k8s_architecture.png)
-### 3 底层实现
+
+Master节点负责暴露API，调度、管理
+
+![](figures/k8s_master.png)
+
+Node节点负责计算、网络、存储资源
+
+![](figures/k8s_node.png)
+
+#### pod
+
+> A pod is a collection of one or more containers. The pod serves as Kubernetes’ core unit of management. Pods act as the logical boundary for containers sharing the same context and resources. The grouping mechanism of pods make up for the differences between containerization and virtualization by making it possible to run multiple dependent processes together. At runtime, pods can be scaled by creating replica sets, which ensure that the deployment always runs the desired number of pods.
+
+![](figures/k8s_pod.png)[^2]
+
+Pod是资源调度的最小单位，而不是container。
+
+
+
+### 4 底层实现
 
 Docker 底层的核心技术包括 Linux 上的命名空间（Namespaces）、控制组（Control groups）、Union 文件系统（Union file systems）和容器格式（Container format）。
 
@@ -376,6 +397,7 @@ Docker 底层的核心技术包括 Linux 上的命名空间（Namespaces）、�
 前者相对容易实现一些，后者则需要宿主机系统的深入支持。
 
 随着 Linux 系统对于命名空间功能的完善实现，程序员已经可以实现上面的所有需求，让某些进程在彼此隔离的命名空间中运行。大家虽然都共用一个内核和某些运行时环境（例如一些系统命令和系统库），但是彼此却看不到，都以为系统中只有自己的存在。这种机制就是容器（Container），利用命名空间来做权限的隔离控制，利用 cgroups 来做资源分配。
+
 #### 基本架构
 
 Docker 采用了 `C/S` 架构，包括客户端和服务端。Docker 守护进程 （`Daemon`）作为服务端接受来自客户端的请求，并处理这些请求（创建、运行、分发容器）。
@@ -387,16 +409,21 @@ Docker 采用了 `C/S` 架构，包括客户端和服务端。Docker 守护进�
 Docker 守护进程一般在宿主主机后台运行，等待接收来自客户端的消息。
 
 Docker 客户端则为用户提供一系列可执行命令，用户用这些命令实现跟 Docker 守护进程交互。
+
 #### 命名空间
+
 命名空间是 Linux 内核一个强大的特性。每个容器都有自己单独的命名空间，运行在其中的应用都像是在独立的操作系统中运行一样。命名空间保证了容器之间彼此互不影响。
 
 ##### pid 命名空间
+
 不同用户的进程就是通过 pid 命名空间隔离开的，且不同命名空间中可以有相同 pid。所有的 LXC 进程在 Docker 中的父进程为 Docker 进程，每个 LXC 进程具有不同的命名空间。同时由于允许嵌套，因此可以很方便的实现嵌套的 Docker 容器。
 
 ##### net 命名空间
+
 有了 pid 命名空间，每个命名空间中的 pid 能够相互隔离，但是网络端口还是共享 host 的端口。网络隔离是通过 net 命名空间实现的， 每个 net 命名空间有独立的 网络设备，IP 地址，路由表，/proc/net 目录。这样每个容器的网络就能隔离开来。Docker 默认采用 veth 的方式，将容器中的虚拟网卡同 host 上的一 个Docker 网桥 docker0 连接在一起。
 
 ##### ipc 命名空间
+
 容器中进程交互还是采用了 Linux 常见的进程间交互方法(interprocess communication - IPC)， 包括信号量、消息队列和共享内存等。然而同 VM 不同的是，容器的进程间交互实际上还是 host 上具有相同 pid 命名空间中的进程间交互，因此需要在 IPC 资源申请时加入命名空间信息，每个 IPC 资源有一个唯一的 32 位 id。
 
 ##### mnt 命名空间
@@ -406,6 +433,7 @@ Docker 客户端则为用户提供一系列可执行命令，用户用这些命�
 UTS("UNIX Time-sharing System") 命名空间允许每个容器拥有独立的 hostname 和 domain name， 使其在网络上可以被视作一个独立的节点而非 主机上的一个进程。
 
 ##### user 命名空间
+
 每个容器可以有不同的用户和组 id， 也就是说可以在容器内用容器内部的用户执行程序而非主机上的用户。
 
 *注：更多关于 Linux 上命名空间的信息，请阅读 [这篇文章](https://blog.scottlowe.org/2013/09/04/introducing-linux-network-namespaces/)。
@@ -468,12 +496,14 @@ Docker 创建一个容器的时候，会执行如下操作：
 完成这些之后，容器就可以使用 eth0 虚拟网卡来连接其他容器和其他网络。
 
 可以在 `docker run` 的时候通过 `--net` 参数来指定容器的网络配置，有4个可选值：
+
 * `--net=bridge` 这个是默认值，连接到默认的网桥。
 * `--net=host` 告诉 Docker 不要将容器网络放到隔离的命名空间中，即不要容器化容器内的网络。此时容器使用本地主机的网络，它拥有完全的本地主机接口访问权限。容器进程可以跟主机其它 root 进程一样可以打开低范围的端口，可以访问本地网络服务比如 D-bus，还可以让容器做一些影响整个主机系统的事情，比如重启主机。因此使用这个选项的时候要非常小心。如果进一步的使用 `--privileged=true`，容器会被允许直接配置主机的网络堆栈。
 * `--net=container:NAME_or_ID` 让 Docker 将新建容器的进程放到一个已存在容器的网络栈中，新容器进程有自己的文件系统、进程列表和资源限制，但会和已存在的容器共享 IP 地址和端口等网络资源，两者进程可以直接通过 `lo` 环回接口通信。
 * `--net=none` 让 Docker 将新容器放到隔离的网络栈中，但是不进行网络配置。之后，用户可以自己进行配置。
 
 ##### 网络配置细节
+
 用户使用 `--net=none` 后，可以自行配置网络，让容器达到跟平常一样具有访问网络的权限。通过这个过程，可以了解 Docker 配置网络的细节。
 
 首先，启动一个 `/bin/bash` 容器，指定 `--net=none` 参数。
@@ -527,8 +557,12 @@ $ sudo ip netns exec $pid ip route add default via 172.17.42.1
 
 ```bash
 # 创建包含docker的虚拟机
-docker-machine create -d "virtualbox" --virtualbox-no-vtx-check --engine-install-url
-     https://github.com/boot2docker/boot2docker/releases/download/v19.03.5/boot2docker.iso default
+docker-machine create -d "virtualbox" --virtualbox-no-vtx-check \
+--engine-install-url https://github.com/boot2docker/boot2docker/releases/download/v19.03.5/boot2docker.iso \
+--virtualbox-cpu-count "6" \
+--virtualbox-disk-size "50000" \
+--virtualbox-memory "10240" \
+default
 # 配置环境变量
 eval $(docker-machine env)
 # 查看是否已经连接docker server
@@ -555,6 +589,16 @@ sudo systemctl start docker
 docker version
 ```
 
+当然，也创建Docker之后，也可以使用docker-machine来管理：
+
+```bash
+docker-machine create \
+    --driver generic \
+    --generic-ip-address=192.168.56.110 \
+    --generic-ssh-key ~/.ssh/id_rsa \
+    vm
+```
+
 ##### 镜像
 
 由于Docker镜像服务器部署在国外，启动国内的镜像加速器可以加快Docker镜像下载速度。在`/etc/docker/daemon.json`中写入如下内容
@@ -573,3 +617,30 @@ docker version
 #### Docker Compose
 
 https://liguoqinjim.com/post/docker/系统学习docker-践行devops理念-笔记二/
+
+#### Minikube
+
+https://my.oschina.net/u/228832/blog/3079150
+
+![](figures/minikube.jpg)
+
+
+```bash
+# 下载kubectl： https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux
+# 下载minicube
+curl -Lo minikube http://kubernetes.oss-cn-hangzhou.aliyuncs.com/minikube/releases/v1.2.0/minikube-linux-amd64 && chmod +x minikube && mv minikube /usr/bin/
+# --vm-driver=none使用容器，其他可以选择virtualbox等
+minikube start -p kube1 --vm-driver=none --registry-mirror=https://registry.docker-cn.com --no-vtx-check
+
+# 查看信息
+kubectl config view # 配置
+kubectl cluster-info # 集群信息
+kubectl get pods # 查看pods
+kubectl get pods -o wide   # 获取pod的更多信息，比如在哪台k8s机器上
+kubectl describe pod <pod>   #获取一个POD的详细信息
+kubectl exec <pod> <cmd>     #在pod里的container里执行一个命令，如果这个pod有多个container，默认会在第一个里执行，或者通过-c去指定哪个
+```
+
+
+[^1]: https://thenewstack.io/kubernetes-an-overview/
+[^2]: https://medium.com/developerworld/pod-vs-node-in-kubernetes-26c858988f94

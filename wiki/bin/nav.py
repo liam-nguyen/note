@@ -10,6 +10,8 @@ INVALID_DIR = {'figures', 'custom_theme', 'tags', 'css', '爬虫', 'Mila', 'Prob
 INVALID_FILES = {'目录.md'}
 
 TOP = "/Users/larry/Documents/note/wiki/docs/"
+TOP1 = "/Users/larry/Documents/note/"
+
 
 class File:
     """
@@ -61,7 +63,22 @@ class File:
             return False
         if self.name in INVALID_FILES:
             return False
+        if self.is_hidden():
+            return False
         return True
+
+    def is_hidden(self):
+        """
+        Return true if the markdown file is hidden.
+        """
+        with codecs.open(self.path, mode='r') as file:
+            for i in range(10):
+                content = file.readline()
+                if content.find("hidden") != -1:
+                    if content.split(":")[1].strip().lower() == "true":
+                        return True
+        return False
+
 
 
 
@@ -128,13 +145,14 @@ class Item:
         :return: 字符串
         """
         s = level * "    " + "- '" + self.name + "':  '" + self.path + "'\n"
+        if not self.items:
+            return s
         for item in self.items:
             s += item.print(level+1)
         return s
 
     def __str__(self):
         return self.print(0)
-
 
     def type(self):
         """
@@ -160,28 +178,34 @@ class Item:
                 self.add_item(item)
         self.sort_items()
 
+
+
     def sort_items(self):
         """
-        根据数字和字母顺序将子条目进行排序：升序
+        两级排序：
+        1. 根据条目等级排序，低等级的在前面
+        2. 根据数字和字母顺序将每一级条目进行排序：升序
         """
-        digit_sort = []
-        letter_sort = []
+        to_sort = []
         for item in self.items:
+            # 排序：等级，数字，字母
             # 提取章节号
             item_number = re.search(r'\d+', item.name)
-            # 如果章节号存在，则依据章节号排序
             if item_number:
-                digit_sort.append((int(item_number.group()), item))
-            # 特殊情况：把index.md 放在最前面
+                # 如果章节号存在
+                digit = int(item_number.group())
             elif item.name == "index.md":
-                digit_sort.append((-9999, item))
-            else:  # 否则根据字母排序
-                letter_sort.append((item.name, item))
-        letter_sort.sort(key=lambda x: x[0])
-        digit_sort.sort(key=lambda x: x[0])
-        # 先数字顺序，然后字母顺序
-        digit_sort.extend(letter_sort)
-        self.items = list(map(lambda x: x[1], digit_sort))
+                # 特殊情况：把index.md 放在最前面
+                digit= -9999
+            else:
+                 #没有章节号，放在后面
+                digit = 0
+                # 否则根据字母排序
+
+            to_sort.append((item.type(), digit, item.name, item))
+        to_sort.sort(key=lambda x: (x[0], x[1], x[2]))
+        self.items = list(map(lambda x: x[3], to_sort))
+
 
     def generate_index(self):
         """
@@ -191,7 +215,10 @@ class Item:
         for item in self.items:
             if item.name == 'index.md':  # 生成index不能包含自己
                 continue
-            index_content.append('* [%s](%s)\n' % (item.name.replace('.md', ''), item.name))
+            # 根据条目等级，确定路径
+            path = item.path.replace(TOP, '')
+            start = [m.start() for m in re.finditer('/', path)][-self.type()] + 1
+            index_content.append('* [%s](%s)\n' % (item.name.replace('.md', ''), path[start:]))
         index_content.append('\n')
         return ''.join(index_content)
 
@@ -253,7 +280,8 @@ class Item:
         """
         s = ""
         for item in self.items:
-            s += item.yaml(0)
+            if item.name != "index.md":  # 自己就不要生成自己的index了
+                s += item.yaml(0)
         return s
 
 
@@ -275,11 +303,50 @@ class Item:
         with codecs.open(ymlfile, mode='w', encoding='utf-8') as f:
             f.write(contents)
 
+    def github(self, level):
+        """
+        生成github条目
+        """
+        s = ""
+        if self.type() == 1:
+            if self.name != "index.md":
+                s += "* " + "[" + self.name.replace('.md', '') + "](" + \
+                    self.path.replace(TOP1, "").replace(" ", "%20") + ")\n"
+        else:
+            s += "\n" + (level+2) * "#" + " " + self.name + "\n\n"
+
+        # 剩余部分
+        for item in self.items:
+            s += item.github(level+1)
+        return s
+
+    def generate_github(self):
+        """
+        生成Github目录
+        """
+        s = "# 目录\n\n"
+        for item in self.items:
+            s += item.github(0)
+        return s
+
+    def write_github(self, readmefile):
+        """
+        生成Github的目录导航
+        @:param filepath: 最后写入的文件
+        1. 设置正确的地址
+        2. 将空格替换成%20
+        """
+        with codecs.open(readmefile, mode='w', encoding='utf-8') as f:
+            f.write(self.generate_github())
+
 
 if __name__ == "__main__":
     blog_item = Item("docs", "/Users/larry/Documents/note/wiki/docs")
     blog_item.traverse()
+    blog_item.write_index()
     blog_item.write_yml("/Users/larry/Documents/note/wiki/mkdocs.yml")
+    blog_item.write_github( "/Users/larry/Documents/note/README.md")
+
 
 
 

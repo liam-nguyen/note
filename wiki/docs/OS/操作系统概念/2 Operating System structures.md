@@ -10,7 +10,7 @@ The figure below is a view of the various operating-system services and how they
 
 
 
-<small>![A_view_of_operating_system_services](figures/A_view_of_operating_system_services.png)</small>
+![A_view_of_operating_system_services](figures/A_view_of_operating_system_services.png)
 
 ### 2 User and Operating System interface
 
@@ -98,7 +98,8 @@ Operating systems with **monolithic**(宏内核) structure place all of the func
 * a common technique for designing operating system
 * e.g. original Unix operating system ( figure below)
 
-![Traditional UNIX system structure](figures/TradiontalUnixSystemStructure.png)
+![Unix_System_Structure](figures/Unix_System_Structure.png)
+
 
 monolithic kernel单内核
 

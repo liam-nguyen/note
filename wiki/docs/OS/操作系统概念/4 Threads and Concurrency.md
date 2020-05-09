@@ -123,7 +123,7 @@ The **many-to-many model**(多对多模型) multiplexes many user-level threads 
 
 
 !!! note
-    **Most operating systems now use the one-to-one model.**
+    **Most operating systems now use the one-to-one model**. In Linux, threads are processes that share certain resources. [Linux内核设计与实现](Linux内核设计与实现.md).
 
 #### User/Kernel-Level threads
 
@@ -233,7 +233,7 @@ In this section, we explore four alternative approaches to designing application
 
 * Thread Pools
 * Fork Join
-* OpemMP
+* OpenMP
 * Grand Central Dispatch
 
 #### Thread Pools
@@ -269,21 +269,21 @@ The <C>java.util.concurrent</C> package includes an API for several varieties of
 Each of these factory methods creates and returns an object instance that implements the <C>ExecutorService</C> interface. <C>ExecutorService</C> extends the <C>Executor</C> interface, allowing us to invoke the <C>execute()</C> method on this object.
 
 ```java
-//It creates a cached thread pool and submits tasks to be executed by a thread in the pool using the execute() method. 
-// When the shutdown() method is invoked, the thread pool rejects additional tasks and shuts down once all existing tasks have completed execution.
+// It creates a cached thread pool and submits tasks to be executed by a thread 
+// in the pool using the execute() method. 
+// When the shutdown() method is invoked, the thread pool rejects additional tasks 
+// and shuts down once all existing tasks have completed execution.
 import java.util.concurrent.*; 
-public class ThreadPoolExample 
-{ 
+public class ThreadPoolExample { 
     public static void main(String[] args) {
         int numTasks = Integer.parseInt(args[0].trim()); 
-        
         /* Create the thread pool */ 
         ExecutorService pool = Executors.newCachedThreadPool(); 
         /* Run each task using a thread in the pool */ 
         for (int i = 0; i < numTasks; i++) 
             pool.execute(new Task()); 
         
-         /* Shut down the pool once all threads have completed */            
+         /* Shutdown the pool once all threads have completed */            
         pool.shutdown();
 }
 ```
@@ -297,13 +297,13 @@ public class ThreadPoolExample
 ### 6 Threading Issues
 #### Light Weight Process
 
-Many systems implementing either the many-to-many or the two-level model place an *intermediate* data structure between the user and kernel threads. This data structure—typically known as a **_*lightweight process*_**（轻量级进程）, or **LWP**.
+Many systems implementing either the many-to-many or the two-level model place an *intermediate* data structure between the user and kernel threads. This data structure—typically known as a ***lightweight process***（轻量级进程）, or **LWP**.
 
 * To the user-thread library, the LWP appears to be a **virtual** processor on which the application can schedule a user thread to run.
 * Each LWP is attached to a kernel thread.
 * If a kernel thread blocks, the LWP blocks as well. Up the chain, the user-level thread attached to the LWP also blocks.
 
-![light-weight process](figures/Light-Weight_process.png)
+![light-weight process-w205](figures/Light-Weight_process.png)
 
 ![](figures/15320591793590.jpg)
 

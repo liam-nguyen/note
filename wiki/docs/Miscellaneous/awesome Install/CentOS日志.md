@@ -39,7 +39,7 @@ service sshd start
 chkconfig sshd on
 # 开启服务的自动启动-centos7
 systemctl enable sshd.service
-``` 
+```
 
 配置SSH免密登陆, 首先在主机上利用`ifconfig`命令查看虚拟机Ip地址，例如192.168.56.103,然后将Ip地址增加到本机host文件中.
 
@@ -121,7 +121,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 PROMPT='%{$fg_bold[yellow]%}%n@%m ${ret_status} %{$fg[cyan]%}%d%{$reset_color%} $(git_prompt_info)'
 ```
 
-使用`source ~/.zshrc`生效。
+使用`source ~/.zshrc`生效。可以使用`chsh -s /bin/zsh`命令手动配置默认shell为ZSH。如果多个用户需要安装oh-my-zsh，需要先`unset ZSH`，然后进行安装。
 
 #### mysql
 

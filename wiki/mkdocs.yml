@@ -14,7 +14,10 @@ theme:
   features:
     - tabs
     - instant
-  #custom_dir: 'custom_theme/'
+  custom_dir: 'custom_theme/'
+  icon:
+    logo: material/library
+    repo: fontawesome/brands/git-alt
 
 extra_css:
     - css/extra.css
@@ -28,6 +31,7 @@ markdown_extensions:
   - pymdownx.arithmatex
   - pymdownx.smartsymbols
   - pymdownx.mark
+  - pymdownx.tabbed
   - pymdownx.details
   - codehilite
   - admonition
@@ -38,25 +42,25 @@ markdown_extensions:
   - pymdownx.inlinehilite ## https://squidfunk.github.io/mkdocs-material/extensions/pymdown/
   - pymdownx.tasklist:
       custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
 plugins:
     - search:
         lang:
             - en
-            - jp
+            - ja
+        prebuild_index: true
     - autolinks
+
 
 
 #  - mknotebooks
 
 nav:
-- 'index': 'index.md'
 - 'Algorithm': 
     - 'index': 'Algorithm/index.md'
-    - 'CS61B': 
-        - 'index': 'Algorithm/CS61B/index.md'
-        - 'Lab1': 'Algorithm/CS61B/Lab1.md'
-        - 'Lab2': 'Algorithm/CS61B/Lab2.md'
-        - 'Lab3': 'Algorithm/CS61B/Lab3.md'
     - 'Princeton': 
         - 'index': 'Algorithm/Princeton/index.md'
         - 'Topic 1 - Union Find': 'Algorithm/Princeton/Topic 1 - Union Find.md'
@@ -87,101 +91,24 @@ nav:
         - '水塘抽样': 'Algorithm/其他/水塘抽样.md'
     - '剑指Offer': 
         - 'index': 'Algorithm/剑指Offer/index.md'
+        - 'solution': 'Algorithm/剑指Offer/solution.md'
         - '2 ⾯试需要的基础知识': 'Algorithm/剑指Offer/2 ⾯试需要的基础知识.md'
         - '3 高质量的代码': 'Algorithm/剑指Offer/3 高质量的代码.md'
         - '4 解决面试题的思路': 'Algorithm/剑指Offer/4 解决面试题的思路.md'
         - '5 优化时间和空间效率': 'Algorithm/剑指Offer/5 优化时间和空间效率.md'
         - '6 面试中的各项能力': 'Algorithm/剑指Offer/6 面试中的各项能力.md'
         - '7 两个面试案例': 'Algorithm/剑指Offer/7 两个面试案例.md'
-        - 'solution': 'Algorithm/剑指Offer/solution.md'
     - '大数据算法': 
         - 'index': 'Algorithm/大数据算法/index.md'
         - '1. 共同URL': 'Algorithm/大数据算法/1. 共同URL.md'
-- 'Data Science': 
-    - 'index': 'Data Science/index.md'
-    - 'Big Data': 'Data Science/Big Data.md'
-    - 'Database': 
-        - 'index': 'Data Science/Database/index.md'
-        - 'Database Systems': 'Data Science/Database/Database Systems.md'
-        - 'MySQL': 'Data Science/Database/MySQL.md'
-        - 'Redis': 'Data Science/Database/Redis.md'
-        - 'SQL必知必会': 'Data Science/Database/SQL必知必会.md'
-        - '数据仓库': 'Data Science/Database/数据仓库.md'
-    - 'Hadoop': 
-        - 'index': 'Data Science/Hadoop/index.md'
-        - 'Avro': 'Data Science/Hadoop/Avro.md'
-        - 'Azkaban': 'Data Science/Hadoop/Azkaban.md'
-        - 'ELK': 'Data Science/Hadoop/ELK.md'
-        - 'Flink': 'Data Science/Hadoop/Flink.md'
-        - 'Flume': 'Data Science/Hadoop/Flume.md'
-        - 'HBase': 'Data Science/Hadoop/HBase.md'
-        - 'Hadoop基础': 'Data Science/Hadoop/Hadoop基础.md'
-        - 'Hive': 'Data Science/Hadoop/Hive.md'
-        - 'Hue': 'Data Science/Hadoop/Hue.md'
-        - 'Impala': 'Data Science/Hadoop/Impala.md'
-        - 'Kafka': 'Data Science/Hadoop/Kafka.md'
-        - 'Netty': 'Data Science/Hadoop/Netty.md'
-        - 'Oozie': 'Data Science/Hadoop/Oozie.md'
-        - 'Spark': 
-            - 'index': 'Data Science/Hadoop/Spark/index.md'
-            - '1 简介': 'Data Science/Hadoop/Spark/1 简介.md'
-            - '2 Structured API': 'Data Science/Hadoop/Spark/2 Structured API.md'
-            - '3 Low-level APIs': 'Data Science/Hadoop/Spark/3 Low-level APIs.md'
-            - '4 Spark是如何在集群上运行的': 'Data Science/Hadoop/Spark/4 Spark是如何在集群上运行的.md'
-            - '5 Spark Streaming': 'Data Science/Hadoop/Spark/5 Spark Streaming.md'
-            - '6 MLlib': 'Data Science/Hadoop/Spark/6 MLlib.md'
-            - '7 调优': 'Data Science/Hadoop/Spark/7 调优.md'
-            - '附录': 'Data Science/Hadoop/Spark/附录.md'
-        - 'Sqoop': 'Data Science/Hadoop/Sqoop.md'
-        - 'Storm': 'Data Science/Hadoop/Storm.md'
-        - 'YARN': 'Data Science/Hadoop/YARN.md'
-        - 'Zeppelin': 'Data Science/Hadoop/Zeppelin.md'
-        - 'ZooKeeper': 'Data Science/Hadoop/ZooKeeper.md'
-        - '关于MapReduce': 'Data Science/Hadoop/关于MapReduce.md'
-        - '文件格式': 'Data Science/Hadoop/文件格式.md'
-    - 'Hands On Machine Learning': 'Data Science/Hands On Machine Learning.md'
-    - 'Machine Learning Coursera': 'Data Science/Machine Learning Coursera.md'
-    - 'Practical Data Science': 
-        - 'index': 'Data Science/Practical Data Science/index.md'
-        - 'Free text and natural language processing': 'Data Science/Practical Data Science/Free text and natural language processing.md'
-        - 'Intro': 'Data Science/Practical Data Science/Intro.md'
-        - 'Jupyter notebook': 'Data Science/Practical Data Science/Jupyter notebook.md'
-        - 'Relational Data': 'Data Science/Practical Data Science/Relational Data.md'
-        - 'The data collection process': 'Data Science/Practical Data Science/The data collection process.md'
-    - 'Python': 
-        - 'index': 'Data Science/Python/index.md'
-        - 'Python引号': 'Data Science/Python/Python引号.md'
-        - 'Python配置': 'Data Science/Python/Python配置.md'
-        - 'Records': 'Data Science/Python/Records.md'
-        - '协程': 'Data Science/Python/协程.md'
-        - '生成器与迭代器': 'Data Science/Python/生成器与迭代器.md'
-        - '谈谈Python中的拷贝': 'Data Science/Python/谈谈Python中的拷贝.md'
-        - '闭包和装饰器': 'Data Science/Python/闭包和装饰器.md'
-    - 'Python机器学习基础教程': 'Data Science/Python机器学习基础教程.md'
-    - 'Scala': 
-        - 'index': 'Data Science/Scala/index.md'
-        - '第3章 从Java到Scala': 'Data Science/Scala/第3章 从Java到Scala.md'
-        - '第4章 处理对象': 'Data Science/Scala/第4章 处理对象.md'
-        - 'Cheat Sheet': 'Data Science/Scala/Cheat Sheet.md'
-        - 'Sbt': 'Data Science/Scala/Sbt.md'
-        - 'Scala编程': 'Data Science/Scala/Scala编程.md'
-        - 'functional programming in scala': 'Data Science/Scala/functional programming in scala.md'
-        - 'scala': 'Data Science/Scala/scala.md'
-        - '慕课网Scala入门': 'Data Science/Scala/慕课网Scala入门.md'
-    - 'caogao': 'Data Science/caogao.md'
-    - 'projects': 
-        - 'index': 'Data Science/projects/index.md'
-        - 'SparkStreaming实时流处理项目': 'Data Science/projects/SparkStreaming实时流处理项目.md'
-        - '中文情感分析': 'Data Science/projects/中文情感分析.md'
-    - '大型互联网架构': 'Data Science/大型互联网架构.md'
-    - '推荐系统实战': 'Data Science/推荐系统实战.md'
-    - '流式系统': 'Data Science/流式系统.md'
-    - '爬虫': 'Data Science/爬虫.md'
-    - '统计学习方法': 'Data Science/统计学习方法.md'
-    - '设计数据密集型应用': 'Data Science/设计数据密集型应用.md'
-    - '面向程序员的数据挖掘指南': 'Data Science/面向程序员的数据挖掘指南.md'
+    - 'CS61B': 
+        - 'index': 'Algorithm/CS61B/index.md'
+        - 'Lab1': 'Algorithm/CS61B/Lab1.md'
+        - 'Lab2': 'Algorithm/CS61B/Lab2.md'
+        - 'Lab3': 'Algorithm/CS61B/Lab3.md'
 - 'Java': 
     - 'index': 'Java/index.md'
+    - 'Go': 'Java/Go.md'
     - 'Head First Java': 
         - 'index': 'Java/Head First Java/index.md'
         - '1 Dive in A Quick Dip': 'Java/Head First Java/1 Dive in A Quick Dip.md'
@@ -222,7 +149,6 @@ nav:
         - '15 Chain Of Responsibility': 'Java/Head First设计模式/15 Chain Of Responsibility.md'
     - 'Java Web': 
         - 'index': 'Java/Java Web/index.md'
-        - 'Log4j': 'Java/Java Web/Log4j.md'
         - 'Ajax': 'Java/Java Web/Ajax.md'
         - 'Bootstrap': 'Java/Java Web/Bootstrap.md'
         - 'CSS': 'Java/Java Web/CSS.md'
@@ -241,15 +167,16 @@ nav:
         - 'XML': 'Java/Java Web/XML.md'
         - 'jQuery': 'Java/Java Web/jQuery.md'
         - '人员信息管理系统': 'Java/Java Web/人员信息管理系统.md'
+        - 'Log4j': 'Java/Java Web/Log4j.md'
     - 'Java基础': 
         - 'index': 'Java/Java基础/index.md'
-        - 'Java 8 新特性': 'Java/Java基础/Java 8 新特性.md'
         - 'Java基础': 'Java/Java基础/Java基础.md'
         - 'Java编程思想': 'Java/Java基础/Java编程思想.md'
         - '反射': 'Java/Java基础/反射.md'
         - '多线程基础': 'Java/Java基础/多线程基础.md'
         - '多线程设计模式': 'Java/Java基础/多线程设计模式.md'
         - '容器': 'Java/Java基础/容器.md'
+        - 'Java 8 新特性': 'Java/Java基础/Java 8 新特性.md'
     - '其他': 
         - 'index': 'Java/其他/index.md'
         - 'Java record': 'Java/其他/Java record.md'
@@ -350,8 +277,8 @@ nav:
     - '90. Subsets II': 'Leetcode/90. Subsets II.md'
     - '91. Decode Ways': 'Leetcode/91. Decode Ways.md'
     - '92. Reverse Linked List II': 'Leetcode/92. Reverse Linked List II.md'
-    - '93. Restore IP Adress': 'Leetcode/93. Restore IP Adress.md'
     - '93. Restore IP Addresses': 'Leetcode/93. Restore IP Addresses.md'
+    - '93. Restore IP Adress': 'Leetcode/93. Restore IP Adress.md'
     - '94. Binary Tree Inorder Traversal': 'Leetcode/94. Binary Tree Inorder Traversal.md'
     - '95. Unique Binary Search Trees II': 'Leetcode/95. Unique Binary Search Trees II.md'
     - '96. Unique Binary Search Trees': 'Leetcode/96. Unique Binary Search Trees.md'
@@ -554,15 +481,6 @@ nav:
 - 'Miscellaneous': 
     - 'index': 'Miscellaneous/index.md'
     - 'Clion': 'Miscellaneous/Clion.md'
-    - 'Cpp': 
-        - 'index': 'Miscellaneous/Cpp/index.md'
-        - 'C++ Primer (6) - 函数': 'Miscellaneous/Cpp/C++ Primer (6) - 函数.md'
-        - 'C++ Primer (12) - 动态内存': 'Miscellaneous/Cpp/C++ Primer (12) - 动态内存.md'
-        - 'C++面试经典100题': 'Miscellaneous/Cpp/C++面试经典100题.md'
-        - 'EOF': 'Miscellaneous/Cpp/EOF.md'
-        - 'STL中的vector string总结': 'Miscellaneous/Cpp/STL中的vector string总结.md'
-        - 'STL源码剖析': 'Miscellaneous/Cpp/STL源码剖析.md'
-        - 'static用法': 'Miscellaneous/Cpp/static用法.md'
     - 'GCC': 'Miscellaneous/GCC.md'
     - 'Git': 'Miscellaneous/Git.md'
     - 'Intellij IDEA': 'Miscellaneous/Intellij IDEA.md'
@@ -570,37 +488,108 @@ nav:
     - 'Markdown': 'Miscellaneous/Markdown.md'
     - 'Maven': 'Miscellaneous/Maven.md'
     - 'VIM技巧': 'Miscellaneous/VIM技巧.md'
+    - '建站日志': 'Miscellaneous/建站日志.md'
+    - 'Cpp': 
+        - 'index': 'Miscellaneous/Cpp/index.md'
+        - 'EOF': 'Miscellaneous/Cpp/EOF.md'
+        - 'STL中的vector string总结': 'Miscellaneous/Cpp/STL中的vector string总结.md'
+        - 'STL源码剖析': 'Miscellaneous/Cpp/STL源码剖析.md'
+        - 'static用法': 'Miscellaneous/Cpp/static用法.md'
+        - 'C++ Primer (6) - 函数': 'Miscellaneous/Cpp/C++ Primer (6) - 函数.md'
+        - 'C++ Primer (12) - 动态内存': 'Miscellaneous/Cpp/C++ Primer (12) - 动态内存.md'
+        - 'C++面试经典100题': 'Miscellaneous/Cpp/C++面试经典100题.md'
     - 'awesome Install': 
         - 'index': 'Miscellaneous/awesome Install/index.md'
         - 'CentOS日志': 'Miscellaneous/awesome Install/CentOS日志.md'
         - 'Intel Parallel Studio XE': 'Miscellaneous/awesome Install/Intel Parallel Studio XE.md'
         - 'Jupyter Notebook': 'Miscellaneous/awesome Install/Jupyter Notebook.md'
-        - 'Mac环境下搭建Hadoop家族产品': 'Miscellaneous/awesome Install/Mac环境下搭建Hadoop家族产品.md'
         - 'Nasm': 'Miscellaneous/awesome Install/Nasm.md'
         - 'Octave': 'Miscellaneous/awesome Install/Octave.md'
         - 'Proxy': 'Miscellaneous/awesome Install/Proxy.md'
         - 'Ubuntu日志': 'Miscellaneous/awesome Install/Ubuntu日志.md'
         - 'git': 'Miscellaneous/awesome Install/git.md'
         - 'vagrant搭建ubuntu': 'Miscellaneous/awesome Install/vagrant搭建ubuntu.md'
-        - '下载视频': 'Miscellaneous/awesome Install/下载视频.md'
+        - '下载': 'Miscellaneous/awesome Install/下载.md'
         - '黑苹果日志': 'Miscellaneous/awesome Install/黑苹果日志.md'
-    - '建站日志': 'Miscellaneous/建站日志.md'
     - '面试': 
         - 'index': 'Miscellaneous/面试/index.md'
         - 'Java多线程面试': 'Miscellaneous/面试/Java多线程面试.md'
         - '网络面试': 'Miscellaneous/面试/网络面试.md'
+- 'Data Science': 
+    - 'index': 'Data Science/index.md'
+    - 'Big Data': 'Data Science/Big Data.md'
+    - '流式系统': 'Data Science/流式系统.md'
+    - 'Database': 
+        - 'index': 'Data Science/Database/index.md'
+        - 'Database Systems': 'Data Science/Database/Database Systems.md'
+        - 'MySQL': 'Data Science/Database/MySQL.md'
+        - 'Redis': 'Data Science/Database/Redis.md'
+        - 'SQL必知必会': 'Data Science/Database/SQL必知必会.md'
+        - '数据仓库': 'Data Science/Database/数据仓库.md'
+    - 'Practical Data Science': 
+        - 'index': 'Data Science/Practical Data Science/index.md'
+        - 'Free text and natural language processing': 'Data Science/Practical Data Science/Free text and natural language processing.md'
+        - 'Intro': 'Data Science/Practical Data Science/Intro.md'
+        - 'Jupyter notebook': 'Data Science/Practical Data Science/Jupyter notebook.md'
+        - 'Relational Data': 'Data Science/Practical Data Science/Relational Data.md'
+        - 'The data collection process': 'Data Science/Practical Data Science/The data collection process.md'
+    - 'Python': 
+        - 'index': 'Data Science/Python/index.md'
+        - 'Python引号': 'Data Science/Python/Python引号.md'
+        - 'Python配置': 'Data Science/Python/Python配置.md'
+        - 'Records': 'Data Science/Python/Records.md'
+        - '协程': 'Data Science/Python/协程.md'
+        - '生成器与迭代器': 'Data Science/Python/生成器与迭代器.md'
+        - '谈谈Python中的拷贝': 'Data Science/Python/谈谈Python中的拷贝.md'
+        - '闭包和装饰器': 'Data Science/Python/闭包和装饰器.md'
+    - 'Scala': 
+        - 'index': 'Data Science/Scala/index.md'
+        - 'Cheat Sheet': 'Data Science/Scala/Cheat Sheet.md'
+        - 'Sbt': 'Data Science/Scala/Sbt.md'
+        - 'Scala编程': 'Data Science/Scala/Scala编程.md'
+        - 'functional programming in scala': 'Data Science/Scala/functional programming in scala.md'
+        - 'scala': 'Data Science/Scala/scala.md'
+        - '慕课网Scala入门': 'Data Science/Scala/慕课网Scala入门.md'
+        - '第3章 从Java到Scala': 'Data Science/Scala/第3章 从Java到Scala.md'
+        - '第4章 处理对象': 'Data Science/Scala/第4章 处理对象.md'
+    - '机器学习': 
+        - 'Hands On Machine Learning': 'Data Science/机器学习/Hands On Machine Learning.md'
+        - 'Machine Learning Coursera': 'Data Science/机器学习/Machine Learning Coursera.md'
+        - '面向程序员的数据挖掘指南': 'Data Science/机器学习/面向程序员的数据挖掘指南.md'
+    - 'Hadoop': 
+        - 'index': 'Data Science/Hadoop/index.md'
+        - 'Avro': 'Data Science/Hadoop/Avro.md'
+        - 'Flink': 'Data Science/Hadoop/Flink.md'
+        - 'Flume': 'Data Science/Hadoop/Flume.md'
+        - 'HBase': 'Data Science/Hadoop/HBase.md'
+        - 'Hadoop基础': 'Data Science/Hadoop/Hadoop基础.md'
+        - 'Hive': 'Data Science/Hadoop/Hive.md'
+        - 'Kafka': 'Data Science/Hadoop/Kafka.md'
+        - 'Sqoop': 'Data Science/Hadoop/Sqoop.md'
+        - 'YARN': 'Data Science/Hadoop/YARN.md'
+        - 'ZooKeeper': 'Data Science/Hadoop/ZooKeeper.md'
+        - '关于MapReduce': 'Data Science/Hadoop/关于MapReduce.md'
+        - '文件格式': 'Data Science/Hadoop/文件格式.md'
+        - 'Spark': 
+            - 'index': 'Data Science/Hadoop/Spark/index.md'
+            - '附录': 'Data Science/Hadoop/Spark/附录.md'
+            - '1 简介': 'Data Science/Hadoop/Spark/1 简介.md'
+            - '2 Structured API': 'Data Science/Hadoop/Spark/2 Structured API.md'
+            - '3 Low-level APIs': 'Data Science/Hadoop/Spark/3 Low-level APIs.md'
+            - '4 Spark是如何在集群上运行的': 'Data Science/Hadoop/Spark/4 Spark是如何在集群上运行的.md'
+            - '5 Spark Streaming': 'Data Science/Hadoop/Spark/5 Spark Streaming.md'
+            - '6 MLlib': 'Data Science/Hadoop/Spark/6 MLlib.md'
+            - '7 调优': 'Data Science/Hadoop/Spark/7 调优.md'
 - 'OS': 
     - 'index': 'OS/index.md'
     - 'Docker': 'OS/Docker.md'
-    - 'IO模型': 'OS/IO模型.md'
-    - 'Linux': 
-        - 'index': 'OS/Linux/index.md'
-        - 'Linux文件系统': 'OS/Linux/Linux文件系统.md'
-        - 'Linux管理，命令行与shell脚本': 'OS/Linux/Linux管理，命令行与shell脚本.md'
-    - 'ULK': 
-        - 'index': 'OS/ULK/index.md'
-        - '12 The Virtual FileSystem': 'OS/ULK/12 The Virtual FileSystem.md'
-    - 'Zero Copy': 'OS/Zero Copy.md'
+    - '深入解析Mac OS X': 'OS/深入解析Mac OS X.md'
+    - '计算机系统要素': 'OS/计算机系统要素.md'
+    - '计算机组成与设计': 'OS/计算机组成与设计.md'
+    - 'Unix': 
+        - 'index': 'OS/Unix/index.md'
+        - 'Linux管理，命令行与shell脚本': 'OS/Unix/Linux管理，命令行与shell脚本.md'
+        - 'Unix环境高级编程': 'OS/Unix/Unix环境高级编程.md'
     - '操作系统概念': 
         - 'index': 'OS/操作系统概念/index.md'
         - '1 Introduction': 'OS/操作系统概念/1 Introduction.md'
@@ -620,6 +609,16 @@ nav:
         - '15 File System Internals': 'OS/操作系统概念/15 File System Internals.md'
         - '17 Protection': 'OS/操作系统概念/17 Protection.md'
         - '18 Virtual Machines': 'OS/操作系统概念/18 Virtual Machines.md'
+    - '计算机网络': 
+        - 'index': 'OS/计算机网络/index.md'
+        - 'Socket Programming': 'OS/计算机网络/Socket Programming.md'
+        - 'WireShark Lab': 'OS/计算机网络/WireShark Lab.md'
+        - '1 计算机网络和因特网': 'OS/计算机网络/1 计算机网络和因特网.md'
+        - '2 应用层': 'OS/计算机网络/2 应用层.md'
+        - '3 运输层': 'OS/计算机网络/3 运输层.md'
+        - '4 网络层': 'OS/计算机网络/4 网络层.md'
+        - '5 链路层': 'OS/计算机网络/5 链路层.md'
+        - '6 网络安全': 'OS/计算机网络/6 网络安全.md'
     - '深入理解计算机系统': 
         - 'index': 'OS/深入理解计算机系统/index.md'
         - '1 计算机系统漫游': 'OS/深入理解计算机系统/1 计算机系统漫游.md'
@@ -640,18 +639,3 @@ nav:
             - 'Lab4 Cache Lab': 'OS/深入理解计算机系统/Labs/Lab4 Cache Lab.md'
             - 'Lab5 Shell Lab': 'OS/深入理解计算机系统/Labs/Lab5 Shell Lab.md'
             - 'Lab6 Malloc Lab': 'OS/深入理解计算机系统/Labs/Lab6 Malloc Lab.md'
-    - '深入解析Mac OS X': 'OS/深入解析Mac OS X.md'
-    - '编译原理': 
-        - 'index': 'OS/编译原理/index.md'
-        - '1 简介': 'OS/编译原理/1 简介.md'
-    - '计算机组成与设计': 'OS/计算机组成与设计.md'
-    - '计算机网络': 
-        - 'index': 'OS/计算机网络/index.md'
-        - '1 计算机网络和因特网': 'OS/计算机网络/1 计算机网络和因特网.md'
-        - '2 应用层': 'OS/计算机网络/2 应用层.md'
-        - '3 运输层': 'OS/计算机网络/3 运输层.md'
-        - '4 网络层': 'OS/计算机网络/4 网络层.md'
-        - '5 链路层': 'OS/计算机网络/5 链路层.md'
-        - '6 网络安全': 'OS/计算机网络/6 网络安全.md'
-        - 'Socket Programming': 'OS/计算机网络/Socket Programming.md'
-        - 'WireShark Lab': 'OS/计算机网络/WireShark Lab.md'

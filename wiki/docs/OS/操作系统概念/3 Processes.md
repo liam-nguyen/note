@@ -88,7 +88,7 @@ Queueing-diagram representation of process scheduling:
 
 #### Context Switch
 
-Here the ***context*** of a process is represented in the PCB of the process, including the value of the CPU registers, the process state, and memory-management information.
+The ***context***(上下文) of a process is represented in the PCB of the process, including the value of the CPU registers, the process state, and memory-management information.
 
 An operating system performs a **context switch**（上下文切换) when it switches from running one process to running another.
 

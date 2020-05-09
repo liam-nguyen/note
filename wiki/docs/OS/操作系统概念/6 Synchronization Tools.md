@@ -20,9 +20,9 @@ A **critical section**(临界区) is a section of code, in which the process may
 The **critical-section problem**(临界区问题) is to design a protocol that the processes can use to synchronize their activity so as to cooperatively share data.
 
 * Each process must request permission to enter its critical section.
-* The section of code implementing this request is the **entry section**(进入区)
-* The critical section may be followed by an **exit section**(退出区)。
-* The remaining code is the **remainder section**(剩余区)。
+* The section of code implementing this request is the **entry section**(进入区).
+* The critical section may be followed by an **exit section**(退出区).
+* The remaining code is the **remainder section**(剩余区).
 
 
 ![the_critical_section_problems](figures/the_critical_section_problems.png)
@@ -30,7 +30,7 @@ The **critical-section problem**(临界区问题) is to design a protocol that t
 
 A solution to the critical-section problem must satisfy the following three requirements:
 
-1. **Mutual exclusion** (互斥): If process \(P_i\) is executing in its critical section, then no other processes can be executing in their critical sections. 如果进程\(P_i\)在其临界区内执行，那么其他进程都不能在其临界区内执行；
+1. **Mutual exclusion** (互斥): If process $P_i$ is executing in its critical section, then no other processes can be executing in their critical sections. 如果进程$P_i$在其临界区内执行，那么其他进程都不能在其临界区内执行；
 2. **Progress** (前进): If no process is executing in its critical section and some processes wish to enter their critical sections, then only those processes that are not executing in their remainder sections can participate in deciding which will enter its critical section next, and this selection cannot be postponed indefinitely. 如果没有进程在其临界区内执行且有进程需进入临界区，那么只有那么不在剩余区内执行的进程可参加选择，以确定谁能下一个进入临界区，且这种选择不能无限推迟；
 3. **Bounded waiting** (有限等待): There exists a bound, or limit, on the number of times that other processes are allowed to enter their critical sections after a process has made a request to enter its critical section and before that request is granted. 从一个进程做出进入临界区的请求，直到该请求允许为止，其他进程允许进入其临界区内的次数有上限。
 
@@ -45,7 +45,7 @@ Two general approaches are used to handle critical sections in operating systems
 
 ### 3 Peterson's Solution
 
-**Peterson’s solution**(Peterson 算法) is restricted to two processes that alternate execution between their critical sections and remainder sections. The processes are numbered \(P_0\) and \(P_1\). For convenience, when presenting \(P_i\), we use \(P_j\) to denote the other process; that is \(j\) equals \(1-i\).
+**Peterson’s solution**(Peterson算法) is restricted to two processes that alternate execution between their critical sections and remainder sections. The processes are numbered $P_0$ and $P_1$. For convenience, when presenting $P_i$, we use $P_j$ to denote the other process; that is $j$ equals $1-i$.
 
 Peterson's solution requires the two processes to share two data items:
 
@@ -54,7 +54,7 @@ int turn;
 boolean flag[2];
 ```
 
-The structure of process \(P_i\) in Peterson's solution.
+The structure of process $P_i$ in Peterson's solution.
 
 ```c
 while (true) {
@@ -73,6 +73,7 @@ while (true) {
 
 
 !!! note
+
     Peterson’s solution is **not guaranteed** to work on modern computer architectures for the primary reason that, to improve system performance, **processors and/or compilers may reorder read and write operations that have no dependencies**.
 
 
@@ -379,12 +380,12 @@ A scheduling challenge arises when a higher-priority process needs to read or mo
 * Since kernel data are typically protected with a lock, the higher-priority process will have to wait for a lower-priority one to finish with the resource. 
 * The situation becomes more complicated if the lower-priority process is preempted in favor of another process with a higher priority.
 
-As an example, assume we have three processes—\(L\), \(M\), and \(H\)—whose priorities follow the order \(L < M < H\). 
+As an example, assume we have three processes—$L$, $M$, and $H$—whose priorities follow the order $L < M < H$. 
 
-* Assume that process \(H\) requires a semaphore \(S\), which is currently being accessed by process \(L\). 
-* Ordinarily, process \(H\) would wait for \(L\) to finish using resource S. 
-* However, now suppose that process \(M\) becomes runnable, thereby preempting process \(L\). 
-* Indirectly, a process with a lower priority—process \(M\)—has affected how long process \(H\) must wait for \(L\) to relinquish resource \(S\).
+* Assume that process $H$ requires a semaphore $S$, which is currently being accessed by process $L$. 
+* Ordinarily, process $H$ would wait for $L$ to finish using resource S. 
+* However, now suppose that process $M$ becomes runnable, thereby preempting process $L$. 
+* Indirectly, a process with a lower priority—process $M$—has affected how long process $H$ must wait for $L$ to relinquish resource $S$.
 
 
 ![priority_inversion](figures/priority_inversion.jpg)
