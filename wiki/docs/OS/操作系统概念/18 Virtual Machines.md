@@ -51,8 +51,16 @@ Type 1 hypervisors run in kernel mode, taking advantage of hardware protection. 
     * A set of kernel modules (kvm.ko, kvm-intel.ko, and kvm-amd.ko) that provides the core virtualization infrastructure and processor-specific drivers.
     * A user space program (qemu-system-ARCH) that provides emulation for virtual devices and control mechanisms to manage VM Guests (virtual machines).
     
+![type_1_hypervisor](figures/type_1_hypervisor.png)
+
+
+Unmodified OS is running in user mode (or ring 1)
     
-    
+* But it thinks it is running in kernel mode (virtual kernel mode)
+* privileged instructions trap; sensitive inst-> use VT to trap 
+    * Hypervisor is the “real kernel”
+    * Upon trap, executes privileged operations 
+    * Or emulates what the hardware would do
     
 #### Type 2
 
@@ -95,11 +103,32 @@ It is useful when the host system has one system architecture and the guest syst
 
 The major challenge of emulation is performance. Instruction-set emulation may run an order of magnitude slower than native instructions, because it may take ten instructions on the new system to read, parse, and simulate an instruction from the old system.
 
+
+!!! note "QEMU"
+    
+    QEMU is a hosted virtual machine monitor: it emulates the machine's processor through dynamic binary translation and provides a set of different hardware and device models for the machine, enabling it to run a variety of guest operating systems. [^11]
+
+
+
 #### Application Containment
 
 The goal of *Application Containment* is to segregate applications, manage their performance and resource use, and create an easy way to start, stop, move, and manage them.
 
 *Containers* are much lighter weight than other virtualization methods. That is, they use fewer system resources and are faster to instantiate and destroy, more similar to processes than virtual machines. Containers are also easy to automate and manage, leading to orchestration tools like [docker](Docker.md) and Kubernetes.
+
+
+!!! note "virtual machine v.s. containers"
+    
+    https://cs162.eecs.berkeley.edu/static/lectures/26.pdf
+    
+    * Virtual machines: provide each guest with the illusion of its *own dedicated hardware*
+    * Containers: provide each guest with the illusion of its *own dedicated operating system*
+        * Via resource isolation (cgroups)
+            * Via namespace isolation
+            * PID namespace
+            * Network namespace
+            * Filesystem…
+        * With its own binaries, libraries, and dependencies
 
 
 ### 7 Examples
@@ -114,3 +143,4 @@ VMware Workstation is a popular commercial application that abstracts Intel x86 
 
 [^1]: Introduction to KVM Virtualization, https://documentation.suse.com/sles/12-SP4/html/SLES-all/cha-kvm-intro.html
 [^2]: Paravirtualization Providers, https://docs.oracle.com/en/virtualization/virtualbox/6.1/admin/gimproviders.html
+[^11]: https://en.wikipedia.org/wiki/QEMU

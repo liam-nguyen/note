@@ -10,4 +10,4 @@ date: 2017-10-30
 
 ![builder_pattern_example_diagra](figures/builder_pattern_example_diagram.png)
 
-参见[[Effective Java - Creating and Destroying Objects](../Effective Java/2 Creating and Destroying Objects.md##item-2-consider-a-builder-when-faced-with-many-constructor-parameters)]
+<!--参见[[Effective Java - Creating and Destroying Objects](../Effective Java/2 Creating and Destroying Objects.md##item-2-consider-a-builder-when-faced-with-many-constructor-parameters)]-->

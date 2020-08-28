@@ -1,0 +1,7 @@
+---
+title: MIT 6.824
+toc: false
+date: 2017-10-30
+---
+
+Raft is a protocol for implementing distributed consensus.

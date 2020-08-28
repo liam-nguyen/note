@@ -32,7 +32,7 @@ date: 2017-10-30
     
 ##### Starvation
     
-Starvation describes a situation where a thread is ==unable to gain regular access to shared resources== and is ==unable to make progress==. This happens when shared resources are made unavailable for long periods by "greedy" threads.
+**Starvation**(饥饿) describes a situation where a thread is ==unable to gain regular access to shared resources== and is ==unable to make progress==. This happens when shared resources are made unavailable for long periods by "greedy" threads.
 
 Deadlock vs. Starvation
     

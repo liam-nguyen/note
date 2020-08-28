@@ -1,6 +1,5 @@
 ##  Data Science 
 
-* [index](index.md)
 * [Big Data](Big Data.md)
 * [流式系统](流式系统.md)
 ####  Database 
@@ -22,7 +21,6 @@
 ####  Python 
 
 * [Python引号](Python/Python引号.md)
-* [Python配置](Python/Python配置.md)
 * [Records](Python/Records.md)
 * [协程](Python/协程.md)
 * [生成器与迭代器](Python/生成器与迭代器.md)
@@ -42,7 +40,6 @@
 
 ###  Hadoop 
 
-* [index](index.md)
 * [Avro](Avro.md)
 * [Flink](Flink.md)
 * [Flume](Flume.md)

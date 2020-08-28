@@ -1,7 +1,6 @@
 ###  Python 
 
 * [Python引号](Python/Python引号.md)
-* [Python配置](Python/Python配置.md)
 * [Records](Python/Records.md)
 * [协程](Python/协程.md)
 * [生成器与迭代器](Python/生成器与迭代器.md)

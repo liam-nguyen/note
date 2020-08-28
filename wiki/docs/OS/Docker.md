@@ -553,13 +553,13 @@ $ sudo ip netns exec $pid ip route add default via 172.17.42.1
 
 ##### docker machine
 
-在mac上使用docker-machine安装比较方便
+在mac上使用[docker-machine](https://github.com/docker/machine)安装比较方便
 
 ```bash
 # 创建包含docker的虚拟机
 docker-machine create -d "virtualbox" --virtualbox-no-vtx-check \
---engine-install-url https://github.com/boot2docker/boot2docker/releases/download/v19.03.5/boot2docker.iso \
---virtualbox-cpu-count "6" \
+--engine-install-url https://github.com/boot2docker/boot2docker/releases/download/v19.03.12/boot2docker.iso \
+--virtualbox-cpu-count "8" \
 --virtualbox-disk-size "50000" \
 --virtualbox-memory "10240" \
 default

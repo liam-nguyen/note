@@ -105,7 +105,7 @@ Traditionally DBMS referred to relational databases: Oracle, SQL Server, Postgre
 
 #### Parsing & Optimization
 
-Purpose: Parse, check, verify the SQL And translate SQL into an efficient relational query plan.
+Purpose: Parse, check, verify the SQL and translate SQL into an efficient relational query plan.
 
 
 ```sql
@@ -119,28 +119,28 @@ WHERE S.sid = R.sid and S.age > 30GROUP BY age
 
 Purpose: Execute a dataflow by operating on records and files
 
-![](figures/15860032806303.jpg)
+![](figures/relational_operators.jpg)
 
 #### Files and Index Management
 
 Purpose: Organize tables and  Records as groups of pages in a logical file
 
 
-![](figures/15860032988648.jpg)
+![](figures/files_and_index_management.jpg)
 
 
 #### Buffer Management
 
 Purpose: Provide the illusion of operating in memory
 
-![](figures/15860033383145.jpg)
+![](figures/buffer_management.jpg)
 
 #### Disk Space Management
 
 Purpose: Translate page requests into physical bytes on one or more device(s)
 
 
-![](figures/15860033772127.jpg)
+![](figures/disk_space_management.jpg)
 
 
 
@@ -169,12 +169,12 @@ Implementation
     * Most FS optimize disk layout for sequential access
     * DBMS “file” may span multiple FS files on multiple disks/machines
 
-![disk_space_management_using_local_filesystem](figures/disk_space_management_using_local_filesystem.png)
+![disk space management using local filesystem](figures/disk_space_management_using_local_filesystem.png)
 
 
 #### DATABASE FILES
 
-![db_diskmanagemnt_overview](figures/db_diskmanagemnt_overview.png)
+![db diskmanagment overview](figures/db_diskmanagment_overview.png)
 
 Table: stored as logical files --> files: consisting of pages --> pages: consisting of records.
 
@@ -194,12 +194,12 @@ A **heap file** is a file type with no particular ordering of pages or records o
 ![heap_file_implementation](figures/heap_file_implementation.png)
 
 
-In the linked list implementation, each data page contains *records*, a *free space tracker*, and *pointers* (byte oﬀsets) to the next and previous page. There is one header page that serves as the start of the file and is used to separate the data pages into full pages and free pages. 
+In the **linked list** implementation, each ^^data page^^ contains *records*, a *free space tracker*, and *pointers* (byte oﬀsets) to the next and previous page. There is one ^^header page^^ that serves as the start of the file and is used to separate the data pages into full pages and free pages. 
 
 * When space is needed, empty pages are allocated and appended to the free pages portion of the list. 
 * When free data pages becomes full, they are moved from the free space portion to the front of the full pages portion of the list. We move it to the front so we don’t have to traverse the entire list. 
 
-In the Page Directory implementation, Each header page contains a pointer (byte oﬀset) to the next header page along with entries that contain both a *pointer to a data page* and *information about the free space* within that page. Since data pages only store records, they no longer need to track pointers to neighboring pages.
+In the **Page Directory** implementation, Each header page contains a pointer (byte offset) to the next header page along with entries that contain both a *pointer to a data page* and *information about the free space* within that page. Since data pages only store records, they no longer need to track pointers to neighboring pages.
 
 The main advantage of Page Directories over Linked Lists is that ^^inserting records is often faster^^. Instead of performing I/Os to read each data page to determine whether there is enough space to insert, only header pages need to be read in order to make that decision.
 
@@ -230,11 +230,10 @@ A **sorted file** is a file type where pages are ordered and records on pages ar
 #### PAGE LAYOUT
 
 Record types are completely determined by the relation’s schema and come in 2 types: 
-Fixed Length Records (FLR) and . 
 
-* Fixed Length Records(FLRs): only contain fixed length fields (integer, boolean, date, etc.)
+* **Fixed Length Records**(FLRs): only contain fixed length fields (integer, boolean, date, etc.)
     * FLRs with the same schema consist of the same number of bytes.
-* Variable Length Records (VLR): contain both fixed length and variable length fields (varchar), resulting in each VLR of the same schema having a potentially different number of bytes. 
+* **Variable Length Records** (VLR): contain both fixed length and variable length fields (varchar), resulting in each VLR of the same schema having a potentially different number of bytes. 
     * store all fixed length fields before variable length fields
     * use a record header that contains pointers to the end of the variable length fields.
 
@@ -253,15 +252,17 @@ Options for page layouts depends on:
 | Insert: just append | Insert: find first empty slot |
 | Delete: re-arrange, pointers need to updated | Delete: Clear bit |
 
-![variable_length_records](figures/variable_length_records.png)
+![variable length records](figures/variable_length_records.png)
 
 Variable Length Records:
 
 * Introduce slot directory in footer: Pointer to free space, Length + Pointer to beginning of record(reverse order)
 * Record ID: location in slot table (from right)
 * Delete: set slot directory pointer to null
-* Insert: 1. Place record in free space on page, 2. Create pointer/length pair in next open 
-slot in slot directory, 3. Update the free space pointer
+* Insert: 
+    1. Place record in free space on page, 
+    2. Create pointer/length pair in next open slot in slot directory, 
+    3. Update the free space pointer
 
 
 
@@ -289,7 +290,7 @@ Catalog relations store information about relations, indexes and views. Catalogs
 
 ### 3 Indexing
 
-An **index** is data structure that enables fast *lookup* and *modification* of *data entries* by *search key*.
+An **index** is data structure that enables fast *lookup* and *modification* of *data entries* by *search key*.
 
 * *Lookup*: may support many different operations, e.g. Equality, 1-d range, 2-d region
 * *Search Key*: any subset of columns in the relation
@@ -307,7 +308,7 @@ The simplest possible indexing strategy is this:
 * keep an in-memory hash map where every key is mapped to a byte offset in the data file - the location at which the value can be found.
 * Insert: append a new key-value pair to the file, and update the hash map to reflect the offset of the data 
 * Lookup: use the hash map to find the offset in the data file, seek to that location, and read the value
-* Application: Bitcask(the default storage engine in Riak), 
+* Application: Bitcask(the default storage engine in Riak)
 
 ![](figures/hash_indexes.jpg)
 
@@ -498,9 +499,9 @@ History of LSM Tree[^5]:
 ![LSMTree_history](figures/LSMTree_history.png)
 
 
-The key idea of the **log-structured merge tree** (LSM tree, 日志结构的合并树) is to replace random I/O operations with a smaller number of sequential I/O operations, by removing the need to perform dispersed, update-in-place operations.
+The key idea of the **log-structured merge tree**(LSM tree, 日志结构合并树) is to replace random I/O operations with a smaller number of sequential I/O operations, by removing the need to perform dispersed, update-in-place operations.
 
- A gulf exists between sequential/random I/Os, regardless of whether the disk is magnetic or solid state or even main memory[^2].
+A gulf exists between sequential/random I/Os, regardless of whether the disk is magnetic or solid state or even main memory[^2].
  
  
 ![](figures/comparing_random_and_sequential_access_in_disk_and_memory.jpg)
@@ -510,14 +511,14 @@ The simplest idea for large write throughput is to simply append data to a file(
 
 ##### SSTable
 
-> An **SSTable**(String Sorted Table, 排序字符串表) provides a **persistent**, **ordered** immutable map from keys to values, where both keys and values are arbitrary byte strings. Operations are provided to look up the value associated with a specified key, and to iterate over all key/value pairs in a specified key range. Internally, each SSTable contains a sequence of blocks (typically each block is 64KB in size, but this is configurable). A block index (stored at the end of the SSTable) is used to locate blocks; the index is loaded into memory when the SSTable is opened. A lookup can be performed with a single disk seek: we first find the appropriate block by *performing a binary search in the in-memory index*, and then reading the appropriate block from disk. Optionally, an SSTable can be completely mapped into memory, which allows us to perform lookups and scans without touching disk[^3].
+> A **SSTable**(String Sorted Table, 排序字符串表) provides a **persistent**, **ordered** immutable map from keys to values, where both keys and values are arbitrary byte strings. Operations are provided to look up the value associated with a specified key, and to iterate over all key/value pairs in a specified key range. Internally, each SSTable contains a sequence of blocks (typically each block is 64KB in size, but this is configurable). A block index (stored at the end of the SSTable) is used to locate blocks; the index is loaded into memory when the SSTable is opened. A lookup can be performed with a single disk seek: we first find the appropriate block by *performing a binary search in the in-memory index*, and then reading the appropriate block from disk. Optionally, an SSTable can be completely mapped into memory, which allows us to perform lookups and scans without touching disk[^3].
 
 ![](figures/SSTable.jpg)
 
 
 ##### Example: LevelDB
 
-LevelDB Data Structures[^4]
+LevelDB Data Structures[^4]:
 
 * Log file
 * Memtable: in-memory sorted skiplists
@@ -1177,7 +1178,7 @@ Which schedules does Strict 2PL allow? (pink area in the figure below)
 
 ##### Predicate locks
 
-**Predicate lock**(谓词锁) works similarly to the shared/exclusive lock, but rather than belonging to a particular object (e.g., one row in a table), it belongs to all objects that m*atch some search condition*, such as:
+**Predicate lock**(谓词锁) works similarly to the shared/exclusive lock, but rather than belonging to a particular object (e.g., one row in a table), it belongs to all objects that *match some search condition*, such as:
 
 ```sql
 SELECT * FROM bookings
@@ -1229,9 +1230,164 @@ Intention locks allow a higher level node to be locked in S or X mode without ha
     When you are reading data you take a shared lock on the row (or page depending on the database system and table configuration). Many users can hold a shared lock on the same row - hence ‘shared’. If you might be updating that row (say you added the FOR UPDATE clause to your SELECT statement) then the lock on the currently fetched row is an ‘intent exclusive’ shared lock because you “intend” to acquire an exclusive lock on the same entity if you decide to update it. [^9]
 
 
-
-#### Distributed Transaction
 ### 9 Recovery
+
+#### Steal/No-force
+
+* Force policy: when a transaction finish, force all modiﬁed data pages to disk before the transaction commits.
+* No-Force policy: write back to disk when the page needs to be evicted from the buﬀer pool.
+* No-steal policy: pages cannot be evicted from memory (and thus written to disk) until the transaction commits.
+* Steal policy: allows modified pages to be written to disk before a transaction finished.
+
+Preferred Policy: Steal/No-Force
+
+![steal-noforce](figures/steal-noforce.png)
+
+
+#### Log
+
+A **log** is a sequence of log records that describe the operations that the database has done. Each write operation (SQL insert/delete/update) will get its own log UPDATE record. An UPDATE log record looks like this:
+
+<XID, pageID, offset, length, old data, new data>
+
+* XID(transaction ID): tells us which transaction did this operation
+* pageID: what page has been modified
+* oﬀset: where on the page the data started changing
+* length: how much data was changed
+* old data: what the data was originally (used for undo operations)
+* new data: what the data has been updated to (used for redo operations)
+
+Some other record types are:
+
+* COMMIT: signifies that a transaction is starting the commit process
+* ABORT: signifies that a transaction is starting the aborting process
+* END: signifies that a transaction is finished (usually means that it finished committing or aborting)
+* CLRs(Compensation Log Records): logs the UNDOs
+* CHECKPOINT
+
+##### WAL
+
+**Write Ahead Logging**(WAL)
+
+* Atomicity: Log records must be on disk before the data page gets written to disk.
+* Durability: All log records must be written to disk when a transaction commits.
+
+Each log record has a unique and increasing **Log Sequence Number**(LSN). 
+ 
+* Each data page contains a **pageLSN**: the LSN of the most recent log record that updated that page
+* System keeps track of **flushedLSN**: max LSN flushed to stable storage.
+
+![LSN-pageLSN-flushedLSN](figures/LSN-pageLSN-flushedLSN.png)
+[^10]
+
+
+Before page $i$ is flushed to DB, log must satisfy: 
+
+* pageLSN$_i\le$ flushedLSN
+
+![WAL](figures/WAL.png)
+
+##### ARIES Logging
+
+
+![aries_logging](figures/aries_logging.png)
+
+* **prevLSN** is the LSN of the previous log record written by this XID
+So records of an transactions form a linked list backwards in time
+* **Dirty Page Table**: One entry per dirty page currently in buffer pool.
+    * recLSN: LSN of the log record which *first* caused the page to be dirty.
+* **Transaction Table**: one entry per currently active transaction,
+    * contains transaction ID, Status(running, committing, aborting), lastLSN(most recent LSN written by transaction)
+    
+![normal_execution_e.g](figures/normal_execution_e.g.png)
+
+Normal Execution[^10]:
+
+![normal_execution_e.g](figures/normal_execution_e.g.png)
+
+* Update transaction table on transaction start/end
+* For each update:
+    * Create log record with LSN $l$= ++MaxLSN and prevLSN=XTable[XID].lastLSN
+    * Update XTable[XID].lastLSN= $l$
+    * If modified page not in dirty page table, add it with recLSN = $l$
+* If the buﬀer manager steals a dirty page, remove its entry from the dirty page table
+
+Transaction Commit[^10]:
+
+* Write COMMIT record to log
+* Flush the log tail up to transaction's commit to disk
+* Remove entry from the XTable
+* Write END record to log
+
+Transaction Abort (no crash)[^10]:
+
+* Write ABORT log record before starting rollback
+* Play back” undoing all updates
+    * Get lastLSN of Xact from the TransTable
+    * Follow chain of log records via prevLSN
+    * For each update encountered
+        * Write a CLR for each undone operation with undoNextLSN = prevLSN of record being undone 
+        * Undo the operation (using the before-image of the log record)
+* Remove entry from the TransTable
+* Write END record to log
+
+#### Checkpoint
+
+Periodically, the DBMS creates a **checkpoint** to minimize recovery time after crash.  Write to log:
+
+* begin_checkpoint record:  indicates when checkpoint began.
+* end_checkpoint record: contains current transactions table, dirty page table
+
+A "fuzzy checkpoint": Other transactions continue to run; So all we know is that these tables are after the time of the begin_checkpoint record. Store LSN of the most recent checkpoint record in a safe place 
+(master record, often block 0 of the log file).
+
+#### Crash Recovery
+
+
+![](figures/crash_recovery.jpg)
+
+* Start from a checkpoint - found via master record.
+* Three phases.  Need to do:
+    * Analysis - Figure out which transactions committed since checkpoint, which failed.
+    * REDO all actions. (repeat history)
+    * UNDO failed Xacts
+
+
+### 10 Distributed Transactions
+
+#### 2-Phase Commit(2PC)
+
+* Phase 1: “do you take this man/woman...”
+    * Coordinator tells participants to “prepare”
+    * Participants respond with yes/no votes
+    * Unanimity required for yes!
+* Phase 2: “I now pronounce you...”
+    * Coordinator disseminates result of the vote
+    * Participants respond with Ack
+
+
+![2pc_ani](figures/2pc_ani.gif)
+
+
+
+![2pc_in_a_nutshell](figures/2pc_in_a_nutshell.png)
+
+
+1. Given an operation (i.e. PUT or DELETE), the leader (a.k.a. the global coordinator) will use a PREPARE phase where it asks every follower if it agrees to the operation.
+2. Each of the followers can respond with a vote, which is either COMMIT (yes) or ABORT (no). The leader blocks until it has received a vote from every follower. If a follower does not respond within a timeout, the leader automatically assumes that the follower votes ABORT.
+3. When the leader has received the vote from every follower, it will enter the COMMIT phase and send either a global COMMIT (if every follower voted to commit) or a global ABORT (if even a single follower voted no) to all of the followers.
+4. The followers then execute the global command and respond with an ACK to acknowledge to the leader that it has completed the operation.
+5. Only after the leader has received an ACK from every follower does it consider the operation complete and becomes available to handle the next command. If a follower does not respond within a timeout, the leader retransmits the global command until it does.
+
+Two phase commit is implemented as a state machine, where communications between the leader and the followers result in state transitions[^11].
+
+State diagram for a 2PC Leader:
+![](figures/state_diagram_for_a_2pc_leader.jpg)
+
+
+State diagram for a 2PC Follower:
+![](figures/state_diagram_for_a_2pc_follower.jpg)
+
 
 
 [^1]: https://db-engines.com/en/ranking
@@ -1243,4 +1399,5 @@ Intention locks allow a higher level node to be locked in S or X mode without ha
 [^7]: Designing Data-Intensive Applications, Martin Kleppmann
 [^8]: https://medium.com/@stormanning/mysql-indexing-101-660f3193dde1
 [^9]: https://www.quora.com/What-is-shared-and-intention-exclusive-lock-in-database-Is-it-share-plus-intention-exclusive-lock-What-s-its-usage
-
+[^10]: https://courses.cs.washington.edu/courses/cse444/11wi/lectures/lecture11-12.pdf
+[^11]: https://cs162.eecs.berkeley.edu/static/hw/hw6.pdf

@@ -42,9 +42,9 @@ date: 2017-10-30
     * instruction completion is in-oder.
     * instructions are **dynamically scheduled**
 
-    Dynamic Scheduling:
+Dynamic Scheduling:
     
-    ![dynamic-scheduling](figures/dynamic-scheduling.png)
+![dynamic-scheduling](figures/dynamic-scheduling.png)
 
 
 [CMU Computer Architecture](https://www.archive.ece.cmu.edu/~ece740/f11/lib/exe/fetch.php?media=wiki:lectures:onur-740-fall11-lecture10-ooo-afterlecture.pdf)
@@ -66,7 +66,7 @@ independent ones
 
 ### 3 Java内存模型
 
-Java虚拟机规范中视图定义一种**Java内存模型**(Java Memory Model, JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。
+Java虚拟机规范中视图定义一种**Java内存模型**(Java Memory Model, JMM)来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。
 
 
 [Princeton COS 597C](https://www.cs.princeton.edu/courses/archive/fall10/cos597C/docs/memory-models.pdf)
@@ -100,7 +100,7 @@ Java内存模型规定了所有的变量都存储在**主内存**(Main Meory)中
 * `read`(读取)：作用于主内存变量，它把一个变量的值从主内存传输到线程的工作内存中，以便随后的`load`动作使用。
 * `load`(载入)：作用于工作内存变量，它把`read`操作从主内存中得到的值放入工作内存的变量副本中。
 * `use`(使用)：作用于工作内存中的变量，它把工作内存中一个变量的值传递给执行引擎，每当虚拟机遇到一个需要使用到变量的字节码指令时将会执行这个操作。
-* `assign`(赋值)：作用于工作内存变量，它把一个从执行引擎接到的值赋值给工作内存的变量，每当虚拟机遇到一个给变量赋值的字节码指令时执行这个操作。
+* `assign`(赋值)：作用于工作内存变量，它把一个从执行引擎接收到的值赋值给工作内存的变量，每当虚拟机遇到一个给变量赋值的字节码指令时执行这个操作。
 * `store`(存储)：作用于工作内存的变量，它把工作内存中一个变量的值传送到主内存中，以便随后的`write`操作使用。
 * `write`(写入)：作用于主内存的变量，它把`store`操作从工作内存中得到的值放入主内存的变量中。
 
@@ -161,10 +161,9 @@ Java内存模型要求`lock`、`unlock`、`read`、`load`、`assign`、`use`、`
 
 #### 原子性、可见性与有序性
 
-**原子性**(Atomicity): 由Java内存模型来直接保证的原子性变量操作包括`read`、`load`、`assign`、`use`、`store`和`write`这六个。`lock`、`unlock`操作未直接开放给用户使用, 而反映在同步块中 ——`synchronized`块之间的操作也具备原子性；
+**原子性**(Atomicity): 由Java内存模型来直接保证的原子性变量操作包括`read`、`load`、`assign`、`use`、`store`和`write`这六个。`lock`、`unlock`操作未直接开放给用户使用, 却提供了更高层次的字节码指令`monitorenter`和`monitorexit`来隐式地使用这两个操作---`synchronized`块之间的操作也具备原子性；
 
-**可见性**(Visibility)：是指当一个线程修改了共享变量的值，其他线程能够立即得知这个修改。`volatile`、`synchronized`和`final`关键字能实现可见性。
-`synchronized`同步块的可见性是由“对一个变量执行un`lock`操作之前，必须把此变量同步回主内存中“这条规则获得的。`final`关键字的可见性是指，被`final`修饰的字段在构造器中一旦被初始化完成，并且构造器没有把"this"的引用传递出去，那么在其他线程中就能看见`final`字段的值。
+**可见性**(Visibility)：是指当一个线程修改了共享变量的值，其他线程能够立即得知这个修改。`volatile`、`synchronized`和`final`关键字能实现可见性。`synchronized`同步块的可见性是由“对一个变量执行`unlock`操作之前，必须把此变量同步回主内存中“这条规则获得的。`final`关键字的可见性是指，被`final`修饰的字段在构造器中一旦被初始化完成，并且构造器没有把"this"的引用传递出去，那么在其他线程中就能看见`final`字段的值。
 
 **有序性**(Ordering)：如果在本线程内观察，所有的操作都是有序的；如果在一个线程中观察另一个线程，所有的操作都是无序的。Java语言提供了`volatile`和`synchronized`两个关键字来保证线程之间操作的有序性, `volatile`关键字本身就包含了禁止指令重排序的语意，而`synchronized`是由“一个变量在同一时刻只允许一条线程对其进行`lock`操作”这条规则获得的，这个规则决定了持有同一个锁的两个同步块只能串行的进入。
 
@@ -175,30 +174,32 @@ Java内存模型要求`lock`、`unlock`、`read`、`load`、`assign`、`use`、`
 
 先行发生(happens-before)是Java内存模型中定义的两项操作之间的偏序关系，如果说操作A先行发生于操作B，其实就是说在发生操作B之前，操作A产生的影响能被操作B观察到，影响包括了修改了内存中共享变量的值、发送了消息、调用了方法等.
 
+> Happens-before relationship is simply a guarantee that memory writes by one specific statement are visible to another specific statement. [^11]
+
 
 下面是Java内存模型下一些天然的**先行发生关系**。这些先行发生关系无需任何同步器协助就可以存在。如果两个操作之间的关系不在此列，并且无法从以下规则推导出来的话，它们就没有顺序性保障，虚拟机可以对它们进行随意的重排序：
+
+https://www.logicbig.com/tutorials/core-java-tutorial/java-multi-threading/happens-before.html
 
 * **程序次序规则**(Pragram Order Rule)：*在一个线程内*，按照程序代码顺序，书写在前面的操作先行发生于书写在后面的操作。准确地说应该是控制流顺序而不是程序代码顺序，因为要考虑分支、循环结构。
 * **管程锁定规则**(Monitor lock Rule)：一个`unlock`操作先行发生于后面对同一个锁的`lock`操作。这里必须强调的是同一个锁，而”后面“是指时间上的先后顺序。
 * `volatile`**变量规则**(Volatile Variable Rule)：对一个`volatile`变量的写操作先行发生于后面对这个变量的读取操作，这里的”后面“同样指时间上的先后顺序。
-* **线程启动规则**(Thread Start Rule)：`Thread对象的`start()`方法先行发生于此线程的每一个动作。
+* **线程启动规则**(Thread Start Rule)：`Thread`对象的`start()`方法先行发生于此线程的每一个动作。
 * **线程终止规则**(Thread Termination Rule)：线程中的所有操作都先行发生于对此线程的终止检测，我们可以通过`Thread.join()`方法结束，`Thread.isAlive()`的返回值等作段检测到线程已经终止执行。
-* **线程中断规**则(Thread Interruption Rule)：对线程`interrupt()`方法的调用先行发生于被中断线程的代码检测到中断事件的发生，可以通过`Thread.interrupted()`方法检测是否有中断发生。
+* **线程中断规则**(Thread Interruption Rule)：对线程`interrupt()`方法的调用先行发生于被中断线程的代码检测到中断事件的发生，可以通过`Thread.interrupted()`方法检测是否有中断发生。
 * **对象终结规则**(Finalizer Rule)：一个对象初始化完成(构造方法执行完成)先行发生于它的`finalize()`方法的开始。
 * **传递性**(Transitivity)：如果操作A先行发生于操作B，操作B先行发生于操作C，那就可以得出操作A先行发生于操作C的结论。
 
-
-时间先后顺序与先行发生原则之间基本没有太大的关系，所以我们衡量并发安全问题的时候不要受到时间顺序的干扰，一切必须以先行发生原则为准；
+时间先后顺序与先行发生原则之间基本没有太大的关系，所以我们衡量并发安全问题的时候不要受到时间顺序的干扰，一切必须以先行发生原则为准。
 
 ### 4 Java与线程
 #### 线程的实现
 
 线程是比进程更轻量级的调度执行单位，线程的引入可以把一个进程的资源分配和执行调度分开，各个线程既可以共享进程资源又可以独立调度。
 
-Java线程如何实现并不受Java虚拟机规范的约束，以HotSpot为例，它的每一个Java线程都是直接映射到一个操作系统原生线程来实现的，而且中间没有额外的间接结构，所以HotSpot自己是不会去干涉线程调度的(可以设置线程优先级给操作系统提供调度建议)，全权交给底下的操作系统去处理，所以何时冻结或唤醒线程、该给线程分配多少处理 器执行时间、该把线程安排给哪个处理器核心去执行等，都是由操作系统完成的，也都是由操作系统全权决定的。所以可以看到`Thread`类与大部分的Java API有显著的差别，它的所有关键方法都是声明为`native`的。
+Java线程如何实现并不受Java虚拟机规范的约束，以HotSpot为例，它的每一个Java线程都是直接映射到一个操作系统原生线程来实现的，而且中间没有额外的间接结构，所以HotSpot自己是不会去干涉线程调度的(可以设置线程优先级给操作系统提供调度建议)，全权交给底下的操作系统去处理，所以何时冻结或唤醒线程、该给线程分配多少处理器执行时间、该把线程安排给哪个处理器核心去执行等，都是由操作系统完成的，也都是由操作系统全权决定的。所以可以看到`Thread`类与大部分的Java API有显著的差别，它的所有关键方法都是声明为`native`的。
 
 !!! note
-
     `native`修饰词说明，该方法的实现是用其他语言(C/C++)实现的，该方法通过Java Native Interface (JNI, Java本地接口)调用本地代码。
 
 
@@ -242,3 +243,6 @@ Java语言定义了6种线程状态，在任意一个时间点，一个线程只
 1：1的内核线程模型是如今Java虚拟机线程实现的主流选择，但是这种映射到操作系统上的线程天然的缺陷是切换、调度成本高昂，系统能容纳的线程数量也很有限。
 
 协程(Coroutine)的主要优势是轻量，来源于由用户自己模拟多线程、自己保护恢复现场的工作模式。对于有栈协程，有一种特例实现名为纤程(Fiber)。
+
+
+[^11]: https://docs.oracle.com/javase/tutorial/essential/concurrency/memconsist.html

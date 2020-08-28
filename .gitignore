@@ -1,2 +1,6 @@
 *.pdf
 **/index*
+wiki/bin/.idea/*
+wiki/bin/.ipynb_checkpoints/*
+wiki/docs/.MWebMetaData/*
+**/.DS_Store**

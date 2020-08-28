@@ -1,6 +1,5 @@
 ##  Hadoop 
 
-* [index](index.md)
 * [Avro](Avro.md)
 * [Flink](Flink.md)
 * [Flume](Flume.md)

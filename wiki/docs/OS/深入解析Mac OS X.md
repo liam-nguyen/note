@@ -79,9 +79,9 @@ EFI提供了EFI二进制程序使用的API接口，程序可以通过这些接�
 
 ### 7 launchd
 
-在OS X中，整个用户环境都必须从launchd启动。作为系统中的第一个用户态进程，负责或间接地启动系统中的其他进程。这有点类似于UNIX系统中的init进程。
+在OS X中，整个用户环境都必须从`launchd`启动。作为系统中的第一个用户态进程，负责或间接地启动系统中的其他进程。这有点类似于UNIX系统中的`init`进程。
 
-launchd是由内核直接启动的，PID为1。launchctl命令用来和launchd交互，指示launchd启动或停止各种后台守护程序。launchd的核心职责是根据预定的安排或实际的需要加载其他应用程序或作业。launchd区分两种类型的后台作业：
+`launchd`是由内核直接启动的，PID为1。`launchctl`命令用来和`launchd`交互，指示`launchd`启动或停止各种后台守护程序。`launchd`的核心职责是根据预定的安排或实际的需要加载其他应用程序或作业。`launchd`区分两种类型的后台作业：
 
 * 守护程序(daemon): 守护程序由系统自动启动，不考虑是否有用户登陆进系统。后台服务，通常和用户没有交互。
 * 代理程序(agent): 只有在用户登陆时才启动。可以和用户交互，有的还有GUI。
@@ -107,7 +107,7 @@ launchctl list # 查看
 
 !!! example "Redis守护进程"
     
-    需要一个plist文件配置开机启动的程序。然后使用launchctl命令加载。
+    需要一个plist文件配置开机启动的程序。然后使用`launchctl`命令加载。
     
     ```bash tab="bash"
     # 加载守护进程
