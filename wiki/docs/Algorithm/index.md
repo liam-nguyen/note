@@ -1,6 +1,5 @@
 ##  Algorithm 
 
-* [index](index.md)
 ####  Princeton 
 
 * [Topic 1 - Union Find](Princeton/Topic 1 - Union Find.md)
@@ -30,6 +29,7 @@
 * [Divide and Conquer](其他/Divide and Conquer.md)
 * [Exhaustive Search and Backtracking](其他/Exhaustive Search and Backtracking.md)
 * [Recursion](其他/Recursion.md)
+* [Trie](其他/Trie.md)
 * [水塘抽样](其他/水塘抽样.md)
 
 ####  剑指Offer 

@@ -48,4 +48,4 @@ The four main object types defined by the Linux VFS are:
 * ***superblock***: represents an entire file system. It is essentially file system metadata and defines the file system type, size, status, and information about other metadata structures (metadata of metadata).
 * ***dentry***(directory entry): represents an individual directory entry
 
-[The Virtual FileSystem](Understanding the Linux Kernel.md#12-the-virtual-filesystem) in detail.
+<!--[The Virtual FileSystem](Understanding the Linux Kernel.md) in detail.-->

@@ -1090,7 +1090,7 @@ In Hadoop, interprocess communication between nodes in the system is implemented
 | Interoperable | support clients written in different languages | read/write using different languages |
 
 
-Hadoop uses its own serialization format, <C>Writables</C>, which is certainly compact and fast, but not so easy to extend or use from languages other than Java. Apache [Avro](12 Avro.md) is a language-neutral data serialization system.
+Hadoop uses its own serialization format, <C>Writables</C>, which is certainly compact and fast, but not so easy to extend or use from languages other than Java. Apache [Avro](Avro.md) is a language-neutral data serialization system.
 
 
 ##### The Writable Interface

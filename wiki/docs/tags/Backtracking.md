@@ -1,3 +1,4 @@
+* [10. Regular Expression Matching.md](../Leetcode/10. Regular Expression Matching.md)
 * [131. Palindrome Partitioning.md](../Leetcode/131. Palindrome Partitioning.md)
 * [216. Combination Sum III.md](../Leetcode/216. Combination Sum III.md)
 * [22. Generate Parentheses.md](../Leetcode/22. Generate Parentheses.md)
@@ -5,6 +6,7 @@
 * [39. Combination Sum.md](../Leetcode/39. Combination Sum.md)
 * [40. Combination Sum II.md](../Leetcode/40. Combination Sum II.md)
 * [401. Binary Watch.md](../Leetcode/401. Binary Watch.md)
+* [44. Wildcard Matching.md](../Leetcode/44. Wildcard Matching.md)
 * [46. Permutations.md](../Leetcode/46. Permutations.md)
 * [47. Permutations II.md](../Leetcode/47. Permutations II.md)
 * [51. N-Queens.md](../Leetcode/51. N-Queens.md)

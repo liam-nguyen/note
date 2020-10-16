@@ -154,6 +154,7 @@ Zab协议(Zookeeper Atomic Broadcast Protocol)，包括领导者选举和原子�
 
 
 #### 锁服务
+
 分布式锁能够在一组进程之间提供互斥机制，使得在任何时刻只有一个进程可以持有锁。思路是
 
 * 指定一个作为锁的znode，通常用它来描述被锁定的实体，称为`/leader`
@@ -171,6 +172,63 @@ Zab协议(Zookeeper Atomic Broadcast Protocol)，包括领导者选举和原子�
 5. 如果`exists()`返回false，则返回第2步。否则，在返回第2步之前等待通知。
 
 
+```java
+public class DisktributedLockImpl implements DistributedLock{
+    // zookeeper client
+    private final ZooKeeper zkClient;
+    // the bash path of the distributed lock
+    private final String bashPath;
+    // the name of the distributed lock
+    private final String name;
+    // the exact path of the distributed lock
+    private String path;
+
+    public DisktributedLockImpl(ZooKeeper zkClient, String bashPath, String name) {
+        this.zkClient = zkClient;
+        this.bashPath = bashPath;
+        this.name = name;
+    }
+
+    @Override
+    public void lock() throws Exception {
+        this.path = this.zkClient.create(this.bashPath + "/" + this.name, "1".getBytes(),
+                ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
+        List<String> children = zkClient.getChildren(this.bashPath, false);
+        Collections.sort(children);
+        helper(children, 0, TimeUnit.MILLISECONDS);
+    }
+
+
+    public boolean helper(List<String> children, long timeout, TimeUnit unit) throws Exception {
+        int index = children.indexOf(this.path.substring(this.bashPath.length() + 1));
+        if (index == 0) {
+            // have the smallest, get lock
+            return true;
+        }
+        CountDownLatch latch = new CountDownLatch(1);
+        // next
+        Watcher watcher = (event) -> latch.countDown();
+        boolean res = false;
+        if (zkClient.exists(this.bashPath + "/" + children.get(index - 1), watcher) == null) {
+            res =  helper(children, timeout, unit);
+        } else {
+            if (timeout != 0) {
+                latch.await();
+                res = true;
+            } else {
+                res = latch.await(timeout, unit);
+            }
+        }
+        return res;
+    }
+
+    @Override
+    public void unlock() throws Exception {
+            this.zkClient.delete(this.path, -1);
+            this.path = null;
+    }
+}
+```
 
 
 

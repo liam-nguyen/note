@@ -6,11 +6,11 @@ tags: [Hash Table]
 ---
 
 
-Hash table (哈希表) is a collection of items which are stored in such a way as to make it easy to find item. Each position of the hash table, often called a *slot*, can hold an item and is named by an integer value starting at 0. The mapping between an item and the slot where that item belongs in the hash table is called the *hash function*(哈希函数). A *perfect hash function* maps every items into a unique slot. When two items hash to the same slot, *collision* happens. And a systematic method, which called *collision resolution*, for placing the second item in the hash table must be put forward.
+**Hash table** (哈希表) is a collection of items which are stored in such a way as to make it easy to find item. Each position of the hash table, often called a *bucket* or *slot*, can hold an item and is named by an integer value starting at 0. The mapping between an item and the bucket where that item belongs in the hash table is called the *hash function*(哈希函数). A *perfect hash function* maps every items into a unique bucket. When two items hash to the same bucket, *collision* happens. And a systematic method, which called *collision resolution*, for placing the second item in the hash table must be put forward.
 
 ##### Direct-address tables
 
-If the number of possible keys is small and they are unique, *direct-address tables*(直接寻址表) can be used. Each slot corresponds to a unique key.
+If the number of possible keys is small and they are unique, *direct-address tables*(直接寻址表) can be used. Each bucket corresponds to a unique key.
 
 ```python
 Insert(T,x):
@@ -51,19 +51,22 @@ Various techniques are used to manage collision:
 
 #### Separate chaining
  
-Separate Chaining allows each slot to hold a reference to a collection of items. It allows many items to exist at the same location in the hash table.
+Separate Chaining allows each bucket to hold a reference to a collection of items. It allows many items to exist at the same location in the hash table.
 
 ![](figures/separate-chaining.jpg)
 
+Separate chaining is literally an array of linked lists. But it’s not a great fit for modern CPUs. It has a lot of overhead from pointers and tends to scatter little linked list nodes around in memory which isn’t great for cache usage. [^3]
 
 #### Open addressing
 
-In **open addressing**, all elements occupy the hash table itself. That is, each table entry contains either an element of the dynamic set or NIL. When searching for an element, we systematically examine table slots until either we find the desired element or we have ascertained that the element is not in the table. No lists and no elements are stored outside the table, unlike in chaining.
+In **open addressing**, all elements live directly in the bucket array, with one element per slot. If two elements collide in the same bucket, we find a different empty bucket to use instead. 
+
+Storing all entries in a single big contiguous array is great for keeping the memory representation simple and fast. But it makes all of the operations on the hash table more complex. When inserting an entry, its bucket may be full, sending us to look at another bucket. That bucket itself may be occupied and so on. This process of finding an available bucket is called **probing** and the order that you examine buckets is a *probe sequence*. [^3]
 
 #### Linear probing
 
 
-One of the simplest re-hashing functions is +1(or -1) on a collision, i.e. look in the neighboring slot in the table. It calculates new address extremely quickly.
+One of the simplest re-hashing functions is +1(or -1) on a collision, i.e. look in the neighboring bucket in the table. It calculates new address extremely quickly.
 
 A disadvantage to linear probing is the tendency for clustering: items become clustered in the table.
 
@@ -73,7 +76,7 @@ Instead of using a constant 'skip' value, quadratic probing using a rehash funct
 
 #### Load factor
 
-*Load factor*(装载因子) is commonly denoted by $\lambda = \frac{number\_of\_items}{table\_size}$.
+*Load factor*(装载因子) is commonly denoted by $\lambda = \frac{\text{number_of_items}}{\text{table_size}}$.
 
 The most important piece of information we need to analyze the use of a hash table is the load factor, $\lambda$. Conceptually, if the load factor is small, then there is a lower chance of collisions.
 
@@ -94,7 +97,7 @@ $$ \forall k,l \in U, k\ne l: \Pr_{h\in H }[h(x)=h(y)]\le \frac{1}{m}  $$
 
 #### Why Universal Hashing?
 
-Some malicious adversary might chooses the keys which all hash to the same slot, yielding an average retrieval time of $\Theta(n)$. Instead of fixed hash functions, randomly chosen hash functions can yield good performance on average.
+Some malicious adversary might chooses the keys which all hash to the same bucket, yielding an average retrieval time of $\Theta(n)$. Instead of fixed hash functions, randomly chosen hash functions can yield good performance on average.
 
 #### Designing a universal class of hash functions
 
@@ -153,9 +156,9 @@ class UniversalHash:
             self.data[hash_value] = data
         else:
             ### rehash
-            next_slot = self.rehash(hash_value, len(self.slots))
+            next_bucket = self.rehash(hash_value, len(self.slots))
             while self.slots[next_slot] is not None and self.slots[next_slot] != key:
-                next_slot = self.rehash(hash_value, len(self.slots))
+                next_bucket = self.rehash(hash_value, len(self.slots))
 
             if self.slots[next_slot] is None:
                 self.slots[next_slot] = key
@@ -176,7 +179,7 @@ class UniversalHash:
         return (old_hash+1) % size
 
     def get(self, key):
-        start_slot = self.hash_function(key)
+        start_bucket = self.hash_function(key)
         data = None
         stop = False
         found = False
@@ -246,8 +249,7 @@ if __name__ == "__main__":
 ```
 
 
-#### Resources
 
-1. [Hash Functions and Hash Tables](https://www.cse.iitb.ac.in/~sri/cs213/lec-Hashing.pdf)
-2. Cormen, Leiserson, Rivest, and Stein, Introduction to Algorithms (3rd edition)
-
+[^1]: [Hash Functions and Hash Tables](https://www.cse.iitb.ac.in/~sri/cs213/lec-Hashing.pdf)
+[^2]: Cormen, Leiserson, Rivest, and Stein, Introduction to Algorithms (3rd edition)
+[^3]: Crafting Interpreters, https://craftinginterpreters.com/hash-tables.html

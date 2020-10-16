@@ -491,9 +491,7 @@ CREATE VIEW VendorLocations AS
 
 ### 20 管理事务处理
 
-使用事务处理(transaction processing)，通过确保成批的SQL操作要么完全执行，要么完全不执行，来维护数据库的完整性。详见[事务](事务.md)。
-
-下面是关于事务处理，需要知道的几个术语：
+使用事务处理(transaction processing)，通过确保成批的SQL操作要么完全执行，要么完全不执行，来维护数据库的完整性。下面是关于事务处理，需要知道的几个术语：
 
 * 事务(transaction)指一组SQL语句； 
 * 回退(rollback)指撤销指定SQL语句的过程； 

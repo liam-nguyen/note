@@ -1,9 +1,14 @@
 ##  OS 
 
 * [Docker](Docker.md)
+* [Linux管理，命令行与shell脚本](Linux管理，命令行与shell脚本.md)
+* [Unix环境高级编程](Unix环境高级编程.md)
+* [Unix网络编程 - 套接字联⽹](Unix网络编程 - 套接字联⽹.md)
 * [深入解析Mac OS X](深入解析Mac OS X.md)
 * [计算机系统要素](计算机系统要素.md)
 * [计算机组成与设计](计算机组成与设计.md)
+* [MIT 6.824 distributed systems](MIT 6.824 distributed systems.md)
+* [MIT 6.S081 Operating Systems](MIT 6.S081 Operating Systems.md)
 ####  操作系统概念 
 
 * [1 Introduction](操作系统概念/1 Introduction.md)

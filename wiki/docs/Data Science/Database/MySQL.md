@@ -1084,6 +1084,46 @@ WHERE TIME>=60
 
 
 
+### 7 MySQL 高可用架构设计
+
+
+mysql复制功能提供分担读负载。
+
+* 实现在不同服务器上的数据分布，利用二进制日志增量进行，不需要太多的带宽，但是使用基于行的复制在进行大批量的更改时，会对带宽带来一定的压力，特别是跨IDC环境下进行复制
+* 实现数据读取的负载均衡
+* 增强了数据的安全性，
+
+
+#### 二进制日志
+
+  二进制日志记录了所有对Mysql数据库的修改事件，包括增删改查事件和对表结构的修改事件。二进制日志文件记录的是成功执行了的操作，对于失败的操作不会记录。我们可以通过mysql提供的binlog工具来查看二进制日志。
+
+
+在记录二进制日志时，mysql提供了3种格式进行存储，可以通过binlog_format来控制使用哪种格式进行记录。
+
+* binlog_format=STATEMENT
+    * 日志记录量相对较小，节约复制时的磁盘及网络
+    * 缺点：1.必须要记录上下文信息，保证语句从服务器上执行结果和在主服务器上相同。2.对于特定函数如UUID()，user()这样非确定性函数还是无法复制，所以可能造成Mysql复制的主备服务器数据不一致。
+* binlog_format=ROW
+    * 相比于段格式，如果同一SQL语句修改了10000条数据的情况下，基于段的日志格式只会记录这个SQL语句，基于行的日志会有10000条记录分别记录每一行的数据修改。
+    * 记录日志量较大。
+    * 使Mysql主从复制更加安全；对每一行数据的修改比基于段的复制高效；另外对于误操作而修改了数据库中的数据，同时又没有备份可以恢复时，我们就可以通过分析二进制日志，对日志中记录的数据修改操作做反向处理的方式来达到恢复数据的目的。
+
+####  主从复制流程
+
+https://devopscube.com/setup-mysql-master-slave-replication/
+https://www.cnblogs.com/clsn/p/8150036.html
+
+
+![](figures/master_slave_replication.png)
+
+1. All database operations are copied to the master’s binary log.
+2. Salves connect to the master and asks for the data.
+3. The slave servers get the masters binary log.
+4. Slaves then apply the binary log to its relay log.
+5. The relay log is read by the SQL thread process and it applies all the operations/data to the slave’s database and its binary log.
+
+
 
 
 [^1]: https://dev.mysql.com/doc/refman/5.7/en/innodb-architecture.html

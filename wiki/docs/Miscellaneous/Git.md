@@ -6,6 +6,7 @@ tags: [Git]
 ---
 
 ### 1 安装及配置
+
 `git`在mac上已经默认安装了，使用之前只需要简单的配置即可。
 
 #### 设置Git的user name和email
@@ -62,7 +63,6 @@ ssh -T git@github.com
 
 ### 2 操作
 
-
 #### 合并仓库
 
 可以把两个仓库A、B进行合并，并且保存所有的提交历史：
@@ -115,8 +115,32 @@ git commit -m  <commit-message>
 
 也可以使用`git revert`命令，但是它是把这次撤销作为一次最新的提交。
 
+#### stash
 
-### 3 ISSUE
+https://blog.csdn.net/stone_yw/article/details/80795669
+
+1. 当正在dev分支上开发某个项目，这时项目中出现一个bug，需要紧急修复，但是正在开发的内容只是完成一半，还不想提交，这时可以用git stash命令将修改的内容保存至堆栈区，然后顺利切换到hotfix分支进行bug修复，修复完成后，再次切回到dev分支，从堆栈中恢复刚刚保存的内容。 
+2. 由于疏忽，本应该在dev分支开发的内容，却在master上进行了开发，需要重新切回到dev分支上进行开发，可以用git stash将内容保存至堆栈中，切回到dev分支后，再次恢复内容即可。 
+
+总的来说，git stash命令的作用就是将目前还不想提交的但是已经修改的内容进行保存至堆栈中，后续可以在某个分支上恢复出堆栈中的内容。这也就是说，stash中的内容不仅仅可以恢复到原先开发的分支，也可以恢复到其他任意指定的分支上。git stash作用的范围包括工作区和暂存区中的内容，也就是说没有提交的内容都会保存至堆栈中。
+
+### 3 .gitignore
+
+```bash
+# ignore single file
+example.txt
+# multiple files with the same extension
+*.txt
+# multiple files with the same name
+example*
+# all directories below the current level in a directory tree
+examples/
+# Ignoring files in every directory
+**/example.txt
+```
+
+
+### 4 ISSUE
 
 ##### CRLF will be replaced by LF 
 

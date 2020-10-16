@@ -6,7 +6,9 @@ tags: [Sort]
 top: 3
 ---
 
-### Selection Sort
+### 1 Selection Sort
+
+Basic Plan:
 
 * In iteration $i$, find index $min$ of smallest remaining entry. 
 * Swap $a[i]$ and $a[min]$.
@@ -14,7 +16,7 @@ top: 3
 
 Animation:
 
-![](https://assets.toptal.io/assets/front/static/public/blocks/sorting_algorithms/animations/20/random-initial-order/selection-sort_c041bf.gif)
+![](figures/selection_sort.gif)
 
 ```Java
 public class Selection {
@@ -28,6 +30,16 @@ public class Selection {
             exch(a, i, min);
         }
     }
+    
+    public static boolean less(Comparable v, Comparable w) {
+        return v.compareTo(w) < 0;
+    }
+    
+    public static void exch(Object pq[], int i, int j) {
+        Object swap = pq[i];
+        pq[i] = pq[j];
+        pq[j] = swap;
+    }
 }
 ```
 
@@ -35,17 +47,18 @@ public class Selection {
 
 Selection sort uses $(N-1)+(N-2)+...+1\sim N^2/2$ compares and $N$ exchanges.
 
-### Insertion Sort
+### 2 Insertion Sort
 
 Animation:
 
-![](https://assets.toptal.io/assets/front/static/public/blocks/sorting_algorithms/animations/20/random-initial-order/insertion-sort_e8e408.gif)
+![insertion-sort-toptal](figures/insertion-sort-toptal.gif)
+
+Basic Plan:
+
+* In iteration $i$, find its location for $a[i]$ in the first $i$ elements of the list, and inserts it there.
 
 
-* In iteration $i$, swap $a[i]$ with each larger entry to its left.
-
-
-Invariants.
+Invariants:
 
 * ↑ scans from left to right.
 * Entries to the left of ↑ (including ↑) are in ascending order.
@@ -59,21 +72,10 @@ public class Insertion {
         for (int i = 1; i < a.length; i++) {
             int j = i;
             while (j > 0 && less(a[j], a[j-1])) {
-                exch(a, j, j -1);
+                exch(a, j, j - 1);
                 j--;
             }
         }
-    }
-
-    @SuppressWarnings("unchecked")
-    private static boolean less(Comparable a, Comparable b) {
-        return a.compareTo(b) < 0;
-    }
-
-    private static void exch(Comparable[] a, int i, int j) {
-        Comparable temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
     }
 }
 ```
@@ -82,9 +84,9 @@ public class Insertion {
 
 Insertion sort uses $\sim N^2/4$ compares and $\sim N^2/4$ exchanges to sort a randomly ordered array of length $N$ with distinct keys, on the average. The worst case is $\sim N^2/2$ compares and $\sim N ^2/2$ exchanges and the best case is $N-1$ compares and 0 exchanges.
 
-### Shell Sort
+### 3 Shell Sort
 
-### Shuffling
+### 4 Shuffling
 
 Our goal is to rearrange array so that result is a **uniformly random** permutation.
 
@@ -95,6 +97,21 @@ Our goal is to rearrange array so that result is a **uniformly random** permutat
 
 ![ShuffleSort](figures/ShuffleSort.png)
 
+```java
+static public void sort(Comparable[] a) {
+    int N = a.length;
+    Pair[] pair = new Pair[N];
+    Random random = new Random();
+    for (int i = 0; i < N; i++)
+        pair[i] = new Pair(random.nextInt(), a[i]);
+
+    // sort the array based on generated random numbers
+    Arrays.sort(pair, Comparator.comparing(Pair::getValue));
+
+    // retrieve results
+    for (int i = 0; i < N; i++) a[i] = pair[i].value;
+}
+```
 
 #### Knuth shuffle
 
@@ -115,12 +132,10 @@ public class KnuthShuffle {
 }
 ```
 
-Knuth shuffling algorithm produces a uniformly random permutation of the input array in **linear** time.
+Knuth shuffling algorithm produces an uniformly random permutation of the input array in **linear** time.
 
 
-
-
-### Merge Sort
+### 5 Merge Sort
 
 > Mergesort : to sort an array, divide it into two halves, sort the two halves (recursively), and then merge the results.
 
@@ -152,7 +167,7 @@ private static void sort(Comparable[] a, Comparable[] aux,
 
 ![merge_sort_merge_demo](figures/merge_sort_merge_demo.gif)
 
-<C>merge(a, lo, mid, hi)</C> puts the result of merging the subarrays a[lo..mid] with a[mid+1..hi] into a single ordered array, leaving the result in a[lo..hi]. 
+`merge(a, lo, mid, hi)` puts the result of merging the subarrays a[lo..mid] with a[mid+1..hi] into a single ordered array, leaving the result in a[lo..hi]. 
 
 
 ```Java
@@ -175,7 +190,7 @@ private static void merge(Comparable[] a, Comparable[] aux,
 
 Algorithm described so far is a recursive mergesort implementation based on in-place merge. It is one of the best-known examples of the utility of the divide-and-conquer paradigm for efficient algorithm design.
 
-To understand Top-down mergesort, it is worthwhile to consider carefully the dynamics of the method calls, shown in the trace below. To sort a[0..7], the <C>sort()</C> method calls itself to sort a[0..3] then calls itself to sort a[0..1] before finally doing the first merge of a[0] with a[1] after calling itself to sort a[0] and then a[1]（for brevity, we omit the calls for the base-case 1-entry sorts in the trace）. Then the next merge is a[2] with a[3] and then a[0..1] with a[2..3] and so forth. From this trace, we see that the sort code simply provides an organized way to sequence the calls to the <C>merge()</C> method.
+To understand Top-down mergesort, it is worthwhile to consider carefully the dynamics of the method calls, shown in the trace below. To sort a[0..7], the `sort()` method calls itself to sort a[0..3] then calls itself to sort a[0..1] before finally doing the first merge of a[0] with a[1] after calling itself to sort a[0] and then a[1]（for brevity, we omit the calls for the base-case 1-entry sorts in the trace）. Then the next merge is a[2] with a[3] and then a[0..1] with a[2..3] and so forth. From this trace, we see that the sort code simply provides an organized way to sequence the calls to the `merge()` method.
 
 ![top-down-merge-sort-call-trace](figures/top-down-merge-sort-call-trace.png)
 
@@ -229,15 +244,13 @@ public static void sort(Comparable[] a) {
 ```
 
 
-### Quick Sort
+### 6 Quick Sort
 
 Quicksort honored as one of *top 10 algorithms* of 20th century in science and engineering. 
 
 Quicksort is popular because it is not difficult to implement, works well for a variety of *different* kinds of input data, and is substantially *faster* than any other sorting method in typical applications.
 
-
-
-Basic plan.
+Basic plan:
 
 * <font color="red">Shuffle</font> the array.
 * <font color="red">Partition</font> so that, for some $j$ 
@@ -269,9 +282,9 @@ ANIMATION:
 ![](https://upload.wikimedia.org/wikipedia/commons/9/9c/Quicksort-example.gif)
 
 
-!!! note
+!!! note "Quicksort and Mergesort"
     
-    <hh>Quicksort and Mergesort</hh> Quicksort is a divide-and-conquer method for sorting. Quicksort is complementary to mergesort: 
+    Quicksort is a divide-and-conquer method for sorting. Quicksort is complementary to mergesort: 
     
     * for mergesort, we break the array into two subarrays to be sorted and then combine the ordered subarrays to make the whole ordered array; for quicksort, we rearrange the array such that, when the two subarrays are sorted, the whole array is ordered. 
     * for mergesort, we do the two recursive calls before working on the whole array; for quicksort, we do the two recursive calls after working on the whole array. 
@@ -295,35 +308,32 @@ The crux of the quick sort is the partitioning process, which rearranges the arr
 * The two items that stopped the scans are out of place in the final partitioned array, so we exchange them.
 * Continuing in this way, when the scan indices cross, all that we need to do is to exchange the partitioning item $a[lo]$ with the rightmost entry of the left subarray ($a[j]$) and return its index $j$.
 
-![quicksort-partition-demo](figures/quicksort-partition-demo.gif)
-
+![partitioning_trace](figures/partitioning_trace.png)
 
 
 ```Java
 private static int partition(Comparable a[], int lo, int hi) {
     int i = lo, j = hi + 1;
+    Comparable v = a[lo];    // partitioning item
     while (true) {
         // find item on left to swap
-        while (less(a[++i], a[lo]))
-            if (i == hi) break;
+        while (less(a[++i], v)) if (i == hi) break;
         // find item on right to swap
-        while (less(a[lo], a[--j]))
-            if (j == lo) break;
+        while (less(v, a[--j])) if (j == lo) break;
         // check if pointers cross
         if (i >= j) break;
-        // swap
-        exch(a, i, j);
+        exch(a, i, j); // swap
     }
-
     // swap with partitioning item
     exch(a, lo, j);
     // return index of item now known to be in place.
-    return j;       // with a[lo..j-1] <= a[j] <= a[j+1..hi].
+    return j;
 }
 ```
 
+
 !!! note
-    为什么<C>partition</C>要使用++i，而不是i++，例如
+    为什么`partition`要使用++i，而不是i++，例如
     
     ```Java
     while (i < hi && less(a[i], a[lo])) i++
@@ -407,7 +417,7 @@ private static void quick3WaySort(Comparable[] a, int lo, int hi) {
 
 
 
-### Quick-select
+### 7 Quick Select
 
 Goal. Given an array of $N$ items, find a $k$th smallest item.
  
@@ -437,21 +447,21 @@ public Comparable quickSelect(Comparable[] a, int k) {
 
 Quick-select takes *linear time* on average.
  
-### Java System Sorts
+### 8 Java System Sorts
 
-<C>Arrays.sort()</C>
+`Arrays.sort()`
 
 * Has different method for each primitive type.
-* Has a method for data types that implement <C>Comparable</C>.
-* Has a method that uses a <C>Comparator</C>.
+* Has a method for data types that implement `Comparable`.
+* Has a method that uses a `Comparator`.
 * Uses tuned quicksort for primitive types; tuned mergesort for objects.
 
-### Which Algorithms should I use?
+### 9 Which Algorithms should I use?
 
 ![Performance_characteristics_of_sorting_algorithms](figures/Performance_characteristics_of_sorting_algorithms.png)
 
 
-### Application: Line Recognition
+### 10 Application: Line Recognition
 
 Given a set of $n$ distinct points in the plane, find every (maximal) line segment that connects a subset of 4 or more of the points.
 
@@ -466,7 +476,7 @@ Given a set of $n$ distinct points in the plane, find every (maximal) line segme
 * Sort the points according to the slopes they makes with $p$.
 * Check if any 3 (or more) adjacent points in the sorted order have equal slopes with respect to $p$. If so, these points, together with $p$, are collinear.
 
-An immutable data type <C>Point</C> that represents a point in the plane.
+An immutable data type `Point` that represents a point in the plane.
 
 ```Java
 public class Point implements Comparable<Point> {
@@ -506,7 +516,7 @@ public class Point implements Comparable<Point> {
 }
 ```
 
-To represent line segments in the plane, use the data type <C>LineSegment</C>.
+To represent line segments in the plane, use the data type `LineSegment`.
  
 ```Java
  public class LineSegment {
@@ -520,7 +530,7 @@ To represent line segments in the plane, use the data type <C>LineSegment</C>.
 }
 ```
 
-<C>FastCollinearPoints</C> implements the algorithm.
+`FastCollinearPoints` implements the algorithm.
 
 ```Java
 public class FastCollinearPoints {

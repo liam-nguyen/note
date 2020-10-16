@@ -303,7 +303,7 @@ Many Types of indexes exist: B+Tree, Hash, R-Tree, GiST, ...
 
 #### Hash Indexes
 
-The simplest possible indexing strategy is this:
+<!--The simplest possible indexing strategy is this:
 
 * keep an in-memory hash map where every key is mapped to a byte offset in the data file - the location at which the value can be found.
 * Insert: append a new key-value pair to the file, and update the hash map to reflect the offset of the data 
@@ -331,9 +331,36 @@ SOLUTION:
 * *merge* several segments together at the same time as performing the compaction. After the merging process is complete, read requests are switched to new merged segment - and then the old segment files simply be deleted.
 
 
-![](figures/hash_indexes_data_file_segment_compaction_merging.jpg)
+![](figures/hash_indexes_data_file_segment_compaction_merging.jpg)-->
+
+A hash table implements an associative array abstract data type that maps keys to values. A hash table implementation is comprised of two parts:
+
+* **Hash Function**: How to map a large key space into a smaller domain. This is used to compute an index into an array of buckets or slots. Need to consider the trade-off between fast execution vs. collision rate.
+* **Hashing Scheme**: How to handle key collisions after hashing. Need to consider the trade-off between the need to allocate a large hash table to reduce collusions vs. executing additional instructions to find/insert keys.
+
+##### hash function
+
+![hash_function_benchmarks](figures/hash_function_benchmarks.png)
+
+##### hash scheme
+
+STATIC HASHING SCHEMES
+
+* Linear Probe Hashing: Resolve collisions by linearly searching for the next free slot in the table.
+* Robin Hood Hashing: Variant of linear probe hashing that steals slots from "rich" keys and give them to "poor" keys.
+* Cuckoo Hashing: Use multiple hash tables with different hash functions.
+
+DYNAMIC HASHING SCHEMES
+
+* Extendible Hashing
+* Linear Hashing
 
 
+##### Extendible Hashing
+
+![extensible_hashing](figures/extensible_hashing.png)
+
+https://www.geeksforgeeks.org/extendible-hashing-dynamic-approach-to-dbms/
 
 #### B+ Trees
 
@@ -1094,7 +1121,11 @@ Optimization goal:
 ### 7 DB Design
 ### 8 Transaction
 
-Transaction: A sequence of multiple actions to be executed as an atomic unit. Transaction Manager controls execution of transactions.
+**Transaction** is A sequence of multiple actions to be executed as an atomic unit. Transaction Manager controls execution of transactions. The DBMS only sees data read/written from/to the DB.
+
+Transaction to transfer $100 from account R to account S:
+![transaction_example](figures/transaction_example.png)
+
 
 ACID: High-Level Properties of Transactions
 
@@ -1105,22 +1136,31 @@ ACID: High-Level Properties of Transactions
 
 #### Concurrency Control
 
-A **schedule** is a sequence of actions on data from one or more transactions. 
+A **schedule**(调度) is a sequence of actions on data from one or more transactions. 
 
-Actions: Begin, Read, Write, Commit and Abort. 
+* Actions: Begin, Read, Write, Commit and Abort. 
+* e.g. R1(A) W1(A) R1(B) W1(B) R2(A) W2(A) R2(B) W2(B)
 
-Definition: **Serial schedule**(串行调度)
 
-* Each transaction runs from start to finish without any intervening actions from other transactions
+**Serial schedule**(串行调度): Each transaction runs from start to finish without any intervening actions from other transactions
 
-Definition: 2 schedules are **equivalent** if they:
+2 schedules are **equivalent** if they:
 
-* involve the same transactions
-* each individual transaction’s actions are ordered the same
+* They involve the same transactions
+* Operations are ordered the same way within the individual transactions
 * both schedules leave the DB in the same final state
 
-Definition: Schedule S is **serializable**(可串行化调度) if S is equivalent to some serial schedule.
+Definition: Schedule S is **serializable**(可串行化) if S is equivalent to some serial schedule.
 
+!!! example "Serialiable"
+    
+    * Schedule 1: T1's operations run completely before T2 runs, hence a serial schedule
+    * Schedule 2: actions of T1 and T2 are interleaved, hence not a serial schedule, but the result is the same, and operations are ordered the same way within T1 and T2 for two schedule. So two schedule are equivalent, and schedule 2 is serialiable
+
+    ![schedule_equivence](figures/schedule_equivence.png)
+
+
+Now the question is: how do we ensure that two schedules leave the database in the same final state without running through the entire schedule to see what the result is? We can do this by looking for confiliting operations.
 
 Definition: Two operations conflict if they:
 
